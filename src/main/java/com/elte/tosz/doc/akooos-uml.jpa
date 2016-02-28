@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jpa:entity-mappings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:java="http://jcp.org/en/jsr/detail?id=270" xmlns:jpa="http://java.sun.com/xml/ns/persistence/orm" xs="false" id="_14560493192921" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_1.xsd">
+    <jpa:entity xre="false" sm="false" abs="false" class="Room" visibile="true" minimized="false" rootElement="_14560493192921" id="_1456049326726">
+        <jpa:attributes>
+            <basic attribute-type="int" visibile="true" name="capacity" id="_14560493779767">
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic attribute-type="int" visibile="true" name="building" id="_14560493847118">
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic attribute-type="int" visibile="true" name="floor" id="_14560523127402">
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <jpa:id attribute-type="Long" visibile="true" name="id" id="_14560493435855">
+                <jpa:column name="pk_id" unique="false" nullable="false" insertable="true" updatable="true" table="Room" length="255" precision="0" scale="0"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+            </jpa:id>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity xre="false" sm="false" abs="false" class="Subject" visibile="true" minimized="false" rootElement="_14560493192921" id="_1456054622532">
+        <jpa:attributes>
+            <basic attribute-type="float" visibile="true" name="estMemberRatio" id="_14560561037386">
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic attribute-type="int" visibile="true" name="estMemberCount" id="_14560561232987">
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic attribute-type="int" visibile="true" name="maxTimeCount" id="_14560562847918">
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic attribute-type="String" visibile="true" name="code" id="_14560563147679">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic attribute-type="String" visibile="true" name="name" id="_145605632138310">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <jpa:id attribute-type="Long" visibile="true" name="id" id="_14560550013825">
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+            </jpa:id>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity xre="false" sm="false" abs="false" class="Syllabus" visibile="true" minimized="false" rootElement="_14560493192921" id="_1456080980874">
+        <jpa:attributes>
+            <basic attribute-type="String" visibile="true" name="name" id="_14560811379615">
+                <jpa:column unique="true" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <one-to-many collection-type="java.util.List" connected-entity-id="_1456081150736" target-entity="SyllabusItem" visibile="true" name="syllabus_item" id="_145608434934137">
+                <join-table/>
+            </one-to-many>
+            <jpa:id attribute-type="Long" visibile="true" name="id" id="_14560809998374">
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+            </jpa:id>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity xre="false" sm="false" abs="false" class="SyllabusItem" visibile="true" minimized="false" rootElement="_14560493192921" id="_1456081150736">
+        <jpa:attributes>
+            <one-to-one optional="false" primaryKey="true" connected-entity-id="_1456054622532" target-entity="Subject" visibile="true" name="subject_id" id="_145608320246118">
+                <join-table/>
+            </one-to-one>
+            <one-to-one optional="true" primaryKey="true" connected-entity-id="_1456054622532" target-entity="Subject" visibile="true" name="parent_subject_id" id="_145608323456519">
+                <join-table/>
+            </one-to-one>
+            <jpa:id attribute-type="Long" visibile="true" name="id" id="_14560811849927">
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+            </jpa:id>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity xre="false" sm="false" abs="false" class="ProposedTime" visibile="true" minimized="false" rootElement="_14560493192921" id="_1456083705689">
+        <jpa:attributes>
+            <basic attribute-type="java.sql.Timestamp" visibile="true" name="dtCreated" id="_145608723393050">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <one-to-many collection-type="java.util.List" connected-entity-id="_1456083885416" target-entity="ProposedTimeItem" visibile="true" name="proposedtime_item" id="_145608441515638">
+                <join-table/>
+            </one-to-many>
+            <one-to-one optional="true" primaryKey="true" connected-entity-id="_1456080980874" target-entity="Syllabus" visibile="true" name="syllabus" id="_145608567564149">
+                <join-table/>
+            </one-to-one>
+            <jpa:id attribute-type="Long" visibile="true" name="id" id="_145608375343822">
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+            </jpa:id>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity xre="false" sm="false" abs="false" class="ProposedTimeItem" visibile="true" minimized="false" rootElement="_14560493192921" id="_1456083885416">
+        <jpa:attributes>
+            <basic attribute-type="int" visibile="true" name="day" id="_145608464572739">
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic attribute-type="int" visibile="true" name="hour" id="_145608466981540">
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic attribute-type="int" visibile="true" name="len" id="_145608467809541">
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <one-to-one optional="true" primaryKey="true" connected-entity-id="_1456049326726" target-entity="Room" visibile="true" name="room" id="_145608490888445">
+                <join-table/>
+            </one-to-one>
+            <jpa:id attribute-type="Long" visibile="true" name="id" id="_145608389584526">
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+            </jpa:id>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:c>
+        <ct>java.util.List</ct>
+        <ct>java.util.Set</ct>
+        <ct>java.util.Collection</ct>
+    </jpa:c>
+    <jpa:diagram id="_14560493192922">
+        <plane elementRef="_14560493192921" id="_14560493192923_p">
+            <shape elementRef="_1456049326726" id="_1456049326726_gui">
+                <Bounds x="651.0" y="290.0" width="135.0" height="128.0"/>
+            </shape>
+            <shape elementRef="_1456054622532" id="_1456054622532_gui">
+                <Bounds x="15.0" y="16.0" width="157.0" height="168.0"/>
+            </shape>
+            <shape elementRef="_1456080980874" id="_1456080980874_gui">
+                <Bounds x="48.0" y="231.0" width="156.0" height="121.0"/>
+            </shape>
+            <shape elementRef="_1456081150736" id="_1456081150736_gui">
+                <Bounds x="296.0" y="16.0" width="187.0" height="108.0"/>
+            </shape>
+            <shape elementRef="_1456083705689" id="_1456083705689_gui">
+                <Bounds x="310.0" y="365.0" width="197.0" height="141.0"/>
+            </shape>
+            <shape elementRef="_1456083885416" id="_1456083885416_gui">
+                <Bounds x="572.0" y="5.0" width="228.0" height="161.0"/>
+            </shape>
+        </plane>
+    </jpa:diagram>
+</jpa:entity-mappings>
