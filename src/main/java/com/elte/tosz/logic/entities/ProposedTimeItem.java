@@ -8,34 +8,27 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
 
-public class ProposedTimeItem implements Serializable {
+public class ProposedTimeItem extends IEntity implements Serializable {
 
-    @Column(unique = false, updatable = true, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
+    @Column(nullable = false)
     @Basic
     private int hour;
 
-    @Column(unique = false, updatable = true, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
+    @Column(nullable = false)
     @Basic
     private int len;
 
-    @Column(unique = false, updatable = true, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(unique = false, updatable = true, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
+    @Column(nullable = false)
     @Basic
     private int day;
 
-    @Id
-    @OneToOne(optional = true, targetEntity = Room.class)
+    
+    @OneToOne(targetEntity = Room.class)
     private Room room;
 
     public ProposedTimeItem() {
@@ -56,14 +49,6 @@ public class ProposedTimeItem implements Serializable {
 
     public void setLen(int len) {
         this.len = len;
-    }
-
-    public Long getId() {
-        return this.id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public int getDay() {

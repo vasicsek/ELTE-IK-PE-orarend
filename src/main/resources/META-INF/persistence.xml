@@ -24,6 +24,7 @@
     <class>com.elte.tosz.logic.entities.ProposedTime</class>
     <class>com.elte.tosz.logic.entities.Subject</class>
     <class>com.elte.tosz.logic.entities.Syllabus</class>
+    <class>com.elte.tosz.logic.entities.IEntity</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/sample"/>
       <property name="javax.persistence.jdbc.password" value="app"/>

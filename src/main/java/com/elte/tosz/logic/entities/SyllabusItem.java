@@ -5,55 +5,40 @@ package com.elte.tosz.logic.entities;
 //
 
 import java.io.Serializable;
-import javax.persistence.Column;
+import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
 
-public class SyllabusItem implements Serializable {
+public class SyllabusItem extends IEntity implements Serializable {
 
-    @Id
+    
     @OneToOne(optional = false, targetEntity = Subject.class)
-    private Subject subject_id;
+    private Subject subject;
 
-    @Id
-    @OneToOne(optional = true, targetEntity = Subject.class)
-    private Subject parent_subject_id;
-
-    @Column(unique = false, updatable = true, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @OneToMany(targetEntity = Subject.class)
+    private List<Subject> dependencies;
 
     public SyllabusItem() {
 
     }
 
-    public Subject getSubject_id() {
-        return this.subject_id;
+    public Subject getSubject() {
+        return this.subject;
     }
 
-    public void setSubject_id(Subject subject_id) {
-        this.subject_id = subject_id;
+    public void setSubject(Subject subject) {
+        this.subject = subject;
     }
 
-    public Subject getParent_subject_id() {
-        return this.parent_subject_id;
+    public List<Subject> getDependencies() {
+        return this.dependencies;
     }
 
-    public void setParent_subject_id(Subject parent_subject_id) {
-        this.parent_subject_id = parent_subject_id;
-    }
-
-    public Long getId() {
-        return this.id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public void setDependencies(List<Subject> dependencies) {
+        this.dependencies = dependencies;
     }
 }

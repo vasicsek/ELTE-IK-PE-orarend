@@ -10,7 +10,7 @@ import java.util.List;
 public interface IEntity<E> {
 
         int hashcode();
-        int getId();        
+        Long getId();        
         boolean equals(Object object);        
         String toString();
     

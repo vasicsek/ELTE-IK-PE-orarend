@@ -11,11 +11,11 @@ import com.elte.tosz.logic.dbhandler.DataSource;
  *
  * @author Tóth Ákos
  */
-public class ToszDS extends DataSource{
+public class OszDS extends DataSource{
     
     
     
-    public ToszDS() {
+    public OszDS() {
         super("puTosz");
     }
     

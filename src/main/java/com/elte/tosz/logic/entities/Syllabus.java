@@ -9,37 +9,21 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
 
-public class Syllabus implements Serializable {
+public class Syllabus extends IEntity implements Serializable {
 
-    @OneToMany(targetEntity = SyllabusItem.class)
-    private List<SyllabusItem> syllabus_item;
-
-    @Column(unique = true, updatable = true, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
+    @Column(unique = true, nullable = false)
     @Basic
     private String name;
 
-    @Column(unique = false, updatable = true, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @OneToMany(targetEntity = SyllabusItem.class)
+    private List<SyllabusItem> items;
 
     public Syllabus() {
 
-    }
-
-    public List<SyllabusItem> getSyllabus_item() {
-        return this.syllabus_item;
-    }
-
-    public void setSyllabus_item(List<SyllabusItem> syllabus_item) {
-        this.syllabus_item = syllabus_item;
     }
 
     public String getName() {
@@ -50,11 +34,11 @@ public class Syllabus implements Serializable {
         this.name = name;
     }
 
-    public Long getId() {
-        return this.id;
+    public List<SyllabusItem> getItems() {
+        return this.items;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setItems(List<SyllabusItem> items) {
+        this.items = items;
     }
 }
