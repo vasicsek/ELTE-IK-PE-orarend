@@ -81,17 +81,20 @@ public class RoomCRUDTest {
         
         assert(!rooms.isEmpty());
         
-        rooms.indexOf(rooms);
     }
     
     public void roomUpdate() throws Exception{
         room.setCapacity(150);
         ctrlRoom.edit(room);
-        
+        List<Room> rooms = ctrlRoom.findRoomEntities();
+        System.out.println("Rooms array length:" + rooms.size());
+        int index = rooms.indexOf(room);
+        System.out.println("Found index:"+index);
+        assert( index > -1 );
     }
     public void roomDelete() throws NonexistentEntityException{
         System.out.println(room.toString());
-        assertNull(room);
+        assert(room != null);
         ctrlRoom.destroy(room.getId());        
         room = null;
     }

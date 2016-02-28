@@ -79,7 +79,7 @@
             <one-to-many collection-type="java.util.List" connected-entity-id="_1456083885416" target-entity="ProposedTimeItem" visibile="true" name="items" id="_145608441515638">
                 <join-table/>
             </one-to-many>
-            <one-to-one optional="true" primaryKey="true" connected-entity-id="_1456080980874" target-entity="Syllabus" visibile="true" name="syllabus" id="_145608567564149">
+            <one-to-one optional="false" primaryKey="true" connected-entity-id="_1456080980874" target-entity="Syllabus" visibile="true" name="syllabus" id="_145608567564149">
                 <join-table/>
             </one-to-one>
             <jpa:id attribute-type="Long" visibile="true" name="id" id="_145667000265318">
@@ -100,7 +100,7 @@
             <basic attribute-type="int" visibile="true" name="len" id="_145608467809541">
                 <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
             </basic>
-            <one-to-one optional="true" primaryKey="true" connected-entity-id="_1456049326726" target-entity="Room" visibile="true" name="room" id="_145608490888445">
+            <one-to-one optional="false" primaryKey="true" connected-entity-id="_1456049326726" target-entity="Room" visibile="true" name="room" id="_145608490888445">
                 <join-table/>
             </one-to-one>
             <jpa:id attribute-type="Long" visibile="true" name="id" id="_145666996310917">
@@ -130,10 +130,10 @@
                 <Bounds x="27.0" y="300.0" width="187.0" height="108.0"/>
             </shape>
             <shape elementRef="_1456083705689" id="_1456083705689_gui">
-                <Bounds x="301.0" y="-43.0" width="197.0" height="141.0"/>
+                <Bounds x="296.0" y="5.0" width="197.0" height="141.0"/>
             </shape>
             <shape elementRef="_1456083885416" id="_1456083885416_gui">
-                <Bounds x="582.0" y="-30.0" width="228.0" height="161.0"/>
+                <Bounds x="576.0" y="25.0" width="228.0" height="161.0"/>
             </shape>
         </plane>
     </jpa:diagram>
