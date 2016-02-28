@@ -8,12 +8,16 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
-@Entity
+@Entity(name = "ProposedTimeItem")
+@Table(name = "ProposedTimeItem")
 
-public class ProposedTimeItem extends IEntity implements Serializable {
+public class ProposedTimeItem implements Serializable {
 
     @Column(nullable = false)
     @Basic
@@ -23,11 +27,16 @@ public class ProposedTimeItem extends IEntity implements Serializable {
     @Basic
     private int len;
 
+    @Column(updatable = false, nullable = false)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @Column(nullable = false)
     @Basic
     private int day;
 
-    
+    @Id
     @OneToOne(targetEntity = Room.class)
     private Room room;
 
@@ -49,6 +58,14 @@ public class ProposedTimeItem extends IEntity implements Serializable {
 
     public void setLen(int len) {
         this.len = len;
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public int getDay() {

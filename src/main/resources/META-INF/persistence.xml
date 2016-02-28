@@ -2,6 +2,7 @@
 <persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
   <persistence-unit name="puTosz" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>com.elte.tosz.logic.entities.IEntity</class>
     <class>com.elte.tosz.logic.entities.ProposedTime</class>
     <class>com.elte.tosz.logic.entities.ProposedTimeItem</class>
     <class>com.elte.tosz.logic.entities.Room</class>
@@ -9,10 +10,10 @@
     <class>com.elte.tosz.logic.entities.Syllabus</class>
     <class>com.elte.tosz.logic.entities.SyllabusItem</class>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/teszt"/>
-      <property name="javax.persistence.jdbc.password" value="akos"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/postgres"/>
+      <property name="javax.persistence.jdbc.password" value="postgres"/>
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-      <property name="javax.persistence.jdbc.user" value="akos"/>
+      <property name="javax.persistence.jdbc.user" value="postgres"/>
       <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
     </properties>
   </persistence-unit>

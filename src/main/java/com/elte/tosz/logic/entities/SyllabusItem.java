@@ -6,18 +6,26 @@ package com.elte.tosz.logic.entities;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
 
-public class SyllabusItem extends IEntity implements Serializable {
+public class SyllabusItem implements Serializable {
 
-    
+    @Id
     @OneToOne(optional = false, targetEntity = Subject.class)
     private Subject subject;
+
+    @Column(updatable = false, nullable = false)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @OneToMany(targetEntity = Subject.class)
     private List<Subject> dependencies;
@@ -32,6 +40,14 @@ public class SyllabusItem extends IEntity implements Serializable {
 
     public void setSubject(Subject subject) {
         this.subject = subject;
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public List<Subject> getDependencies() {
