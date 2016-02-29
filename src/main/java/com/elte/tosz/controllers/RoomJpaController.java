@@ -16,7 +16,7 @@ import javax.persistence.EntityNotFoundException;
 
 /**
  *
- * @author cauchy
+ * @author Tóth Ákos <zuiadaton@gmail.com>
  */
 public class RoomJpaController implements Serializable {
 

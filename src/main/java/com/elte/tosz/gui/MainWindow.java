@@ -3,19 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.elte.tosz.gui.models;
+package com.elte.tosz.gui;
+
+import com.elte.tosz.logic.Osz;
 
 /**
  *
- * @author cauchy
+ * @author Tóth Ákos
  */
 public class MainWindow extends javax.swing.JFrame {
 
+    //Ezen keresztül érem el a logikát
+    Osz osz;
     /**
      * Creates new form MainWindow
      */
     public MainWindow() {
         initComponents();
+        osz = new Osz();
     }
 
     /**

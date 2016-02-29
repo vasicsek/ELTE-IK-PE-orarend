@@ -6,9 +6,7 @@
 package com.elte.tosz.controllers;
 
 import com.elte.tosz.controllers.exceptions.NonexistentEntityException;
-import com.elte.tosz.controllers.exceptions.PreexistingEntityException;
 import com.elte.tosz.logic.entities.RoomGroup;
-import com.elte.tosz.logic.entities.Subject;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -20,9 +18,9 @@ import javax.persistence.EntityNotFoundException;
  *
  * @author Tóth Ákos <zuiadaton@gmail.com>
  */
-public class SubjectJpaController implements Serializable {
+public class RoomGroupJpaController implements Serializable {
 
-    public SubjectJpaController(EntityManagerFactory emf) {
+    public RoomGroupJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
@@ -31,18 +29,13 @@ public class SubjectJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Subject subject) throws PreexistingEntityException, Exception {
+    public void create(RoomGroup roomGroup) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(subject);
+            em.persist(roomGroup);
             em.getTransaction().commit();
-        } catch (Exception ex) {
-            if (findSubject(subject.getRoomGroup()) != null) {
-                throw new PreexistingEntityException("Subject " + subject + " already exists.", ex);
-            }
-            throw ex;
         } finally {
             if (em != null) {
                 em.close();
@@ -50,19 +43,19 @@ public class SubjectJpaController implements Serializable {
         }
     }
 
-    public void edit(Subject subject) throws NonexistentEntityException, Exception {
+    public void edit(RoomGroup roomGroup) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            subject = em.merge(subject);
+            roomGroup = em.merge(roomGroup);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                RoomGroup id = subject.getRoomGroup();
-                if (findSubject(id) == null) {
-                    throw new NonexistentEntityException("The subject with id " + id + " no longer exists.");
+                Long id = roomGroup.getId();
+                if (findRoomGroup(id) == null) {
+                    throw new NonexistentEntityException("The roomGroup with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -78,14 +71,14 @@ public class SubjectJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Subject subject;
+            RoomGroup roomGroup;
             try {
-                subject = em.getReference(Subject.class, id);
-                subject.getRoomGroup();
+                roomGroup = em.getReference(RoomGroup.class, id);
+                roomGroup.getId();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The subject with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The roomGroup with id " + id + " no longer exists.", enfe);
             }
-            em.remove(subject);
+            em.remove(roomGroup);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -94,22 +87,18 @@ public class SubjectJpaController implements Serializable {
         }
     }
 
-    public void destroy(RoomGroup id) throws NonexistentEntityException {
-        destroy(id.getId());
+    public List<RoomGroup> findRoomGroupEntities() {
+        return findRoomGroupEntities(true, -1, -1);
     }
 
-    public List<Subject> findSubjectEntities() {
-        return findSubjectEntities(true, -1, -1);
+    public List<RoomGroup> findRoomGroupEntities(int maxResults, int firstResult) {
+        return findRoomGroupEntities(false, maxResults, firstResult);
     }
 
-    public List<Subject> findSubjectEntities(int maxResults, int firstResult) {
-        return findSubjectEntities(false, maxResults, firstResult);
-    }
-
-    private List<Subject> findSubjectEntities(boolean all, int maxResults, int firstResult) {
+    private List<RoomGroup> findRoomGroupEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("select object(o) from Subject as o");
+            Query q = em.createQuery("select object(o) from RoomGroup as o");
             if (!all) {
                 q.setMaxResults(maxResults);
                 q.setFirstResult(firstResult);
@@ -120,23 +109,19 @@ public class SubjectJpaController implements Serializable {
         }
     }
 
-    public Subject findSubject(Long id) {
+    public RoomGroup findRoomGroup(Long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Subject.class, id);
+            return em.find(RoomGroup.class, id);
         } finally {
             em.close();
         }
     }
 
-    public Subject findSubject(RoomGroup id) {
-        return findSubject(id.getId());
-    }
-
-    public int getSubjectCount() {
+    public int getRoomGroupCount() {
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("select count(o) from Subject as o");
+            Query q = em.createQuery("select count(o) from RoomGroup as o");
             return ((Long) q.getSingleResult()).intValue();
         } finally {
             em.close();

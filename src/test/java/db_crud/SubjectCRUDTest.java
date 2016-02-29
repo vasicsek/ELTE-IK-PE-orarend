@@ -8,7 +8,6 @@ package db_crud;
 import com.elte.tosz.controllers.SubjectJpaController;
 import com.elte.tosz.controllers.exceptions.NonexistentEntityException;
 import com.elte.tosz.logic.OszDS;
-import com.elte.tosz.logic.entities.Room;
 import com.elte.tosz.logic.entities.Subject;
 import java.util.List;
 import org.junit.After;
@@ -19,7 +18,7 @@ import org.junit.Test;
 
 /**
  *
- * @author cauchy
+ * @author Tóth Ákos
  */
 public class SubjectCRUDTest {
     
@@ -58,7 +57,7 @@ public class SubjectCRUDTest {
        subjectDelete();
     }   
     
-    public void subjectCreation() {
+    public void subjectCreation() throws Exception {
         
         Subject s = new Subject();
         s.setCode("IP-08cSZHE");

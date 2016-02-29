@@ -12,14 +12,13 @@ import com.elte.tosz.logic.entities.Room;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
-import static org.junit.Assert.assertNull;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
  *
- * @author cauchy
+ * @author Tóth Ákos
  */
 public class RoomCRUDTest {
     

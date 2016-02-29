@@ -23,13 +23,14 @@ import javax.persistence.Table;
 public class ProposedTime implements Serializable {
 
     @Id
-    @OneToOne(targetEntity = Syllabus.class)
+    @OneToOne(optional = false, targetEntity = Syllabus.class)
     private Syllabus syllabus;
 
+    @Column(unique = false, updatable = true, insertable = true, nullable = true, length = 255, scale = 0, precision = 0)
     @Basic
     private Timestamp dtCreated;
 
-    @Column(updatable = false, nullable = false)
+    @Column(unique = false, updatable = false, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

@@ -7,6 +7,7 @@ package com.elte.tosz.controllers;
 
 import com.elte.tosz.controllers.exceptions.NonexistentEntityException;
 import com.elte.tosz.controllers.exceptions.PreexistingEntityException;
+import com.elte.tosz.logic.entities.RoomGroup;
 import com.elte.tosz.logic.entities.Subject;
 import com.elte.tosz.logic.entities.SyllabusItem;
 import java.io.Serializable;
@@ -18,7 +19,7 @@ import javax.persistence.EntityNotFoundException;
 
 /**
  *
- * @author cauchy
+ * @author Tóth Ákos <zuiadaton@gmail.com>
  */
 public class SyllabusItemJpaController implements Serializable {
 
@@ -73,7 +74,7 @@ public class SyllabusItemJpaController implements Serializable {
         }
     }
 
-    public void destroy(Long id) throws NonexistentEntityException {
+    public void destroy(RoomGroup id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -95,7 +96,7 @@ public class SyllabusItemJpaController implements Serializable {
     }
 
     public void destroy(Subject id) throws NonexistentEntityException {
-        destroy(id.getId());
+        destroy(id.getRoomGroup());
     }
 
     public List<SyllabusItem> findSyllabusItemEntities() {
@@ -120,7 +121,7 @@ public class SyllabusItemJpaController implements Serializable {
         }
     }
 
-    public SyllabusItem findSyllabusItem(Long id) {
+    public SyllabusItem findSyllabusItem(RoomGroup id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(SyllabusItem.class, id);
@@ -130,7 +131,7 @@ public class SyllabusItemJpaController implements Serializable {
     }
 
     public SyllabusItem findSyllabusItem(Subject id) {
-        return findSyllabusItem(id.getId());
+        return findSyllabusItem(id.getRoomGroup());
     }
 
     public int getSyllabusItemCount() {
