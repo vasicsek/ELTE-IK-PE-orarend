@@ -47,8 +47,7 @@ public class Subject implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Id
+    
     @OneToOne(optional = true, targetEntity = Room.class)
     private Room room;
 
