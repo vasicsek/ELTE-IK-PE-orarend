@@ -5,12 +5,12 @@
  */
 package com.elte.osz.logic;
 
-import com.elte.osz.controllers.ProposedTimeItemJpaController;
-import com.elte.osz.controllers.ProposedTimeJpaController;
-import com.elte.osz.controllers.RoomJpaController;
-import com.elte.osz.controllers.SubjectJpaController;
-import com.elte.osz.controllers.SyllabusItemJpaController;
-import com.elte.osz.controllers.SyllabusJpaController;
+import com.elte.osz.logic.controllers.ProposedTimeItemJpaController;
+import com.elte.osz.logic.controllers.ProposedTimeJpaController;
+import com.elte.osz.logic.controllers.RoomJpaController;
+import com.elte.osz.logic.controllers.SubjectJpaController;
+import com.elte.osz.logic.controllers.SyllabusItemJpaController;
+import com.elte.osz.logic.controllers.SyllabusJpaController;
 import com.elte.osz.logic.dbhandler.DataSource;
 import com.elte.osz.logic.entities.ProposedTime;
 import com.elte.osz.logic.entities.ProposedTimeItem;

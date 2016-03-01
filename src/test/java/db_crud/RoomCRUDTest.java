@@ -5,8 +5,8 @@
  */
 package db_crud;
 
-import com.elte.osz.controllers.RoomJpaController;
-import com.elte.osz.controllers.exceptions.NonexistentEntityException;
+import com.elte.osz.logic.controllers.RoomJpaController;
+import com.elte.osz.logic.controllers.exceptions.NonexistentEntityException;
 import com.elte.osz.logic.OszDS;
 import com.elte.osz.logic.entities.Room;
 import java.util.List;

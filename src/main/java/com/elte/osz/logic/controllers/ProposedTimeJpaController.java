@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.elte.osz.controllers;
+package com.elte.osz.logic.controllers;
 
-import com.elte.osz.controllers.exceptions.NonexistentEntityException;
-import com.elte.osz.controllers.exceptions.PreexistingEntityException;
-import com.elte.osz.logic.entities.Subject;
-import com.elte.osz.logic.entities.SyllabusItem;
+import com.elte.osz.logic.controllers.exceptions.NonexistentEntityException;
+import com.elte.osz.logic.controllers.exceptions.PreexistingEntityException;
+import com.elte.osz.logic.entities.ProposedTime;
+import com.elte.osz.logic.entities.Syllabus;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -20,9 +20,9 @@ import javax.persistence.EntityNotFoundException;
  *
  * @author Tóth Ákos 
  */
-public class SyllabusItemJpaController implements Serializable {
+public class ProposedTimeJpaController implements Serializable {
 
-    public SyllabusItemJpaController(EntityManagerFactory emf) {
+    public ProposedTimeJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
@@ -31,16 +31,16 @@ public class SyllabusItemJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(SyllabusItem syllabusItem) throws PreexistingEntityException, Exception {
+    public void create(ProposedTime proposedTime) throws PreexistingEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(syllabusItem);
+            em.persist(proposedTime);
             em.getTransaction().commit();
         } catch (Exception ex) {
-            if (findSyllabusItem(syllabusItem.getSubject()) != null) {
-                throw new PreexistingEntityException("SyllabusItem " + syllabusItem + " already exists.", ex);
+            if (findProposedTime(proposedTime.getSyllabus()) != null) {
+                throw new PreexistingEntityException("ProposedTime " + proposedTime + " already exists.", ex);
             }
             throw ex;
         } finally {
@@ -50,19 +50,19 @@ public class SyllabusItemJpaController implements Serializable {
         }
     }
 
-    public void edit(SyllabusItem syllabusItem) throws NonexistentEntityException, Exception {
+    public void edit(ProposedTime proposedTime) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            syllabusItem = em.merge(syllabusItem);
+            proposedTime = em.merge(proposedTime);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Subject id = syllabusItem.getSubject();
-                if (findSyllabusItem(id) == null) {
-                    throw new NonexistentEntityException("The syllabusItem with id " + id + " no longer exists.");
+                Syllabus id = proposedTime.getSyllabus();
+                if (findProposedTime(id) == null) {
+                    throw new NonexistentEntityException("The proposedTime with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -78,14 +78,14 @@ public class SyllabusItemJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            SyllabusItem syllabusItem;
+            ProposedTime proposedTime;
             try {
-                syllabusItem = em.getReference(SyllabusItem.class, id);
-                syllabusItem.getSubject();
+                proposedTime = em.getReference(ProposedTime.class, id);
+                proposedTime.getSyllabus();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The syllabusItem with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The proposedTime with id " + id + " no longer exists.", enfe);
             }
-            em.remove(syllabusItem);
+            em.remove(proposedTime);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -94,22 +94,22 @@ public class SyllabusItemJpaController implements Serializable {
         }
     }
 
-    public void destroy(Subject id) throws NonexistentEntityException {
+    public void destroy(Syllabus id) throws NonexistentEntityException {
         destroy(id.getId());
     }
 
-    public List<SyllabusItem> findSyllabusItemEntities() {
-        return findSyllabusItemEntities(true, -1, -1);
+    public List<ProposedTime> findProposedTimeEntities() {
+        return findProposedTimeEntities(true, -1, -1);
     }
 
-    public List<SyllabusItem> findSyllabusItemEntities(int maxResults, int firstResult) {
-        return findSyllabusItemEntities(false, maxResults, firstResult);
+    public List<ProposedTime> findProposedTimeEntities(int maxResults, int firstResult) {
+        return findProposedTimeEntities(false, maxResults, firstResult);
     }
 
-    private List<SyllabusItem> findSyllabusItemEntities(boolean all, int maxResults, int firstResult) {
+    private List<ProposedTime> findProposedTimeEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("select object(o) from SyllabusItem as o");
+            Query q = em.createQuery("select object(o) from ProposedTime as o");
             if (!all) {
                 q.setMaxResults(maxResults);
                 q.setFirstResult(firstResult);
@@ -120,23 +120,23 @@ public class SyllabusItemJpaController implements Serializable {
         }
     }
 
-    public SyllabusItem findSyllabusItem(Long id) {
+    public ProposedTime findProposedTime(Long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(SyllabusItem.class, id);
+            return em.find(ProposedTime.class, id);
         } finally {
             em.close();
         }
     }
 
-    public SyllabusItem findSyllabusItem(Subject id) {
-        return findSyllabusItem(id.getId());
+    public ProposedTime findProposedTime(Syllabus id) {
+        return findProposedTime(id.getId());
     }
 
-    public int getSyllabusItemCount() {
+    public int getProposedTimeCount() {
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("select count(o) from SyllabusItem as o");
+            Query q = em.createQuery("select count(o) from ProposedTime as o");
             return ((Long) q.getSingleResult()).intValue();
         } finally {
             em.close();

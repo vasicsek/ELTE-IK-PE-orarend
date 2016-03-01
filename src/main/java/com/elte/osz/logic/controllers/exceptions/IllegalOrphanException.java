@@ -1,4 +1,4 @@
-package com.elte.osz.controllers.exceptions;
+package com.elte.osz.logic.controllers.exceptions;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.elte.osz.controllers;
+package com.elte.osz.logic.controllers;
 
-import com.elte.osz.controllers.exceptions.NonexistentEntityException;
+import com.elte.osz.logic.controllers.exceptions.NonexistentEntityException;
 import com.elte.osz.logic.entities.Syllabus;
 import java.io.Serializable;
 import java.util.List;

@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.elte.osz.controllers;
+package com.elte.osz.logic.controllers;
 
-import com.elte.osz.controllers.exceptions.NonexistentEntityException;
+import com.elte.osz.logic.controllers.exceptions.NonexistentEntityException;
+import com.elte.osz.logic.controllers.exceptions.PreexistingEntityException;
 import com.elte.osz.logic.entities.Subject;
+import com.elte.osz.logic.entities.SyllabusItem;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -16,11 +18,11 @@ import javax.persistence.EntityNotFoundException;
 
 /**
  *
- * @author Tóth Ákos
+ * @author Tóth Ákos 
  */
-public class SubjectJpaController implements Serializable {
+public class SyllabusItemJpaController implements Serializable {
 
-    public SubjectJpaController(EntityManagerFactory emf) {
+    public SyllabusItemJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
@@ -29,13 +31,18 @@ public class SubjectJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Subject subject) {
+    public void create(SyllabusItem syllabusItem) throws PreexistingEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(subject);
+            em.persist(syllabusItem);
             em.getTransaction().commit();
+        } catch (Exception ex) {
+            if (findSyllabusItem(syllabusItem.getSubject()) != null) {
+                throw new PreexistingEntityException("SyllabusItem " + syllabusItem + " already exists.", ex);
+            }
+            throw ex;
         } finally {
             if (em != null) {
                 em.close();
@@ -43,19 +50,19 @@ public class SubjectJpaController implements Serializable {
         }
     }
 
-    public void edit(Subject subject) throws NonexistentEntityException, Exception {
+    public void edit(SyllabusItem syllabusItem) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            subject = em.merge(subject);
+            syllabusItem = em.merge(syllabusItem);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Long id = subject.getId();
-                if (findSubject(id) == null) {
-                    throw new NonexistentEntityException("The subject with id " + id + " no longer exists.");
+                Subject id = syllabusItem.getSubject();
+                if (findSyllabusItem(id) == null) {
+                    throw new NonexistentEntityException("The syllabusItem with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -71,14 +78,14 @@ public class SubjectJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Subject subject;
+            SyllabusItem syllabusItem;
             try {
-                subject = em.getReference(Subject.class, id);
-                subject.getId();
+                syllabusItem = em.getReference(SyllabusItem.class, id);
+                syllabusItem.getSubject();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The subject with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The syllabusItem with id " + id + " no longer exists.", enfe);
             }
-            em.remove(subject);
+            em.remove(syllabusItem);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -87,18 +94,22 @@ public class SubjectJpaController implements Serializable {
         }
     }
 
-    public List<Subject> findSubjectEntities() {
-        return findSubjectEntities(true, -1, -1);
+    public void destroy(Subject id) throws NonexistentEntityException {
+        destroy(id.getId());
     }
 
-    public List<Subject> findSubjectEntities(int maxResults, int firstResult) {
-        return findSubjectEntities(false, maxResults, firstResult);
+    public List<SyllabusItem> findSyllabusItemEntities() {
+        return findSyllabusItemEntities(true, -1, -1);
     }
 
-    private List<Subject> findSubjectEntities(boolean all, int maxResults, int firstResult) {
+    public List<SyllabusItem> findSyllabusItemEntities(int maxResults, int firstResult) {
+        return findSyllabusItemEntities(false, maxResults, firstResult);
+    }
+
+    private List<SyllabusItem> findSyllabusItemEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("select object(o) from Subject as o");
+            Query q = em.createQuery("select object(o) from SyllabusItem as o");
             if (!all) {
                 q.setMaxResults(maxResults);
                 q.setFirstResult(firstResult);
@@ -109,19 +120,23 @@ public class SubjectJpaController implements Serializable {
         }
     }
 
-    public Subject findSubject(Long id) {
+    public SyllabusItem findSyllabusItem(Long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Subject.class, id);
+            return em.find(SyllabusItem.class, id);
         } finally {
             em.close();
         }
     }
 
-    public int getSubjectCount() {
+    public SyllabusItem findSyllabusItem(Subject id) {
+        return findSyllabusItem(id.getId());
+    }
+
+    public int getSyllabusItemCount() {
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("select count(o) from Subject as o");
+            Query q = em.createQuery("select count(o) from SyllabusItem as o");
             return ((Long) q.getSingleResult()).intValue();
         } finally {
             em.close();

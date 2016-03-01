@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.elte.osz.controllers;
+package com.elte.osz.logic.controllers;
 
-import com.elte.osz.controllers.exceptions.NonexistentEntityException;
-import com.elte.osz.logic.entities.Room;
+import com.elte.osz.logic.controllers.exceptions.NonexistentEntityException;
+import com.elte.osz.logic.entities.Subject;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -16,11 +16,11 @@ import javax.persistence.EntityNotFoundException;
 
 /**
  *
- * @author Tóth Ákos 
+ * @author Tóth Ákos
  */
-public class RoomJpaController implements Serializable {
+public class SubjectJpaController implements Serializable {
 
-    public RoomJpaController(EntityManagerFactory emf) {
+    public SubjectJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
@@ -29,12 +29,12 @@ public class RoomJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Room room) {
+    public void create(Subject subject) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(room);
+            em.persist(subject);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -43,19 +43,19 @@ public class RoomJpaController implements Serializable {
         }
     }
 
-    public void edit(Room room) throws NonexistentEntityException, Exception {
+    public void edit(Subject subject) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            room = em.merge(room);
+            subject = em.merge(subject);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Long id = room.getId();
-                if (findRoom(id) == null) {
-                    throw new NonexistentEntityException("The room with id " + id + " no longer exists.");
+                Long id = subject.getId();
+                if (findSubject(id) == null) {
+                    throw new NonexistentEntityException("The subject with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -71,14 +71,14 @@ public class RoomJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Room room;
+            Subject subject;
             try {
-                room = em.getReference(Room.class, id);
-                room.getId();
+                subject = em.getReference(Subject.class, id);
+                subject.getId();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The room with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The subject with id " + id + " no longer exists.", enfe);
             }
-            em.remove(room);
+            em.remove(subject);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -87,18 +87,18 @@ public class RoomJpaController implements Serializable {
         }
     }
 
-    public List<Room> findRoomEntities() {
-        return findRoomEntities(true, -1, -1);
+    public List<Subject> findSubjectEntities() {
+        return findSubjectEntities(true, -1, -1);
     }
 
-    public List<Room> findRoomEntities(int maxResults, int firstResult) {
-        return findRoomEntities(false, maxResults, firstResult);
+    public List<Subject> findSubjectEntities(int maxResults, int firstResult) {
+        return findSubjectEntities(false, maxResults, firstResult);
     }
 
-    private List<Room> findRoomEntities(boolean all, int maxResults, int firstResult) {
+    private List<Subject> findSubjectEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("select object(o) from Room as o");
+            Query q = em.createQuery("select object(o) from Subject as o");
             if (!all) {
                 q.setMaxResults(maxResults);
                 q.setFirstResult(firstResult);
@@ -109,19 +109,19 @@ public class RoomJpaController implements Serializable {
         }
     }
 
-    public Room findRoom(Long id) {
+    public Subject findSubject(Long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Room.class, id);
+            return em.find(Subject.class, id);
         } finally {
             em.close();
         }
     }
 
-    public int getRoomCount() {
+    public int getSubjectCount() {
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("select count(o) from Room as o");
+            Query q = em.createQuery("select count(o) from Subject as o");
             return ((Long) q.getSingleResult()).intValue();
         } finally {
             em.close();

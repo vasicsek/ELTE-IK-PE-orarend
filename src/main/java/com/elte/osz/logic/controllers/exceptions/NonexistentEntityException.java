@@ -1,4 +1,4 @@
-package com.elte.osz.controllers.exceptions;
+package com.elte.osz.logic.controllers.exceptions;
 
 public class NonexistentEntityException extends Exception {
     public NonexistentEntityException(String message, Throwable cause) {

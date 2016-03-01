@@ -1,4 +1,4 @@
-package com.elte.osz.controllers.exceptions;
+package com.elte.osz.logic.controllers.exceptions;
 
 public class PreexistingEntityException extends Exception {
     public PreexistingEntityException(String message, Throwable cause) {
