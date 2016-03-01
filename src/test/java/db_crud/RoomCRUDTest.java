@@ -5,10 +5,10 @@
  */
 package db_crud;
 
-import com.elte.tosz.controllers.RoomJpaController;
-import com.elte.tosz.controllers.exceptions.NonexistentEntityException;
-import com.elte.tosz.logic.OszDS;
-import com.elte.tosz.logic.entities.Room;
+import com.elte.osz.controllers.RoomJpaController;
+import com.elte.osz.controllers.exceptions.NonexistentEntityException;
+import com.elte.osz.logic.OszDS;
+import com.elte.osz.logic.entities.Room;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
