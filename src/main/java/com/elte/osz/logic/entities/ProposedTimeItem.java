@@ -19,28 +19,28 @@ import javax.persistence.Table;
 
 public class ProposedTimeItem implements Serializable {
 
-    @Column(nullable = false)
+    @Column(unique = false, updatable = true, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
     @Basic
     private int hour;
 
-    @Column(nullable = false)
+    @Column(unique = false, updatable = true, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
     @Basic
     private int len;
 
-    
-    @OneToOne(targetEntity = Subject.class)
+    @Id
+    @OneToOne(optional = false, targetEntity = Subject.class)
     private Subject subject;
 
-    @Column(updatable = false, nullable = false)
+    @Column(unique = false, updatable = false, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(unique = false, updatable = true, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
     @Basic
     private int day;
 
-    
+    @Id
     @OneToOne(optional = false, targetEntity = Room.class)
     private Room room;
 

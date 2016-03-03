@@ -5,10 +5,7 @@
             <basic attribute-type="int" visibile="true" name="capacity" id="_14560493779767">
                 <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
             </basic>
-            <basic attribute-type="int" visibile="true" name="building" id="_14560493847118">
-                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
-            </basic>
-            <basic attribute-type="int" visibile="true" name="floor" id="_14560523127402">
+            <basic optional="false" attribute-type="String" visibile="true" name="name" id="_14560493847118">
                 <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
             </basic>
             <jpa:id attribute-type="Long" visibile="true" name="id" id="_145666993545316">
@@ -20,9 +17,6 @@
     </jpa:entity>
     <jpa:entity name="Subject" xre="false" sm="false" abs="false" class="Subject" visibile="true" minimized="false" rootElement="_14560493192921" id="_1456054622532">
         <jpa:attributes>
-            <basic attribute-type="float" visibile="true" name="estMemberRatio" id="_14560561037386">
-                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
-            </basic>
             <basic attribute-type="int" visibile="true" name="estMemberCount" id="_14560561232987">
                 <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
             </basic>
@@ -30,11 +24,23 @@
                 <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
             </basic>
             <basic attribute-type="String" visibile="true" name="code" id="_14560563147679">
-                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
             </basic>
             <basic attribute-type="String" visibile="true" name="name" id="_145605632138310">
-                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
             </basic>
+            <basic attribute-type="int" visibile="true" name="semester" id="_145700460641818">
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255"/>
+            </basic>
+            <basic optional="false" attribute-type="int" visibile="true" name="len" id="_145700530881021">
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255"/>
+            </basic>
+            <one-to-one primaryKey="true" connected-entity-id="_1456777485100" target-entity="RoomGroup" visibile="true" name="roomGroup" id="_145700485198519">
+                <join-table/>
+            </one-to-one>
+            <one-to-one optional="true" primaryKey="true" connected-entity-id="_1456049326726" target-entity="Room" visibile="true" name="room" id="_145700489556820">
+                <join-table/>
+            </one-to-one>
             <jpa:id attribute-type="Long" visibile="true" name="id" id="_145666991387815">
                 <jpa:column unique="false" nullable="false" insertable="true" updatable="false"/>
                 <jpa:generated-value strategy="IDENTITY"/>
@@ -59,19 +65,10 @@
     </jpa:entity>
     <jpa:entity name="SyllabusItem" xre="false" sm="false" abs="false" class="SyllabusItem" visibile="true" minimized="false" rootElement="_14560493192921" id="_1456081150736">
         <jpa:attributes>
-            <basic attribute-type="int" visibile="true" name="semester" id="_145681773662817">
-                <jpa:column unique="false" nullable="true" insertable="true" updatable="true"/>
-            </basic>
             <one-to-many collection-type="java.util.List" connected-entity-id="_1456054622532" target-entity="Subject" visibile="true" name="dependencies" id="_145665022007238">
                 <join-table/>
             </one-to-many>
             <one-to-one optional="false" primaryKey="true" connected-entity-id="_1456054622532" target-entity="Subject" visibile="true" name="subject" id="_145608320246118">
-                <join-table/>
-            </one-to-one>
-            <one-to-one optional="true" primaryKey="true" connected-entity-id="_1456777485100" target-entity="RoomGroup" visibile="true" name="roomGroup" id="_145681779905918">
-                <join-table/>
-            </one-to-one>
-            <one-to-one optional="true" primaryKey="true" connected-entity-id="_1456049326726" target-entity="Room" visibile="true" name="room" id="_145681780557919">
                 <join-table/>
             </one-to-one>
             <jpa:id attribute-type="Long" visibile="true" name="id" id="_145666989254214">
@@ -83,7 +80,7 @@
     <jpa:entity name="ProposedTime" xre="false" sm="false" abs="false" class="ProposedTime" visibile="true" minimized="false" rootElement="_14560493192921" id="_1456083705689">
         <jpa:attributes>
             <basic attribute-type="java.sql.Timestamp" visibile="true" name="dtCreated" id="_145608723393050">
-                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
             </basic>
             <one-to-many collection-type="java.util.List" connected-entity-id="_1456083885416" target-entity="ProposedTimeItem" visibile="true" name="items" id="_145608441515638">
                 <join-table/>
@@ -112,7 +109,7 @@
             <one-to-one optional="false" primaryKey="true" connected-entity-id="_1456049326726" target-entity="Room" visibile="true" name="room" id="_145608490888445">
                 <join-table/>
             </one-to-one>
-            <one-to-one optional="true" primaryKey="true" connected-entity-id="_1456054622532" target-entity="Subject" visibile="true" name="subject" id="_145681812942620">
+            <one-to-one optional="false" primaryKey="true" connected-entity-id="_1456054622532" target-entity="Subject" visibile="true" name="subject" id="_145681812942620">
                 <join-table/>
             </one-to-one>
             <jpa:id attribute-type="Long" visibile="true" name="id" id="_145666996310917">
@@ -144,25 +141,25 @@
     <jpa:diagram id="_14560493192922">
         <plane elementRef="_14560493192921" id="_14560493192923_p">
             <shape elementRef="_1456049326726" id="_1456049326726_gui">
-                <Bounds x="688.0" y="371.0" width="137.0" height="130.0"/>
+                <Bounds x="691.0" y="297.0" width="131.0" height="117.0"/>
             </shape>
             <shape elementRef="_1456054622532" id="_1456054622532_gui">
-                <Bounds x="292.0" y="203.0" width="159.0" height="170.0"/>
+                <Bounds x="411.0" y="208.0" width="147.0" height="257.0"/>
             </shape>
             <shape elementRef="_1456080980874" id="_1456080980874_gui">
-                <Bounds x="56.0" y="1.0" width="158.0" height="123.0"/>
+                <Bounds x="52.0" y="-3.0" width="146.0" height="131.0"/>
             </shape>
             <shape elementRef="_1456081150736" id="_1456081150736_gui">
-                <Bounds x="25.0" y="222.0" width="189.0" height="183.0"/>
+                <Bounds x="46.0" y="208.0" width="171.0" height="117.0"/>
             </shape>
             <shape elementRef="_1456083705689" id="_1456083705689_gui">
-                <Bounds x="260.0" y="1.0" width="199.0" height="143.0"/>
+                <Bounds x="377.0" y="-3.0" width="181.0" height="152.0"/>
             </shape>
             <shape elementRef="_1456083885416" id="_1456083885416_gui">
-                <Bounds x="574.0" y="23.0" width="230.0" height="183.0"/>
+                <Bounds x="633.0" y="-3.0" width="206.0" height="194.0"/>
             </shape>
             <shape elementRef="_1456777485100" id="_1456777485100_gui">
-                <Bounds x="25.0" y="444.0" width="180.0" height="123.0"/>
+                <Bounds x="52.0" y="404.0" width="165.0" height="131.0"/>
             </shape>
         </plane>
     </jpa:diagram>

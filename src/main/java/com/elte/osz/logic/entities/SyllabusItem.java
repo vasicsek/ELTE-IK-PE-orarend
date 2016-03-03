@@ -6,7 +6,6 @@ package com.elte.osz.logic.entities;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,25 +18,14 @@ import javax.persistence.OneToOne;
 
 public class SyllabusItem implements Serializable {
 
-    
+    @Id
     @OneToOne(optional = false, targetEntity = Subject.class)
     private Subject subject;
 
-    
-    @OneToOne(targetEntity = RoomGroup.class)
-    private RoomGroup roomGroup;
-
-    @Basic
-    private int semester;
-
-    @Column(updatable = false, nullable = false)
+    @Column(unique = false, updatable = false, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    
-    @OneToOne(targetEntity = Room.class)
-    private Room room;
 
     @OneToMany(targetEntity = Subject.class)
     private List<Subject> dependencies;
@@ -54,36 +42,12 @@ public class SyllabusItem implements Serializable {
         this.subject = subject;
     }
 
-    public RoomGroup getRoomGroup() {
-        return this.roomGroup;
-    }
-
-    public void setRoomGroup(RoomGroup roomGroup) {
-        this.roomGroup = roomGroup;
-    }
-
-    public int getSemester() {
-        return this.semester;
-    }
-
-    public void setSemester(int semester) {
-        this.semester = semester;
-    }
-
     public Long getId() {
         return this.id;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Room getRoom() {
-        return this.room;
-    }
-
-    public void setRoom(Room room) {
-        this.room = room;
     }
 
     public List<Subject> getDependencies() {

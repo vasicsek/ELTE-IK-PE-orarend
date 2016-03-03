@@ -13,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity(name = "Subject")
@@ -20,28 +21,53 @@ import javax.persistence.Table;
 
 public class Subject implements Serializable {
 
-    @Column(nullable = false)
+    @Column(unique = false, updatable = true, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
     @Basic
     private int maxTimeCount;
 
+    @Column(unique = false, updatable = true, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
     @Basic
     private String code;
 
-    @Column(nullable = false)
+    @Column(unique = false, updatable = true, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
+    @Basic
+    private int len;
+
+    @Column(unique = false, updatable = true, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
     @Basic
     private int estMemberCount;
 
+    @Column(unique = false, updatable = true, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
     @Basic
     private String name;
 
-    @Column(updatable = false, nullable = false)
+    //@Id
+    @OneToOne(optional = true, targetEntity = RoomGroup.class)
+    private RoomGroup roomGroup;
+
+    @Column(unique = false, updatable = true, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
+    @Basic
+    private int semester;
+
+    @Column(unique = false, updatable = false, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(nullable = false)
-    @Basic
-    private float estMemberRatio;
+@Override    
+    public boolean equals(Object other){       
+        
+        if ( other == this )
+           return true;
+        
+       Field[] thisFields= this.getClass().getDeclaredFields();
+       Field[] objectFields= other.getClass().getDeclaredFields();
+        //System.out.println(this.getClass().getName() + " - " + other.getClass().getName());
+       return Arrays.deepEquals(thisFields, objectFields);
+              
+    }
+    //@Id
+    @OneToOne(optional = true, targetEntity = Room.class)
+    private Room room;
 
     public Subject() {
 
@@ -63,6 +89,14 @@ public class Subject implements Serializable {
         this.code = code;
     }
 
+    public int getLen() {
+        return this.len;
+    }
+
+    public void setLen(int len) {
+        this.len = len;
+    }
+
     public int getEstMemberCount() {
         return this.estMemberCount;
     }
@@ -79,6 +113,22 @@ public class Subject implements Serializable {
         this.name = name;
     }
 
+    public RoomGroup getRoomGroup() {
+        return this.roomGroup;
+    }
+
+    public void setRoomGroup(RoomGroup roomGroup) {
+        this.roomGroup = roomGroup;
+    }
+
+    public int getSemester() {
+        return this.semester;
+    }
+
+    public void setSemester(int semester) {
+        this.semester = semester;
+    }
+
     public Long getId() {
         return this.id;
     }
@@ -87,23 +137,11 @@ public class Subject implements Serializable {
         this.id = id;
     }
 
-    public float getEstMemberRatio() {
-        return this.estMemberRatio;
+    public Room getRoom() {
+        return this.room;
     }
 
-    public void setEstMemberRatio(float estMemberRatio) {
-        this.estMemberRatio = estMemberRatio;
-    }
-       @Override    
-    public boolean equals(Object other){       
-        
-        if ( other == this )
-           return true;
-        
-       Field[] thisFields= this.getClass().getDeclaredFields();
-       Field[] objectFields= other.getClass().getDeclaredFields();
-        //System.out.println(this.getClass().getName() + " - " + other.getClass().getName());
-       return Arrays.deepEquals(thisFields, objectFields);
-              
+    public void setRoom(Room room) {
+        this.room = room;
     }
 }

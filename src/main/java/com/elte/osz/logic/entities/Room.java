@@ -20,59 +20,19 @@ import javax.persistence.Table;
 
 public class Room implements Serializable {
 
-    @Column(updatable = false, nullable = false)
+    @Column(unique = false, updatable = true, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
+    @Basic
+    private String name;
+
+    @Column(unique = false, updatable = false, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    @Basic
-    private int floor;
-
-    @Column(nullable = false)
-    @Basic
-    private int building;
-
-    @Column(nullable = false)
+    @Column(unique = false, updatable = true, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
     @Basic
     private int capacity;
-
-    public Room() {
-
-    }
-
-    public Long getId() {
-        return this.id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public int getFloor() {
-        return this.floor;
-    }
-
-    public void setFloor(int floor) {
-        this.floor = floor;
-    }
-
-    public int getBuilding() {
-        return this.building;
-    }
-
-    public void setBuilding(int building) {
-        this.building = building;
-    }
-
-    public int getCapacity() {
-        return this.capacity;
-    }
-
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
-    }
-       @Override    
+@Override    
     public boolean equals(Object other){       
         
         if ( other == this )
@@ -83,5 +43,32 @@ public class Room implements Serializable {
         //System.out.println(this.getClass().getName() + " - " + other.getClass().getName());
        return Arrays.deepEquals(thisFields, objectFields);
               
+    }
+    public Room() {
+
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public int getCapacity() {
+        return this.capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 }

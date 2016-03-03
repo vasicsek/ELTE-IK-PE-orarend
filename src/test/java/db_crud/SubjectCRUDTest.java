@@ -62,7 +62,7 @@ public class SubjectCRUDTest {
         Subject s = new Subject();
         s.setCode("IP-08cSZHE");
         s.setEstMemberCount(150);
-        s.setEstMemberRatio((float) 0.5);
+        subject.setLen(3);
         s.setMaxTimeCount(1);       
         s.setName("Számítógépes hálózatok GY. (BSc,08,A)");
         
@@ -86,7 +86,7 @@ public class SubjectCRUDTest {
     }
     
     public void subjectUpdate() throws Exception{
-        subject.setEstMemberRatio((float) 0.9);
+        subject.setLen(2);
         ctrlSubject.edit(subject);
         List<Subject> subjects = ctrlSubject.findSubjectEntities();
         System.out.println("Subjects array length:" + subjects.size());
