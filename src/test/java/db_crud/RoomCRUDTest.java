@@ -62,6 +62,7 @@ public class RoomCRUDTest {
         
         r.setCapacity(20);
         r.setName("TesztTEREM");
+        
         ctrlRoom.create(r);        
         List<Room> rooms = ctrlRoom.findRoomEntities();
         System.out.println("Rooms array length:" + rooms.size());

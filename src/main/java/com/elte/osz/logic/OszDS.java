@@ -54,7 +54,7 @@ public class OszDS extends DataSource{
     
     public OszDS() {
         //super("puTosz");
-        super("puToszDerby");
+        super("puOsz");
         ctrlRoom = new RoomJpaController(emf);    
         ctrlSyllabus = new SyllabusJpaController(emf);
         ctrlSyllabusItem = new SyllabusItemJpaController(emf);
