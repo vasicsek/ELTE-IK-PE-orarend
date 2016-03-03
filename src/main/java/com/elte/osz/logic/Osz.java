@@ -30,4 +30,8 @@ public class Osz {
     public OszDS getDataSet(){
         return ds;
     }
+
+    public void close() {
+        // program bezárása
+    }
 }
