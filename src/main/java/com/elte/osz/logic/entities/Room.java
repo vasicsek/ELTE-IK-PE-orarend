@@ -20,19 +20,10 @@ import javax.persistence.Table;
 
 public class Room implements Serializable {
 
-    @Column(unique = false, updatable = true, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
+    @Column(nullable = false)
     @Basic
     private String name;
-
-    @Column(unique = false, updatable = false, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(unique = false, updatable = true, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
-    @Basic
-    private int capacity;
-@Override    
+ @Override    
     public boolean equals(Object other){       
         
         if ( other == this )
@@ -44,6 +35,15 @@ public class Room implements Serializable {
        return Arrays.deepEquals(thisFields, objectFields);
               
     }
+    @Column(updatable = false, nullable = false)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
+    @Basic
+    private int capacity;
+
     public Room() {
 
     }

@@ -21,39 +21,40 @@ import javax.persistence.Table;
 
 public class Subject implements Serializable {
 
-    @Column(unique = false, updatable = true, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
+    @Column(nullable = false)
     @Basic
     private int maxTimeCount;
 
-    @Column(unique = false, updatable = true, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
+    @Column(nullable = false)
     @Basic
     private String code;
 
-    @Column(unique = false, updatable = true, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
+    @Column(nullable = false)
     @Basic
     private int len;
 
-    @Column(unique = false, updatable = true, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
+    @Column(nullable = false)
     @Basic
     private int estMemberCount;
 
-    @Column(unique = false, updatable = true, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
+    @Column(nullable = false)
     @Basic
     private String name;
 
-    //@Id
-    @OneToOne(optional = true, targetEntity = RoomGroup.class)
+    
+    @OneToOne(targetEntity = RoomGroup.class)
     private RoomGroup roomGroup;
 
-    @Column(unique = false, updatable = true, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
+    @Column(nullable = false)
     @Basic
     private int semester;
 
-    @Column(unique = false, updatable = false, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
+    @Column(updatable = false, nullable = false)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-@Override    
+
+     @Override    
     public boolean equals(Object other){       
         
         if ( other == this )
@@ -65,8 +66,7 @@ public class Subject implements Serializable {
        return Arrays.deepEquals(thisFields, objectFields);
               
     }
-    //@Id
-    @OneToOne(optional = true, targetEntity = Room.class)
+    @OneToOne(targetEntity = Room.class)
     private Room room;
 
     public Subject() {

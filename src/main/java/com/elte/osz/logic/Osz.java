@@ -6,6 +6,7 @@
 package com.elte.osz.logic;
 
 import com.elte.osz.logic.entities.ProposedTime;
+import com.elte.osz.logic.entities.Syllabus;
 import java.util.List;
 
 /**
@@ -20,6 +21,9 @@ public class Osz {
         ds = new OszDS();
     }
     public void generate(boolean even_semester){
+        
+       List<Syllabus> syls = ds.getCtrlSyllabus().findSyllabusEntities();
+       
        return ;
     }
     

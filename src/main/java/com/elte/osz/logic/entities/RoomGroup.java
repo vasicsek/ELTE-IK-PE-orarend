@@ -21,11 +21,10 @@ public class RoomGroup implements Serializable {
     @OneToMany(targetEntity = Room.class)
     private List<Room> rooms;
 
-    @Column(unique = false, updatable = true, insertable = true, nullable = true, length = 255, scale = 0, precision = 0)
     @Basic
     private String name;
 
-    @Column(unique = false, updatable = false, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
+    @Column(updatable = false, nullable = false)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

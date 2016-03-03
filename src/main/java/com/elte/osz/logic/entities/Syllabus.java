@@ -20,11 +20,11 @@ import javax.persistence.Table;
 
 public class Syllabus implements Serializable {
 
-    @Column(unique = true, updatable = true, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
+    @Column(unique = true, nullable = false)
     @Basic
     private String name;
 
-    @Column(unique = false, updatable = false, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
+    @Column(updatable = false, nullable = false)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

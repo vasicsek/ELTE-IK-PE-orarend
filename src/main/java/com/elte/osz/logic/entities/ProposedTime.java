@@ -26,11 +26,11 @@ public class ProposedTime implements Serializable {
     @OneToOne(optional = false, targetEntity = Syllabus.class)
     private Syllabus syllabus;
 
-    @Column(unique = false, updatable = true, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
+    @Column(nullable = false)
     @Basic
     private Timestamp dtCreated;
 
-    @Column(unique = false, updatable = false, insertable = true, nullable = false, length = 255, scale = 0, precision = 0)
+    @Column(updatable = false, nullable = false)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
