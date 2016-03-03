@@ -69,7 +69,8 @@ public class RoomCRUDTest {
         int index = rooms.indexOf(r);
         System.out.println("Found index:"+index);
         assert( index > -1 );
-        this.room = r;              
+        this.room = r;       
+        
         
     }
     

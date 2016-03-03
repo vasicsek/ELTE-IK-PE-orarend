@@ -22,7 +22,7 @@ import javax.persistence.Table;
 
 public class ProposedTime implements Serializable {
 
-    @Id
+    
     @OneToOne(optional = false, targetEntity = Syllabus.class)
     private Syllabus syllabus;
 

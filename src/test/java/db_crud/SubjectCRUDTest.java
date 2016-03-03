@@ -62,7 +62,7 @@ public class SubjectCRUDTest {
         Subject s = new Subject();
         s.setCode("IP-08cSZHE");
         s.setEstMemberCount(150);
-        subject.setLen(3);
+        s.setLen(3);
         s.setMaxTimeCount(1);       
         s.setName("Számítógépes hálózatok GY. (BSc,08,A)");
         

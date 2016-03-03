@@ -10,12 +10,12 @@
     <class>com.elte.osz.logic.entities.Syllabus</class>
     <class>com.elte.osz.logic.entities.ProposedTimeItem</class>
     <properties>
+      <property name="eclipselink.loglevel" value="ALL"/>
       <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@aramis.inf.elte.hu:1521:eszakigrid97"/>
       <property name="javax.persistence.jdbc.user" value="rmuglk"/>
       <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
       <property name="javax.persistence.jdbc.password" value="age1204"/>
       <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
-      <property name="eclipselink.loglevel" value="ALL"/>
     </properties>
   </persistence-unit>
   <persistence-unit name="DEFAULT_PU" transaction-type="RESOURCE_LOCAL">

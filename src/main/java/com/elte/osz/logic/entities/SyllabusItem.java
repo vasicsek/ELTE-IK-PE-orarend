@@ -18,7 +18,7 @@ import javax.persistence.OneToOne;
 
 public class SyllabusItem implements Serializable {
 
-    @Id
+    
     @OneToOne(optional = false, targetEntity = Subject.class)
     private Subject subject;
 

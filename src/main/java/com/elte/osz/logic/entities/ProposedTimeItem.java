@@ -27,7 +27,7 @@ public class ProposedTimeItem implements Serializable {
     @Basic
     private int len;
 
-    @Id
+    
     @OneToOne(optional = false, targetEntity = Subject.class)
     private Subject subject;
 
@@ -40,7 +40,7 @@ public class ProposedTimeItem implements Serializable {
     @Basic
     private int day;
 
-    @Id
+    
     @OneToOne(optional = false, targetEntity = Room.class)
     private Room room;
 
