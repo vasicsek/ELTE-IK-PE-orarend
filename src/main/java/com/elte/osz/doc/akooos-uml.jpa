@@ -122,7 +122,7 @@
     <jpa:entity name="RoomGroup" xre="false" sm="false" abs="false" class="RoomGroup" visibile="true" minimized="false" rootElement="_14560493192921" id="_1456777485100">
         <jpa:attributes>
             <basic attribute-type="String" visibile="true" name="name" id="_145677756376716">
-                <jpa:column unique="false" nullable="true" insertable="true" updatable="true"/>
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
             </basic>
             <one-to-many collection-type="java.util.List" connected-entity-id="_1456049326726" target-entity="Room" visibile="true" name="rooms" id="_145677752572915">
                 <join-table/>
@@ -141,25 +141,25 @@
     <jpa:diagram id="_14560493192922">
         <plane elementRef="_14560493192921" id="_14560493192923_p">
             <shape elementRef="_1456049326726" id="_1456049326726_gui">
-                <Bounds x="691.0" y="297.0" width="131.0" height="117.0"/>
+                <Bounds x="689.0" y="295.0" width="137.0" height="110.0"/>
             </shape>
             <shape elementRef="_1456054622532" id="_1456054622532_gui">
-                <Bounds x="411.0" y="208.0" width="147.0" height="257.0"/>
+                <Bounds x="409.0" y="206.0" width="159.0" height="243.0"/>
             </shape>
             <shape elementRef="_1456080980874" id="_1456080980874_gui">
-                <Bounds x="52.0" y="-3.0" width="146.0" height="131.0"/>
+                <Bounds x="50.0" y="-5.0" width="158.0" height="123.0"/>
             </shape>
             <shape elementRef="_1456081150736" id="_1456081150736_gui">
-                <Bounds x="46.0" y="208.0" width="171.0" height="117.0"/>
+                <Bounds x="44.0" y="206.0" width="189.0" height="110.0"/>
             </shape>
             <shape elementRef="_1456083705689" id="_1456083705689_gui">
-                <Bounds x="377.0" y="-3.0" width="181.0" height="152.0"/>
+                <Bounds x="375.0" y="-5.0" width="199.0" height="143.0"/>
             </shape>
             <shape elementRef="_1456083885416" id="_1456083885416_gui">
-                <Bounds x="633.0" y="-3.0" width="206.0" height="194.0"/>
+                <Bounds x="631.0" y="-5.0" width="230.0" height="183.0"/>
             </shape>
             <shape elementRef="_1456777485100" id="_1456777485100_gui">
-                <Bounds x="52.0" y="404.0" width="165.0" height="131.0"/>
+                <Bounds x="50.0" y="402.0" width="180.0" height="123.0"/>
             </shape>
         </plane>
     </jpa:diagram>
