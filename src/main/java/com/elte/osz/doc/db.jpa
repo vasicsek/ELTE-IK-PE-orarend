@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jpa:entity-mappings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:java="http://jcp.org/en/jsr/detail?id=270" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jpa="http://java.sun.com/xml/ns/persistence/orm" v="1.5.4" thm="PNBColorScheme" xs="false" id="_14612361977831" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_1.xsd">
+    <jpa:entity xre="false" sm="false" abs="false" class="Subject" superclassId="_1461657363662" visibile="true" minimized="false" rootElement="_14612361977831" id="_1461236207687">
+        <jpa:attributes>
+            <basic attribute-type="String" visibile="true" name="code" id="_14612362257884">
+                <jpa:column unique="true" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic attribute-type="String" visibile="true" name="name" id="_14612362430995">
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic attribute-type="String" visibile="true" name="subjectType" id="_14612362499636"/>
+            <basic attribute-type="int" visibile="true" name="semester" id="_14612362586687">
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic attribute-type="Department" visibile="true" name="department" id="_146166238786591">
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255"/>
+                <jpa:enumerated>STRING</jpa:enumerated>
+            </basic>
+            <basic attribute-type="String" visibile="true" name="hours_presentation" id="_1461663174990110"/>
+            <basic attribute-type="String" visibile="true" name="hours_practical" id="_1461663242549111"/>
+            <basic attribute-type="String" visibile="true" name="hours_nightly" id="_1461663275517112"/>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity xre="false" sm="false" abs="false" class="TimetableItem" superclassId="_1461657363662" visibile="true" minimized="false" rootElement="_14612361977831" id="_1461651113642">
+        <jpa:attributes>
+            <basic attribute-type="java.sql.Timestamp" visibile="true" name="startTime" id="_14616512073887">
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic attribute-type="java.sql.Timestamp" visibile="true" name="endTime" id="_14616512247288">
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <one-to-one own="true" optional="false" primaryKey="true" connected-entity-id="_1461236207687" visibile="true" name="subject" id="_14616511382834"/>
+            <one-to-one own="true" optional="false" primaryKey="true" connected-entity-id="_1461665036391" visibile="true" name="room" id="_1461666300309141"/>
+            <one-to-one own="true" primaryKey="true" connected-entity-id="_1461667484204" visibile="true" name="teacher" id="_1461667601787169"/>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity xre="false" sm="false" abs="false" class="TimetableHead" superclassId="_1461657363662" visibile="true" minimized="false" rootElement="_14612361977831" id="_1461651402431">
+        <jpa:attributes>
+            <basic attribute-type="String" visibile="true" name="name" id="_146165145737714">
+                <jpa:column unique="true" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic attribute-type="java.sql.Timestamp" visibile="true" name="created" id="_146165146794515">
+                <jpa:column unique="false" nullable="false" insertable="false" updatable="false" column-definition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP" length="255" precision="0" scale="0"/>
+            </basic>
+            <one-to-many own="true" collection-type="java.util.List" connected-entity-id="_1461651113642" visibile="true" name="items" id="_146165235496025">
+                <cascade>
+                    <jpa:cascade-all/>
+                </cascade>
+            </one-to-many>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity xre="false" sm="false" abs="true" class="AbstractEntity" visibile="true" minimized="false" rootElement="_14612361977831" id="_1461657363662">
+        <jpa:attributes>
+            <jpa:id attribute-type="Long" visibile="true" name="id" id="_146165736366379">
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="false"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:inheritance strategy="TABLE_PER_CLASS"/>
+    </jpa:entity>
+    <jpa:entity xre="false" sm="false" abs="false" class="Room" superclassId="_1461657363662" visibile="true" minimized="false" rootElement="_14612361977831" id="_1461665036391">
+        <jpa:attributes>
+            <basic attribute-type="String" visibile="true" name="name" id="_1461665066094115">
+                <jpa:column unique="true" nullable="false" insertable="true" updatable="true" length="255"/>
+            </basic>
+            <basic attribute-type="Building" visibile="true" name="building" id="_1461670097281185">
+                <jpa:enumerated>STRING</jpa:enumerated>
+            </basic>
+            <basic attribute-type="byte" visibile="true" name="floor" id="_1461670200640201">
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255"/>
+            </basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity xre="false" sm="false" abs="false" class="Teacher" superclassId="_1461657363662" visibile="true" minimized="false" rootElement="_14612361977831" id="_1461667484204">
+        <jpa:attributes>
+            <basic attribute-type="String" visibile="true" name="name" id="_1461667573539168">
+                <jpa:column unique="true" nullable="false" insertable="true" updatable="true" length="255"/>
+            </basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:c>
+        <ct>java.util.List</ct>
+        <ct>java.util.Collection</ct>
+        <ct>java.util.Set</ct>
+    </jpa:c>
+    <jpa:diagram>
+        <plane elementRef="_14612361977831">
+            <shape elementRef="_1461236207687">
+                <Bounds x="456.0" y="172.0" width="175.0" height="198.0"/>
+            </shape>
+            <shape elementRef="_1461651113642">
+                <Bounds x="70.0" y="219.0" width="199.0" height="151.0"/>
+            </shape>
+            <shape elementRef="_1461651402431">
+                <Bounds x="64.0" y="39.0" width="205.0" height="111.0"/>
+            </shape>
+            <shape elementRef="_1461657363662">
+                <Bounds x="432.0" y="66.0" width="199.0" height="57.0"/>
+            </shape>
+            <shape elementRef="_1461665036391">
+                <Bounds x="718.0" y="212.0" width="137.0" height="98.0"/>
+            </shape>
+            <shape elementRef="_1461667484204">
+                <Bounds x="855.0" y="65.0" width="155.0" height="58.0"/>
+            </shape>
+        </plane>
+    </jpa:diagram>
+</jpa:entity-mappings>

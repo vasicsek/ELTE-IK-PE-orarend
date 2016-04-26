@@ -8,10 +8,7 @@ package com.elte.osz.logic.dbhandler;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-/**
- *
- * @author Tóth Ákos
- */
+
 public class DataSource {
     protected EntityManagerFactory emf;
     

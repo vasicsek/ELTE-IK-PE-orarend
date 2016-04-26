@@ -5,10 +5,6 @@
  */
 package com.elte.osz.logic;
 
-import com.elte.osz.logic.entities.ProposedTime;
-import com.elte.osz.logic.entities.Syllabus;
-import java.util.List;
-
 /**
  *
  * @author Tóth Ákos 
@@ -22,7 +18,7 @@ public class Osz {
     }
     public void generate(boolean even_semester){
         
-       List<Syllabus> syls = ds.getCtrlSyllabus().findSyllabusEntities();
+       
        
        return ;
     }

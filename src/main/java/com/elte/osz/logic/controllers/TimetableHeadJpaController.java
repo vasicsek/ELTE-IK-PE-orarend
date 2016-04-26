@@ -6,7 +6,7 @@
 package com.elte.osz.logic.controllers;
 
 import com.elte.osz.logic.controllers.exceptions.NonexistentEntityException;
-import com.elte.osz.logic.entities.RoomGroup;
+import com.elte.osz.logic.entities.TimetableHead;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -16,11 +16,11 @@ import javax.persistence.EntityNotFoundException;
 
 /**
  *
- * @author toarabi
+ * @author Tóth Ákos
  */
-public class RoomGroupJpaController implements Serializable {
+public class TimetableHeadJpaController implements Serializable {
 
-    public RoomGroupJpaController(EntityManagerFactory emf) {
+    public TimetableHeadJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
@@ -29,12 +29,12 @@ public class RoomGroupJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(RoomGroup roomGroup) {
+    public void create(TimetableHead timetableHead) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(roomGroup);
+            em.persist(timetableHead);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -43,19 +43,19 @@ public class RoomGroupJpaController implements Serializable {
         }
     }
 
-    public void edit(RoomGroup roomGroup) throws NonexistentEntityException, Exception {
+    public void edit(TimetableHead timetableHead) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            roomGroup = em.merge(roomGroup);
+            timetableHead = em.merge(timetableHead);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Long id = roomGroup.getId();
-                if (findRoomGroup(id) == null) {
-                    throw new NonexistentEntityException("The roomGroup with id " + id + " no longer exists.");
+                Long id = timetableHead.getId();
+                if (findTimetableHead(id) == null) {
+                    throw new NonexistentEntityException("The timetableHead with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -71,14 +71,14 @@ public class RoomGroupJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            RoomGroup roomGroup;
+            TimetableHead timetableHead;
             try {
-                roomGroup = em.getReference(RoomGroup.class, id);
-                roomGroup.getId();
+                timetableHead = em.getReference(TimetableHead.class, id);
+                timetableHead.getId();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The roomGroup with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The timetableHead with id " + id + " no longer exists.", enfe);
             }
-            em.remove(roomGroup);
+            em.remove(timetableHead);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -87,18 +87,18 @@ public class RoomGroupJpaController implements Serializable {
         }
     }
 
-    public List<RoomGroup> findRoomGroupEntities() {
-        return findRoomGroupEntities(true, -1, -1);
+    public List<TimetableHead> findTimetableHeadEntities() {
+        return findTimetableHeadEntities(true, -1, -1);
     }
 
-    public List<RoomGroup> findRoomGroupEntities(int maxResults, int firstResult) {
-        return findRoomGroupEntities(false, maxResults, firstResult);
+    public List<TimetableHead> findTimetableHeadEntities(int maxResults, int firstResult) {
+        return findTimetableHeadEntities(false, maxResults, firstResult);
     }
 
-    private List<RoomGroup> findRoomGroupEntities(boolean all, int maxResults, int firstResult) {
+    private List<TimetableHead> findTimetableHeadEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("select object(o) from RoomGroup as o");
+            Query q = em.createQuery("select object(o) from TimetableHead as o");
             if (!all) {
                 q.setMaxResults(maxResults);
                 q.setFirstResult(firstResult);
@@ -109,19 +109,19 @@ public class RoomGroupJpaController implements Serializable {
         }
     }
 
-    public RoomGroup findRoomGroup(Long id) {
+    public TimetableHead findTimetableHead(Long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(RoomGroup.class, id);
+            return em.find(TimetableHead.class, id);
         } finally {
             em.close();
         }
     }
 
-    public int getRoomGroupCount() {
+    public int getTimetableHeadCount() {
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("select count(o) from RoomGroup as o");
+            Query q = em.createQuery("select count(o) from TimetableHead as o");
             return ((Long) q.getSingleResult()).intValue();
         } finally {
             em.close();
