@@ -5,7 +5,9 @@
  */
 package com.elte.osz.logic;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 
 /**
  *
@@ -13,9 +15,5 @@ import java.io.FileNotFoundException;
  */
 public class Utils {
     
-   public static void  xmlToSql( String inputFileName, String outputFileName ) throws FileNotFoundException {
-       
-    //TODO as here http://www.mkyong.com/java/how-to-read-xml-file-in-java-dom-parser/   
-    
-   }
+   
 }

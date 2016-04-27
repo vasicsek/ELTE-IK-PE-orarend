@@ -1,1 +1,0 @@
-INSERT INTO Subject(code,name,subjectType,semester) VALUES('KÓD','NÉV','TÍPUS',1)

@@ -3,22 +3,20 @@
     <jpa:entity xre="false" sm="false" abs="false" class="Subject" superclassId="_1461657363662" visibile="true" minimized="false" rootElement="_14612361977831" id="_1461236207687">
         <jpa:attributes>
             <basic attribute-type="String" visibile="true" name="code" id="_14612362257884">
-                <jpa:column unique="true" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
             </basic>
             <basic attribute-type="String" visibile="true" name="name" id="_14612362430995">
                 <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
             </basic>
             <basic attribute-type="String" visibile="true" name="subjectType" id="_14612362499636"/>
-            <basic attribute-type="int" visibile="true" name="semester" id="_14612362586687">
-                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
-            </basic>
+            <basic attribute-type="byte" visibile="true" name="semester" id="_14612362586687"/>
             <basic attribute-type="Department" visibile="true" name="department" id="_146166238786591">
                 <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255"/>
                 <jpa:enumerated>STRING</jpa:enumerated>
             </basic>
-            <basic attribute-type="String" visibile="true" name="hours_presentation" id="_1461663174990110"/>
-            <basic attribute-type="String" visibile="true" name="hours_practical" id="_1461663242549111"/>
-            <basic attribute-type="String" visibile="true" name="hours_nightly" id="_1461663275517112"/>
+            <basic attribute-type="byte" visibile="true" name="hours_presentation" id="_1461663174990110"/>
+            <basic attribute-type="byte" visibile="true" name="hours_practical" id="_1461663242549111"/>
+            <basic attribute-type="byte" visibile="true" name="hours_nightly" id="_1461663275517112"/>
         </jpa:attributes>
     </jpa:entity>
     <jpa:entity xre="false" sm="false" abs="false" class="TimetableItem" superclassId="_1461657363662" visibile="true" minimized="false" rootElement="_14612361977831" id="_1461651113642">
@@ -31,7 +29,7 @@
             </basic>
             <one-to-one own="true" optional="false" primaryKey="true" connected-entity-id="_1461236207687" visibile="true" name="subject" id="_14616511382834"/>
             <one-to-one own="true" optional="false" primaryKey="true" connected-entity-id="_1461665036391" visibile="true" name="room" id="_1461666300309141"/>
-            <one-to-one own="true" primaryKey="true" connected-entity-id="_1461667484204" visibile="true" name="teacher" id="_1461667601787169"/>
+            <one-to-one own="true" optional="true" primaryKey="true" connected-entity-id="_1461667484204" visibile="true" name="teacher" id="_1461667601787169"/>
         </jpa:attributes>
     </jpa:entity>
     <jpa:entity xre="false" sm="false" abs="false" class="TimetableHead" superclassId="_1461657363662" visibile="true" minimized="false" rootElement="_14612361977831" id="_1461651402431">
@@ -74,7 +72,7 @@
     <jpa:entity xre="false" sm="false" abs="false" class="Teacher" superclassId="_1461657363662" visibile="true" minimized="false" rootElement="_14612361977831" id="_1461667484204">
         <jpa:attributes>
             <basic attribute-type="String" visibile="true" name="name" id="_1461667573539168">
-                <jpa:column unique="true" nullable="false" insertable="true" updatable="true" length="255"/>
+                <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255"/>
             </basic>
         </jpa:attributes>
     </jpa:entity>
@@ -86,22 +84,22 @@
     <jpa:diagram>
         <plane elementRef="_14612361977831">
             <shape elementRef="_1461236207687">
-                <Bounds x="456.0" y="172.0" width="175.0" height="198.0"/>
+                <Bounds x="442.0" y="158.0" width="175.0" height="198.0"/>
             </shape>
             <shape elementRef="_1461651113642">
-                <Bounds x="70.0" y="219.0" width="199.0" height="151.0"/>
+                <Bounds x="56.0" y="205.0" width="199.0" height="151.0"/>
             </shape>
             <shape elementRef="_1461651402431">
-                <Bounds x="64.0" y="39.0" width="205.0" height="111.0"/>
+                <Bounds x="50.0" y="25.0" width="205.0" height="111.0"/>
             </shape>
             <shape elementRef="_1461657363662">
-                <Bounds x="432.0" y="66.0" width="199.0" height="57.0"/>
+                <Bounds x="418.0" y="52.0" width="199.0" height="57.0"/>
             </shape>
             <shape elementRef="_1461665036391">
-                <Bounds x="718.0" y="212.0" width="137.0" height="98.0"/>
+                <Bounds x="704.0" y="198.0" width="137.0" height="98.0"/>
             </shape>
             <shape elementRef="_1461667484204">
-                <Bounds x="855.0" y="65.0" width="155.0" height="58.0"/>
+                <Bounds x="841.0" y="51.0" width="155.0" height="58.0"/>
             </shape>
         </plane>
     </jpa:diagram>

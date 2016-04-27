@@ -52,7 +52,7 @@ public enum Department {
             return "BTK";
         }
     },    
-    BGGyk{
+    BGGYK{
         @Override
         public String toString(){
             return "BGGyK";

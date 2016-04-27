@@ -5,6 +5,58 @@ package com.elte.osz.logic;
  *
  * @author Tóth Ákos
  */
+ public enum Building{
+    AjtosiDurerSor ("ajt"),
+    DeliTomb ("aaf"),        
+    ELTEBotanikusKert("bot"),    
+    EszakiTomb ("aaa"),        
+    IzabellaUtca("iza"),
+    KazincyUtca("aax"),
+    KemiaEpuletLagymanyos("aae"),
+    MTA ("mta"),
+    TFKTestneveles("aat"),        
+    TrefortFEpulet("aaz");
+        
+    private final String value;
+
+    Building(String value) {
+        this.value = value;
+    }
+    @Override
+    public String toString() {
+        return value;
+    }  
+    
+    public static String buildingToDispStr(Building building) {
+
+        switch (building) {
+            case AjtosiDurerSor:
+                return "Ajtósi Dürer sor";
+            case DeliTomb:
+                return "Déli tömb";
+            case ELTEBotanikusKert:
+                return "ELTE Botanikus kert";
+            case EszakiTomb:
+                return "Északi tömb";
+            case IzabellaUtca:
+                return "Izabella utca";
+            case KazincyUtca:
+                return "Kazincy utca";
+            case KemiaEpuletLagymanyos:
+                return "Kémia épület(Lágymányos)";
+            case MTA:
+                return "MTA";
+            case TFKTestneveles:
+                return "TFK Testnevelés Tsz. termei";
+            case TrefortFEpulet:
+                return "Trefort F épület";
+            default:
+                return "";
+        }
+
+    };
+};
+/*
 public enum Building {
     AjtosiDurerSor {
         @Override
@@ -66,36 +118,8 @@ public enum Building {
             return "aaz";
         }
 
-    };
+    };   
 
-    public static String buildingToDispStr(Building building) {
+};*/
 
-        switch (building) {
-            case AjtosiDurerSor:
-                return "Ajtósi Dürer sor";
-            case DeliTomb:
-                return "Déli tömb";
-            case ELTEBotanikusKert:
-                return "ELTE Botanikus kert";
-            case EszakiTomb:
-                return "Északi tömb";
-            case IzabellaUtca:
-                return "Izabella utca";
-            case KazincyUtca:
-                return "Kazincy utca";
-            case KemiaEpuletLagymanyos:
-                return "Kémia épület(Lágymányos)";
-            case MTA:
-                return "MTA";
-            case TFKTestneveles:
-                return "TFK Testnevelés Tsz. termei";
-            case TrefortFEpulet:
-                return "Trefort F épület";
-            default:
-                return "";
-        }
-
-    }
-;
-
-};
+ 

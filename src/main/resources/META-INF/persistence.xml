@@ -3,7 +3,9 @@
   <persistence-unit name="puOsz" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>com.elte.osz.logic.dbhandler.AbstractEntity</class>
+    <class>com.elte.osz.logic.entities.Room</class>
     <class>com.elte.osz.logic.entities.Subject</class>
+    <class>com.elte.osz.logic.entities.Teacher</class>
     <class>com.elte.osz.logic.entities.TimetableHead</class>
     <class>com.elte.osz.logic.entities.TimetableItem</class>
     <properties>
@@ -12,9 +14,7 @@
       <property name="javax.persistence.jdbc.user" value="osz"/>
       <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
       <property name="javax.persistence.jdbc.password" value="osz"/>
-      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>      
-      <property name="javax.persistence.schema-generation.create-source" value="metadata-then-script"/>
-      <property name="javax.persistence.schema-generation.create-script-source" value="initial_data.sql" />
- </properties>
+      
+    </properties>
   </persistence-unit>
 </persistence>
