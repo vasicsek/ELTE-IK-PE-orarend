@@ -5,15 +5,29 @@
  */
 package com.elte.osz.logic;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.sql.Timestamp;
+import java.util.Random;
 
 /**
  *
  * @author Tóth Ákos
  */
 public class Utils {
-    
+   private static final Random random = new Random(System.currentTimeMillis());
    
+   public static java.sql.Timestamp getRandomTimeStamp(){
+       long offset = Timestamp.valueOf("2015-01-01 00:00:00").getTime();
+       long end = Timestamp.valueOf("2017-01-01 00:00:00").getTime();
+       long diff = end - offset + 1;
+       return new Timestamp(offset + (random.nextLong() % diff ));
+   }
+   
+   public static int getRandomInt(int a, int b){
+       int diff = b-a +1 ;
+       return ( Math.abs(random.nextInt()) % diff) +a;
+   }
+    public static Long getRandomLong(long a, long b){
+        long diff = b-a+1;
+       return ( Math.abs(random.nextLong()) % diff ) + a;
+   }
 }

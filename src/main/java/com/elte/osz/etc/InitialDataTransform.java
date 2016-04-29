@@ -5,6 +5,13 @@
  */
 package com.elte.osz.etc;
 
+import com.elte.osz.logic.Building;
+import com.elte.osz.logic.controllers.RoomJpaController;
+import com.elte.osz.logic.controllers.SubjectJpaController;
+import com.elte.osz.logic.controllers.TeacherJpaController;
+import com.elte.osz.logic.entities.BuildingConverter;
+import com.elte.osz.logic.entities.Room;
+import com.elte.osz.logic.entities.Teacher;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -15,6 +22,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -38,19 +47,20 @@ public class InitialDataTransform {
     private final String fpRoomsXml;
     private final String fpTeachersXml;
     private final String fpCoursesXml;
-    private final String fpSql;
     private final DocumentBuilder db;
+    private EntityManagerFactory emf;
+    private SubjectJpaController ctrlSubject;
+    private TeacherJpaController ctrlTeacher;
+    private RoomJpaController ctrlRoom;
 
     public InitialDataTransform(
             String fpCoursesXml,
             String fpRoomsXml,
-            String fpTeachersXml,
-            String fpSql
+            String fpTeachersXml
     ) throws ParserConfigurationException {
         this.fpCoursesXml = fpCoursesXml;
         this.fpRoomsXml = fpRoomsXml;
         this.fpTeachersXml = fpTeachersXml;
-        this.fpSql = fpSql;
         this.db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 
     }
@@ -75,14 +85,24 @@ public class InitialDataTransform {
             throws FileNotFoundException, ParserConfigurationException,
             SAXException, IOException {
         //TODO ahogyan itt http://www.mkyong.com/java/how-to-read-xml-file-in-java-dom-parser/          
+        System.out.println("Adatbázis törlése és létrehozása..."); 
+        Map map = new HashMap();
+        map.put("javax.persistence.schema-generation.database.action", "drop-and-create");
 
-        PrintWriter pw = new PrintWriter( new PrintWriter(fpSql),true);
+        Persistence.generateSchema("puOsz", map);
+        emf = Persistence.createEntityManagerFactory("puOsz");
 
+        ctrlSubject = new SubjectJpaController(emf);
+        ctrlTeacher = new TeacherJpaController(emf);
+        ctrlRoom = new RoomJpaController(emf);
+        System.out.println("SQL Insertek generálása xml fájlokból...");
         final String line = "INSERT INTO %s(%s) VALUES(%s)";
-        System.out.println("Parsing rooms..." + fpRoomsXml);
+        System.out.println("Room tábla feltöltése adatokkal..." + fpRoomsXml);
+        
         parse(fpRoomsXml, new ElementFound() {
             @Override
             public void elementFound(Element element) {
+                                
                 /*
                 Példa:
                 <terem_azonosito>4</terem_azonosito>
@@ -100,11 +120,21 @@ public class InitialDataTransform {
                 //ugyanolyan sorrendben mint ahogyan a cols listában jönnek
                 final List<Integer> iesc = Arrays.asList(0, 1);
                 String values = getValues(element, tags, iesc);
-                pw.println(String.format(line, "\"ROOM\"", "\"NAME\",\"BUILDING\",\"FLOOR\"", values));
+                String cmd = String.format(line, "\"ROOM\"", "\"NAME\",\"BUILDING\",\"FLOOR\"", values);
+                EntityManager em = InitialDataTransform.this.ctrlRoom.getEntityManager();
+                try {
+                    em.getTransaction().begin();
+                    em.createNativeQuery(cmd).executeUpdate();
+                    em.getTransaction().commit();
+                } catch (Exception e) {
+                    em.close();
+                    e.printStackTrace();
+                    throw e;
+                }
             }
         });
 
-        System.out.println("Parsing teachers..." + fpTeachersXml);
+        System.out.println("Teacher tábla feltöltése adatokkal..." + fpTeachersXml);
         parse(fpTeachersXml, new ElementFound() {
             @Override
             public void elementFound(Element element) {
@@ -120,10 +150,22 @@ public class InitialDataTransform {
                 //ugyanolyan sorrendben mint ahogyan a cols listában jönnek
                 final List<Integer> iesc = Arrays.asList(0);
                 String values = getValues(element, tags, iesc);
-                pw.println(String.format(line, "\"TEACHER\"", "\"NAME\"", values));
+                String cmd = String.format(line, "\"TEACHER\"", "\"NAME\"", values);
+
+                EntityManager em = InitialDataTransform.this.ctrlTeacher.getEntityManager();
+
+                try {
+                    em.getTransaction().begin();
+                    em.createNativeQuery(cmd).executeUpdate();
+                    em.getTransaction().commit();
+                } catch (Exception e) {
+                    em.close();
+                    e.printStackTrace();
+                    throw e;
+                }
             }
         });
-        System.out.println("Parsing courses..." + fpCoursesXml);
+        System.out.println("Subject tábla feltöltése adatokkal..." + fpCoursesXml);
         parse(fpCoursesXml, new ElementFound() {
             @Override
             public void elementFound(Element element) {
@@ -145,16 +187,29 @@ public class InitialDataTransform {
                 //amik mutatják hogy melyik elemet kell sql stringé alakítani
                 //ugyanolyan sorrendben mint ahogyan a cols listában jönnek
                 final List<Integer> iesc = Arrays.asList(0, 4, 5);
-                final String values = getValues(element, tags, iesc);
+                String values = getValues(element, tags, iesc);
                 final String cols = "\"CODE\",\"HOURS_PRESENTATION\","
                         + "\"HOURS_PRACTICAL\","
                         + "\"HOURS_NIGHTLY\","
                         + "\"NAME\",\"DEPARTMENT\"";
-                pw.println(String.format(line, "\"SUBJECT\"", cols, values));
+
+                String cmd = String.format(line, "\"SUBJECT\"", cols, values);
+                EntityManager em = InitialDataTransform.this.ctrlSubject.getEntityManager();
+                try {
+                    em.getTransaction().begin();
+                    em.createNativeQuery(cmd).executeUpdate();
+                    em.getTransaction().commit();
+                } catch (Exception e) {
+                    em.close();
+                    e.printStackTrace();
+                    throw e;
+                }
+
             }
         });
-        pw.flush();
-        pw.close();
+        
+        emf.close();
+        System.out.println("Kész!");
 
     }
 
@@ -203,37 +258,21 @@ public class InitialDataTransform {
         }
         return sb.toString();
     }
-  
+
     public static void main(String args[]) throws Exception {
 
-        if (args.length == 4) {
-            try {
-                String  fp = System.getProperty("java.io.tmpdir")+File.separator+args[3];
-                String  fp2 = "file:" + File.separator + File.separator + fp;
-                
-                File f = new File(fp);
-
-                if (!(f.exists() && f.isFile() )) {
-                    System.out.println("SQL Insertek generálása xml fájlokból...");
-                    new InitialDataTransform(args[0], args[1], args[2], fp).transform();
-                } 
-                
-                System.out.println("Adatbázis törlése és létrehozása...");
-                Map map = new HashMap();
-                map.put("javax.persistence.schema-generation.database.action", "drop-and-create");
-                map.put("javax.persistence.schema-generation.create-source", "metadata-then-script");
-                map.put("javax.persistence.schema-generation.create-script-source", fp2);
-                
-                Persistence.createEntityManagerFactory("puOsz", map);
-                System.out.println("Kész!");
-
+        if (args.length == 3) {
+            try {                              
+                new InitialDataTransform(args[0], args[1], args[2]).transform();               
             } catch (Exception e) {
                 System.err.println(">>> HIBA <<< :" + e.getLocalizedMessage());
                 e.printStackTrace();
                 throw e;
             }
         } else {
-            System.err.println("Hiányzó paraméterek az erőforrás generáláshoz!\nMegadott paraméterek száma:" + args.length);
+
+            throw new IllegalArgumentException("Rossz argumentum paraméterek az erőforrás generáláshoz!\nMegadott paraméterek száma:" + args.length);
+
         }
 
     }

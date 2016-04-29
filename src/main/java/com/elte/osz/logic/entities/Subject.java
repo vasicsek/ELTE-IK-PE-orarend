@@ -5,26 +5,29 @@ package com.elte.osz.logic.entities;
 //
 
 import com.elte.osz.logic.Department;
-import com.elte.osz.logic.dbhandler.AbstractEntity;
+import com.elte.osz.logic.dbhandler.BaseEntity;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import org.eclipse.persistence.annotations.Index;
+
 
 @Entity
-public class Subject extends AbstractEntity implements Serializable {
+public class Subject extends BaseEntity implements Serializable {
 
     @Column(nullable = false)
     @Basic
+    @Index
     private String code;
 
     @Column(nullable = false)
     @Basic
+    @Index
     private String name;
-
-    
+    @Index
     @Basic
     private byte semester;
 
@@ -34,42 +37,22 @@ public class Subject extends AbstractEntity implements Serializable {
     @Basic
     private byte hours_nightly;
 
+    @Index
     @Column(nullable = false)
-    @Basic
+    @Basic    
     @Enumerated(EnumType.STRING)
     private Department department;
 
+    
     @Basic
     private byte hours_presentation;
-
+    
+    @Index
     @Basic
     private String subjectType;
 
-    public Subject(){
-        super();
-    }
-    
-    public Subject(String name, String code) {
-       super();
-       this.code = code;
-       this.name = name;       
-    }
-    
-    public Subject(
-            String name, String code, int semester,
-            int hours_presentation, int hours_practical, int hours_nightly,
-            String subjectType, Department department
-    ){
-        super();
-        this.code = code;
-        this.name = name;
-        this.semester = (byte) semester;
-        this.hours_nightly = (byte) this.hours_nightly;
-        this.hours_presentation = (byte) this.hours_presentation;
-        this.hours_practical = (byte) this.hours_practical;
-        this.subjectType = subjectType;
-        this.department = department; 
-        
+    public Subject() {
+
     }
 
     public String getCode() {
@@ -88,28 +71,30 @@ public class Subject extends AbstractEntity implements Serializable {
         this.name = name;
     }
 
-    public int getSemester() {
+    public byte getSemester() {
         return this.semester;
     }
-
-    public void setSemester(int semester) {
+    public void setSemester(int semester){
         this.semester = (byte) semester;
     }
+    public void setSemester(byte semester) {
+        this.semester = semester;
+    }
 
-    public int getHours_practical() {
+    public byte getHours_practical() {
         return this.hours_practical;
     }
 
-    public void setHours_practical(int hours_practical) {
-        this.hours_practical = (byte) hours_practical;
+    public void setHours_practical(byte hours_practical) {
+        this.hours_practical = hours_practical;
     }
 
-    public int getHours_nightly() {
+    public byte getHours_nightly() {
         return this.hours_nightly;
     }
 
-    public void setHours_nightly( int hours_nightly) {
-        this.hours_nightly =  (byte) hours_nightly;
+    public void setHours_nightly(byte hours_nightly) {
+        this.hours_nightly = hours_nightly;
     }
 
     public Department getDepartment() {
@@ -120,12 +105,12 @@ public class Subject extends AbstractEntity implements Serializable {
         this.department = department;
     }
 
-    public int getHours_presentation() {
+    public byte getHours_presentation() {
         return this.hours_presentation;
     }
 
-    public void setHours_presentation(int hours_presentation) {
-        this.hours_presentation = (byte) hours_presentation;
+    public void setHours_presentation(byte hours_presentation) {
+        this.hours_presentation = hours_presentation;
     }
 
     public String getSubjectType() {
@@ -134,5 +119,9 @@ public class Subject extends AbstractEntity implements Serializable {
 
     public void setSubjectType(String subjectType) {
         this.subjectType = subjectType;
+    }
+      @Override
+    public String toString(){        
+        return this.name + "["+ code +"]";
     }
 }

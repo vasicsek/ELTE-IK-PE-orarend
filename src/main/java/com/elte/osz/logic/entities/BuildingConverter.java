@@ -18,14 +18,17 @@ public class BuildingConverter implements AttributeConverter<Building, String> {
 
     @Override
     public String convertToDatabaseColumn(Building attribute) {
+       // System.out.println(attribute.toString());
          return attribute.toString();
     }
 
     @Override
     public Building convertToEntityAttribute(String attribute) {
        for( Building b : Building.values() ){
-           if ( b.toString().equals(attribute) )
+           if ( b.toString().toLowerCase().equals(attribute.toLowerCase()) ){
+           //    System.err.println(b);
                return b;
+           }
        }
        
        throw new IllegalArgumentException("Unkown building in enumeration:"+attribute);

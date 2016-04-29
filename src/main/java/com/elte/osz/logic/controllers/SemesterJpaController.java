@@ -6,7 +6,7 @@
 package com.elte.osz.logic.controllers;
 
 import com.elte.osz.logic.controllers.exceptions.NonexistentEntityException;
-import com.elte.osz.logic.entities.TimetableHead;
+import com.elte.osz.logic.entities.Semester;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -18,9 +18,9 @@ import javax.persistence.EntityNotFoundException;
  *
  * @author Tóth Ákos
  */
-public class TimetableHeadJpaController implements Serializable {
+public class SemesterJpaController implements Serializable {
 
-    public TimetableHeadJpaController(EntityManagerFactory emf) {
+    public SemesterJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
@@ -29,12 +29,12 @@ public class TimetableHeadJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(TimetableHead timetableHead) {
+    public void create(Semester semester) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(timetableHead);
+            em.persist(semester);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -43,19 +43,19 @@ public class TimetableHeadJpaController implements Serializable {
         }
     }
 
-    public void edit(TimetableHead timetableHead) throws NonexistentEntityException, Exception {
+    public void edit(Semester semester) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            timetableHead = em.merge(timetableHead);
+            semester = em.merge(semester);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Long id = timetableHead.getId();
-                if (findTimetableHead(id) == null) {
-                    throw new NonexistentEntityException("The timetableHead with id " + id + " no longer exists.");
+                Long id = semester.getId();
+                if (findSemester(id) == null) {
+                    throw new NonexistentEntityException("The semester with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -71,14 +71,14 @@ public class TimetableHeadJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            TimetableHead timetableHead;
+            Semester semester;
             try {
-                timetableHead = em.getReference(TimetableHead.class, id);
-                timetableHead.getId();
+                semester = em.getReference(Semester.class, id);
+                semester.getId();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The timetableHead with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The semester with id " + id + " no longer exists.", enfe);
             }
-            em.remove(timetableHead);
+            em.remove(semester);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -87,18 +87,18 @@ public class TimetableHeadJpaController implements Serializable {
         }
     }
 
-    public List<TimetableHead> findTimetableHeadEntities() {
-        return findTimetableHeadEntities(true, -1, -1);
+    public List<Semester> findSemesterEntities() {
+        return findSemesterEntities(true, -1, -1);
     }
 
-    public List<TimetableHead> findTimetableHeadEntities(int maxResults, int firstResult) {
-        return findTimetableHeadEntities(false, maxResults, firstResult);
+    public List<Semester> findSemesterEntities(int maxResults, int firstResult) {
+        return findSemesterEntities(false, maxResults, firstResult);
     }
 
-    private List<TimetableHead> findTimetableHeadEntities(boolean all, int maxResults, int firstResult) {
+    private List<Semester> findSemesterEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("select object(o) from TimetableHead as o");
+            Query q = em.createQuery("select object(o) from Semester as o");
             if (!all) {
                 q.setMaxResults(maxResults);
                 q.setFirstResult(firstResult);
@@ -109,19 +109,19 @@ public class TimetableHeadJpaController implements Serializable {
         }
     }
 
-    public TimetableHead findTimetableHead(Long id) {
+    public Semester findSemester(Long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(TimetableHead.class, id);
+            return em.find(Semester.class, id);
         } finally {
             em.close();
         }
     }
 
-    public int getTimetableHeadCount() {
+    public int getSemesterCount() {
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("select count(o) from TimetableHead as o");
+            Query q = em.createQuery("select count(o) from Semester as o");
             return ((Long) q.getSingleResult()).intValue();
         } finally {
             em.close();

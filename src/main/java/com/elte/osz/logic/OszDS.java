@@ -2,22 +2,28 @@
 package com.elte.osz.logic;
 
 
+
 import com.elte.osz.logic.controllers.RoomJpaController;
+import com.elte.osz.logic.controllers.SemesterItemJpaController;
+import com.elte.osz.logic.controllers.SemesterJpaController;
 import com.elte.osz.logic.controllers.SubjectJpaController;
 import com.elte.osz.logic.controllers.TeacherJpaController;
-import com.elte.osz.logic.controllers.TimetableHeadJpaController;
-import com.elte.osz.logic.controllers.TimetableItemJpaController;
+import com.elte.osz.logic.controllers.TimetableJpaController;
 import com.elte.osz.logic.dbhandler.DataSource;
-import javax.persistence.Persistence;
 
 
 public class OszDS extends DataSource{
     
-    private RoomJpaController ctrlRoom;
-    private SubjectJpaController ctrlSubject;
-    private TeacherJpaController ctrlTeacher;
-    private TimetableHeadJpaController ctrlTimetableHead;
-    private TimetableItemJpaController ctrlTimetableItem;
+    private final RoomJpaController ctrlRoom;
+    private final SubjectJpaController ctrlSubject;
+    private final TeacherJpaController ctrlTeacher;
+    private final TimetableJpaController ctrlTimetable;
+    private final SemesterJpaController ctrlSemester;
+    private final SemesterItemJpaController ctrlSemesterItem;
+
+    public SemesterItemJpaController getCtrlSemesterItem() {
+        return ctrlSemesterItem;
+    }
 
     public RoomJpaController getCtrlRoom() {
         return ctrlRoom;
@@ -31,12 +37,12 @@ public class OszDS extends DataSource{
         return ctrlTeacher;
     }
 
-    public TimetableHeadJpaController getCtrlTimetableHead() {
-        return ctrlTimetableHead;
+    public TimetableJpaController getCtrlTimetable() {
+        return ctrlTimetable;
     }
 
-    public TimetableItemJpaController getCtrlTimetableItem() {
-        return ctrlTimetableItem;
+    public SemesterJpaController getCtrlSemester() {
+        return ctrlSemester;
     }
     
     
@@ -48,8 +54,9 @@ public class OszDS extends DataSource{
         ctrlRoom = new RoomJpaController(emf);
         ctrlSubject  = new SubjectJpaController(emf);
         ctrlTeacher = new TeacherJpaController(emf);
-        ctrlTimetableHead = new TimetableHeadJpaController(emf);
-        ctrlTimetableItem = new TimetableItemJpaController(emf);
+        ctrlTimetable= new TimetableJpaController(emf);
+        ctrlSemester = new SemesterJpaController(emf);
+        ctrlSemesterItem = new SemesterItemJpaController(emf);
     }
     
 }

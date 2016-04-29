@@ -5,7 +5,7 @@ package com.elte.osz.logic.entities;
 //
 
 import com.elte.osz.logic.Building;
-import com.elte.osz.logic.dbhandler.AbstractEntity;
+import com.elte.osz.logic.dbhandler.BaseEntity;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -13,11 +13,12 @@ import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.IdClass;
 
 @Entity
-public class Room extends AbstractEntity implements Serializable {
+public class Room extends BaseEntity implements Serializable {
 
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     @Basic
     private String name;
 
@@ -27,18 +28,11 @@ public class Room extends AbstractEntity implements Serializable {
 
     @Basic
     @Enumerated(EnumType.STRING)
-    @Convert(converter=BuildingConverter.class)
+    @Convert(converter = BuildingConverter.class)
     private Building building;
 
     public Room() {
-        super();
 
-    }
-    public Room(String name, int floor, Building building){
-        super();
-        this.name = name;
-        this.floor = (byte) floor;
-        this.building = building;
     }
 
     public String getName() {
@@ -49,10 +43,13 @@ public class Room extends AbstractEntity implements Serializable {
         this.name = name;
     }
 
-    public int getFloor() {
+    public byte getFloor() {
         return this.floor;
     }
 
+    public void setFloor(byte floor) {
+        this.floor = floor;
+    }
     public void setFloor(int floor) {
         this.floor = (byte)floor;
     }

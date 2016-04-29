@@ -11,9 +11,14 @@ import javax.persistence.Persistence;
 
 public class DataSource {
     protected EntityManagerFactory emf;
+
+    public EntityManagerFactory getEmf() {
+        return emf;
+    }
     
     public DataSource(String name){
         emf = Persistence.createEntityManagerFactory(name);
+        
     }
     public void close(){
         emf.close();
