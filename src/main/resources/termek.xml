@@ -1,0 +1,2622 @@
+<DATA>
+
+	<ROW>
+		<terem_azonosito>4</terem_azonosito>
+		<nev>0.83 Eötvös terem</nev>
+		<meret>165</meret>
+		<tipuskod>e</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>5</terem_azonosito>
+		<nev>0.89 Jedlik Ányos terem</nev>
+		<meret>90</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>8</terem_azonosito>
+		<nev>-1.62</nev>
+		<meret>70</meret>
+		<tipuskod>e</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>-1</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>9</terem_azonosito>
+		<nev>-1.63</nev>
+		<meret>50</meret>
+		<tipuskod>e</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>-1</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>10</terem_azonosito>
+		<nev>-1.64 Rybár István terem</nev>
+		<meret>70</meret>
+		<tipuskod>e</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>-1</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>11</terem_azonosito>
+		<nev>-1.75 Konferenciaterem</nev>
+		<meret>342</meret>
+		<tipuskod>e</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>-1</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>12</terem_azonosito>
+		<nev>0.79 Jánossy Lajos terem</nev>
+		<meret>96</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>13</terem_azonosito>
+		<nev>0.81 Ortvay terem</nev>
+		<meret>120</meret>
+		<tipuskod>e</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>14</terem_azonosito>
+		<nev>0.87 Marx terem</nev>
+		<meret>90</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>15</terem_azonosito>
+		<nev>1.71 Pócza Jenõ terem</nev>
+		<meret>100</meret>
+		<tipuskod>e</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>1</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>16</terem_azonosito>
+		<nev>2.54 Novobátzky Károly terem</nev>
+		<meret>50</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>2</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>17</terem_azonosito>
+		<nev>3.67 Békésy György</nev>
+		<meret>50</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>3</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>18</terem_azonosito>
+		<nev>4.52 (4.92) Sas Elemér terem</nev>
+		<meret>20</meret>
+		<tipuskod>z</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>4</emelet>
+		<kezelokod>17</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>19</terem_azonosito>
+		<nev>7.59</nev>
+		<meret>45</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>7</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>21</terem_azonosito>
+		<nev>7.14</nev>
+		<meret>70</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>7</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>22</terem_azonosito>
+		<nev>2.104</nev>
+		<meret>16</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>2</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>23</terem_azonosito>
+		<nev>2.105</nev>
+		<meret>14</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>2</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>24</terem_azonosito>
+		<nev>6.85</nev>
+		<meret>16</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>26</terem_azonosito>
+		<nev>3.114</nev>
+		<meret>0</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>3</emelet>
+		<kezelokod>TA</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>27</terem_azonosito>
+		<nev>4.51</nev>
+		<meret>18</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>4</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>28</terem_azonosito>
+		<nev>5.55</nev>
+		<meret>20</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>5</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>29</terem_azonosito>
+		<nev>5.86</nev>
+		<meret>12</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>5</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>30</terem_azonosito>
+		<nev>5.89</nev>
+		<meret>16</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>5</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>31</terem_azonosito>
+		<nev>6.101</nev>
+		<meret>16</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>32</terem_azonosito>
+		<nev>6.102</nev>
+		<meret>16</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>33</terem_azonosito>
+		<nev>7.85</nev>
+		<meret>18</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>7</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>40</terem_azonosito>
+		<nev>065 Than Károly terem</nev>
+		<meret>140</meret>
+		<tipuskod>e</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>41</terem_azonosito>
+		<nev>063 Bruckner terem</nev>
+		<meret>107</meret>
+		<tipuskod>e</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>42</terem_azonosito>
+		<nev>062 Gróh terem</nev>
+		<meret>107</meret>
+		<tipuskod>e</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>43</terem_azonosito>
+		<nev>058 Ruff terem</nev>
+		<meret>26</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>44</terem_azonosito>
+		<nev>059</nev>
+		<meret>26</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>45</terem_azonosito>
+		<nev>060 Kajtár terem</nev>
+		<meret>24</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>46</terem_azonosito>
+		<nev>158</nev>
+		<meret>24</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>1</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>47</terem_azonosito>
+		<nev>534</nev>
+		<meret>20</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>5</emelet>
+		<kezelokod>KE</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>48</terem_azonosito>
+		<nev>160</nev>
+		<meret>54</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>1</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>49</terem_azonosito>
+		<nev>115 (hajóorr)</nev>
+		<meret>20</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>1</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>52</terem_azonosito>
+		<nev>207</nev>
+		<meret>16</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>2</emelet>
+		<kezelokod>51</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>53</terem_azonosito>
+		<nev>205</nev>
+		<meret>12</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>2</emelet>
+		<kezelokod>51</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>59</terem_azonosito>
+		<nev>2.77</nev>
+		<meret>20</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>2</emelet>
+		<kezelokod>34</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>62</terem_azonosito>
+		<nev>AV labor</nev>
+		<meret>30</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>7</emelet>
+		<kezelokod>65</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>66</terem_azonosito>
+		<nev>00-708 Sztrókay terem (Ásványtan - zárt terem)</nev>
+		<meret>10</meret>
+		<tipuskod>z</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>-1</emelet>
+		<kezelokod>20</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>67</terem_azonosito>
+		<nev>00-410</nev>
+		<meret>21</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>-1</emelet>
+		<kezelokod>ID</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>68</terem_azonosito>
+		<nev>00-411 (PC 7)</nev>
+		<meret>20</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>-1</emelet>
+		<kezelokod>IN</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>69</terem_azonosito>
+		<nev>1-817</nev>
+		<meret>25</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>1</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>71</terem_azonosito>
+		<nev>00-112</nev>
+		<meret>21</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>-1</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>72</terem_azonosito>
+		<nev>00-113</nev>
+		<meret>21</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>-1</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>73</terem_azonosito>
+		<nev>00-114</nev>
+		<meret>21</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>-1</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>74</terem_azonosito>
+		<nev>00-115</nev>
+		<meret>21</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>-1</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>76</terem_azonosito>
+		<nev>0-221</nev>
+		<meret>21</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>77</terem_azonosito>
+		<nev>0-222</nev>
+		<meret>21</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>81</terem_azonosito>
+		<nev>0-411</nev>
+		<meret>21</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>82</terem_azonosito>
+		<nev>0-412 Rényi Alfréd terem</nev>
+		<meret>21</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>83</terem_azonosito>
+		<nev>0-825 Farkas Gyula terem</nev>
+		<meret>21</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>84</terem_azonosito>
+		<nev>0-826</nev>
+		<meret>21</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>86</terem_azonosito>
+		<nev>0-827</nev>
+		<meret>17</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>87</terem_azonosito>
+		<nev>1-404</nev>
+		<meret>6</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>1</emelet>
+		<kezelokod>53</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>88</terem_azonosito>
+		<nev>1-106 Cholnoky Jeno terem</nev>
+		<meret>21</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>1</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>92</terem_azonosito>
+		<nev>3-719 Alk. Analízis tanszék (zárt !!!)</nev>
+		<meret>15</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>3</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>93</terem_azonosito>
+		<nev>3-306 Analízis tanszék (16 után zárt)</nev>
+		<meret>21</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>3</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>94</terem_azonosito>
+		<nev>3-715</nev>
+		<meret>18</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>3</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>95</terem_azonosito>
+		<nev>3-607 Számítógéptud. (16 után zárt)</nev>
+		<meret>15</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>3</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>96</terem_azonosito>
+		<nev>3-316 Valószín.és Stat. tanszék (16 után zárt)</nev>
+		<meret>18</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>3</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>97</terem_azonosito>
+		<nev>4-228 Embertani szemináriumi szoba</nev>
+		<meret>4</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>4</emelet>
+		<kezelokod>73</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>98</terem_azonosito>
+		<nev>4-713 (16 után zárt)</nev>
+		<meret>21</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>4</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>99</terem_azonosito>
+		<nev>7-423</nev>
+		<meret>7</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>7</emelet>
+		<kezelokod>AH</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>101</terem_azonosito>
+		<nev>4-710 Rajzterem - Geometriai tanszék</nev>
+		<meret>18</meret>
+		<tipuskod>z</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>4</emelet>
+		<kezelokod>31</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>102</terem_azonosito>
+		<nev>00-524 Mauritz Béla terem (koz.tsz. zárt terem)</nev>
+		<meret>42</meret>
+		<tipuskod>e</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>-1</emelet>
+		<kezelokod>GE</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>103</terem_azonosito>
+		<nev>0-803 Szabó József eloadó</nev>
+		<meret>132</meret>
+		<tipuskod>e</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>104</terem_azonosito>
+		<nev>0-804 Lóczy Lajos terem</nev>
+		<meret>132</meret>
+		<tipuskod>e</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>105</terem_azonosito>
+		<nev>0-805 Fejér Lipót terem</nev>
+		<meret>132</meret>
+		<tipuskod>e</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>106</terem_azonosito>
+		<nev>0-817 Dudich Endre terem (k)</nev>
+		<meret>50</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>107</terem_azonosito>
+		<nev>0-818 Soó Rezso terem (k)</nev>
+		<meret>50</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>108</terem_azonosito>
+		<nev>0-820 Hunfalvy János terem</nev>
+		<meret>50</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>109</terem_azonosito>
+		<nev>0-821 Bolyai János terem</nev>
+		<meret>352</meret>
+		<tipuskod>e</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>110</terem_azonosito>
+		<nev>0-822 Mogyoródi József terem</nev>
+		<meret>200</meret>
+		<tipuskod>e</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>111</terem_azonosito>
+		<nev>0-823 Kitaibel Pál terem</nev>
+		<meret>200</meret>
+		<tipuskod>e</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>112</terem_azonosito>
+		<nev>0-220 Kárteszi Ferenc terem</nev>
+		<meret>30</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>113</terem_azonosito>
+		<nev>0-311 Konig terem</nev>
+		<meret>30</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>114</terem_azonosito>
+		<nev>0-312 Gallai Tibor terem</nev>
+		<meret>30</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>115</terem_azonosito>
+		<nev>00-718 Erdos Pál terem (6-21 nyitva)</nev>
+		<meret>35</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>-1</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>116</terem_azonosito>
+		<nev>1-819 Riesz Frigyes terem</nev>
+		<meret>50</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>1</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>117</terem_azonosito>
+		<nev>1-820 Hajós György terem</nev>
+		<meret>50</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>1</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>118</terem_azonosito>
+		<nev>7-411</nev>
+		<meret>49</meret>
+		<tipuskod>q</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>7</emelet>
+		<kezelokod>BI</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>119</terem_azonosito>
+		<nev>7-424 (BTCS Számítógépes labor)</nev>
+		<meret>33</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>7</emelet>
+		<kezelokod>BI</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>154</terem_azonosito>
+		<nev>7.86</nev>
+		<meret>18</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>7</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>155</terem_azonosito>
+		<nev>6.86</nev>
+		<meret>20</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>156</terem_azonosito>
+		<nev>6.53</nev>
+		<meret>14</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>157</terem_azonosito>
+		<nev>6.88 Detre László terem</nev>
+		<meret>12</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>159</terem_azonosito>
+		<nev>6.87</nev>
+		<meret>12</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>175</terem_azonosito>
+		<nev>4-428 Paál Árpád terem</nev>
+		<meret>12</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>4</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>176</terem_azonosito>
+		<nev>4-429 Farkas Gábor terem</nev>
+		<meret>12</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>4</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>178</terem_azonosito>
+		<nev>5-205 TFK Biológia tanszéki Tanácsterem</nev>
+		<meret>15</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>5</emelet>
+		<kezelokod>99</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>179</terem_azonosito>
+		<nev>5-501</nev>
+		<meret>21</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>5</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>180</terem_azonosito>
+		<nev>6-106 Élettani gyakorló II.</nev>
+		<meret>16</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>OE</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>181</terem_azonosito>
+		<nev>7-102 Juhász-Nagy Pál terem</nev>
+		<meret>24</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>7</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>182</terem_azonosito>
+		<nev>7-103 Andreanszky Gábor terem</nev>
+		<meret>24</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>7</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>183</terem_azonosito>
+		<nev>1-110 Mendöl Tibor terem</nev>
+		<meret>24</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>1</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>184</terem_azonosito>
+		<nev>1-105 Sárfalvi Béla terem</nev>
+		<meret>40</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>1</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>185</terem_azonosito>
+		<nev>2-107 (PC2) - Macintosh</nev>
+		<meret>20</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>2</emelet>
+		<kezelokod>IN</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>186</terem_azonosito>
+		<nev>00-623</nev>
+		<meret>41</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>-1</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>187</terem_azonosito>
+		<nev>3-219 Turán Pál terem</nev>
+		<meret>30</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>3</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>188</terem_azonosito>
+		<nev>4-206 Sárkány Sándor terem</nev>
+		<meret>24</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>4</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>189</terem_azonosito>
+		<nev>5-202</nev>
+		<meret>30</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>5</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>190</terem_azonosito>
+		<nev>6-218 Etológia szemináriumi szoba</nev>
+		<meret>16</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>70</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>191</terem_azonosito>
+		<nev>6-104 id. Entz Géza terem</nev>
+		<meret>25</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>BI</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>192</terem_azonosito>
+		<nev>7-206 Egyed László terem</nev>
+		<meret>30</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>7</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>193</terem_azonosito>
+		<nev>1-225 Bulla Béla terem (FFI-TF zárt)</nev>
+		<meret>21</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>1</emelet>
+		<kezelokod>55</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>194</terem_azonosito>
+		<nev>2-502</nev>
+		<meret>62</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>2</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>195</terem_azonosito>
+		<nev>2-712</nev>
+		<meret>70</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>2</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>197</terem_azonosito>
+		<nev>6.100 Szebehely Gyõzõ terem</nev>
+		<meret>14</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>198</terem_azonosito>
+		<nev>6.129 Meteorológia tsz. labor</nev>
+		<meret>20</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>41</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>199</terem_azonosito>
+		<nev>Fiz.kém tsz. labor (101;102;134-140)</nev>
+		<meret>50</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>1</emelet>
+		<kezelokod>28</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>200</terem_azonosito>
+		<nev>Magkémiai Laboratórium</nev>
+		<meret>50</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>1</emelet>
+		<kezelokod>39</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>201</terem_azonosito>
+		<nev>2-219 (Grafika labor)</nev>
+		<meret>25</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>2</emelet>
+		<kezelokod>IN</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>203</terem_azonosito>
+		<nev>00-412 (PC 6)</nev>
+		<meret>20</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>-1</emelet>
+		<kezelokod>IN</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>204</terem_azonosito>
+		<nev>2-202 (PC3)</nev>
+		<meret>30</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>2</emelet>
+		<kezelokod>IN</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>205</terem_azonosito>
+		<nev>2.63 (PC 8)</nev>
+		<meret>20</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>2</emelet>
+		<kezelokod>IN</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>206</terem_azonosito>
+		<nev>2-218 (komp. alg.)</nev>
+		<meret>20</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>2</emelet>
+		<kezelokod>IN</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>207</terem_azonosito>
+		<nev>2-709 (PC 9)</nev>
+		<meret>20</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>2</emelet>
+		<kezelokod>IN</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>208</terem_azonosito>
+		<nev>2-315 (PC4)</nev>
+		<meret>20</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>2</emelet>
+		<kezelokod>IN</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>209</terem_azonosito>
+		<nev>2-520 (Mesterséges Intelligencia labor)</nev>
+		<meret>20</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>2</emelet>
+		<kezelokod>IN</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>210</terem_azonosito>
+		<nev>0-206 Hantken Miksa - hallgatói labor</nev>
+		<meret>15</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>5</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>211</terem_azonosito>
+		<nev>00-807 Adatbázis labor</nev>
+		<meret>64</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>-1</emelet>
+		<kezelokod>IN</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>212</terem_azonosito>
+		<nev>00-803 Programozási Nyelvi labor</nev>
+		<meret>64</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>-1</emelet>
+		<kezelokod>IN</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>216</terem_azonosito>
+		<nev>2-402 (Multimédiás labor)</nev>
+		<meret>10</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>2</emelet>
+		<kezelokod>02</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>217</terem_azonosito>
+		<nev>5.138. Klasszikus fizikai labor</nev>
+		<meret>25</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>5</emelet>
+		<kezelokod>52</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>219</terem_azonosito>
+		<nev>IK Tanácsterem</nev>
+		<meret>30</meret>
+		<tipuskod>q</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>2</emelet>
+		<kezelokod>IN</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>221</terem_azonosito>
+		<nev>Ált. fizika laborok</nev>
+		<meret>25</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>4</emelet>
+		<kezelokod>17</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>222</terem_azonosito>
+		<nev>modern fizikai laborok (virt.)</nev>
+		<meret>20</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>FI</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>225</terem_azonosito>
+		<nev>1-108 Koch Antal terem</nev>
+		<meret>30</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>1</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>226</terem_azonosito>
+		<nev>6-107 Élettani gyakorló I.</nev>
+		<meret>24</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>OE</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>228</terem_azonosito>
+		<nev>7-104 Állatrendsz.  lab. - Loksa terem (zárt)</nev>
+		<meret>20</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>7</emelet>
+		<kezelokod>13</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>229</terem_azonosito>
+		<nev>6-103 Állatszervezettani anatómiai labor I.</nev>
+		<meret>20</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>14</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>230</terem_azonosito>
+		<nev>6-502 Állatszervezettani szövettani labor</nev>
+		<meret>18</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>14</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>231</terem_azonosito>
+		<nev>7-426/a Állatszervezettani anatómiai labor II.</nev>
+		<meret>20</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>7</emelet>
+		<kezelokod>14</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>232</terem_azonosito>
+		<nev>5-106 Biokémia laboratórium</nev>
+		<meret>16</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>5</emelet>
+		<kezelokod>23</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>233</terem_azonosito>
+		<nev>5-108 Biokémia laboratórium</nev>
+		<meret>18</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>5</emelet>
+		<kezelokod>22</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>234</terem_azonosito>
+		<nev>7-110 Biológia szakmódsz. csop. szem. szoba</nev>
+		<meret>16</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>7</emelet>
+		<kezelokod>74</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>235</terem_azonosito>
+		<nev>7-219 Biológia szakmódsz. csop. labor</nev>
+		<meret>24</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>7</emelet>
+		<kezelokod>74</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>236</terem_azonosito>
+		<nev>6-207 Etológia laboratórium</nev>
+		<meret>6</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>70</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>237</terem_azonosito>
+		<nev>5-102 Genetika gyakorló</nev>
+		<meret>20</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>5</emelet>
+		<kezelokod>30</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>238</terem_azonosito>
+		<nev>5-103 Immunológia szövettenyészto labor</nev>
+		<meret>5</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>5</emelet>
+		<kezelokod>71</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>239</terem_azonosito>
+		<nev>5-104 Immunológia gyakorló</nev>
+		<meret>20</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>5</emelet>
+		<kezelokod>71</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>240</terem_azonosito>
+		<nev>6-730 Mikrobiol. gyakorló - Bánhegyi József terem</nev>
+		<meret>20</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>72</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>241</terem_azonosito>
+		<nev>4-110 Növényélettani laboratórium</nev>
+		<meret>18</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>4</emelet>
+		<kezelokod>42</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>242</terem_azonosito>
+		<nev>4-108 Növényélettani laboratórium</nev>
+		<meret>12</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>4</emelet>
+		<kezelokod>42</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>243</terem_azonosito>
+		<nev>7-501 Növényrendszertani laboratórium</nev>
+		<meret>25</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>7</emelet>
+		<kezelokod>43</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>244</terem_azonosito>
+		<nev>4-104 Növényszervezettani laboratórium</nev>
+		<meret>24</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>4</emelet>
+		<kezelokod>44</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>245</terem_azonosito>
+		<nev>4-502 Növényszervezettan labor II.</nev>
+		<meret>20</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>4</emelet>
+		<kezelokod>44</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>247</terem_azonosito>
+		<nev>00-504 Geokémiai szeminárium (zárt terem)</nev>
+		<meret>18</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>-1</emelet>
+		<kezelokod>68</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>248</terem_azonosito>
+		<nev>0-501 Kozettani gyakorló</nev>
+		<meret>12</meret>
+		<tipuskod>z</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>68</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>249</terem_azonosito>
+		<nev>00-705 Ásványtani optikai gyakorló</nev>
+		<meret>10</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>-1</emelet>
+		<kezelokod>20</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>250</terem_azonosito>
+		<nev>00-620 Ásványhatározási laboratórium</nev>
+		<meret>12</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>-1</emelet>
+		<kezelokod>20</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>252</terem_azonosito>
+		<nev>Fiz.kém. tsz. 2. labor (101;102;134-140)</nev>
+		<meret>50</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>1</emelet>
+		<kezelokod>28</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>253</terem_azonosito>
+		<nev>4.110</nev>
+		<meret>24</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>4</emelet>
+		<kezelokod>FI</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>254</terem_azonosito>
+		<nev>1-313 Földrajz számítástechnikai labor</nev>
+		<meret>20</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>1</emelet>
+		<kezelokod>FO</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>258</terem_azonosito>
+		<nev>4.97 (Szerves Kém. Lab.)</nev>
+		<meret>50</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>4</emelet>
+		<kezelokod>50</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>259</terem_azonosito>
+		<nev>7-309 Geofizikai laboratórium</nev>
+		<meret>20</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>7</emelet>
+		<kezelokod>67</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>267</terem_azonosito>
+		<nev>Fiz.kém. tsz.spec. labor (134;135;138;140;119;107)</nev>
+		<meret>30</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>1</emelet>
+		<kezelokod>28</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>268</terem_azonosito>
+		<nev>Szerves Kémia labor II. (tanári-volt TFK)</nev>
+		<meret>16</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>4</emelet>
+		<kezelokod>50</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>269</terem_azonosito>
+		<nev>0-408 TFK mat. módsz. gyüjtemény</nev>
+		<meret>6</meret>
+		<tipuskod>z</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>T7</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>270</terem_azonosito>
+		<nev>0-409</nev>
+		<meret>21</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>271</terem_azonosito>
+		<nev>Fiz. kém. tsz. labor (gyógyszerész)</nev>
+		<meret>30</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>2</emelet>
+		<kezelokod>28</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>272</terem_azonosito>
+		<nev>Magkémia kutató labor</nev>
+		<meret>20</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>39</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>273</terem_azonosito>
+		<nev>Kémiai tech.labor(502;504;506-508;510-513;515-516)</nev>
+		<meret>20</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>35</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>274</terem_azonosito>
+		<nev>Kolloidika labor</nev>
+		<meret>20</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>36</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>275</terem_azonosito>
+		<nev>Kis lovarda</nev>
+		<meret>30</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>IN</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>277</terem_azonosito>
+		<nev>5.56 - Információtechnológiai laboratórium</nev>
+		<meret>20</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>5</emelet>
+		<kezelokod>34</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>278</terem_azonosito>
+		<nev>416-os labor</nev>
+		<meret>20</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>4</emelet>
+		<kezelokod>50</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>279</terem_azonosito>
+		<nev>109-114 laborok</nev>
+		<meret>25</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>1</emelet>
+		<kezelokod>51</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>282</terem_azonosito>
+		<nev>4.76 Fizikai demonstációs laboratórium</nev>
+		<meret>20</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>4</emelet>
+		<kezelokod>17</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>283</terem_azonosito>
+		<nev>6.118 Csillagászati Tsz. számítógépes labor</nev>
+		<meret>20</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>24</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>284</terem_azonosito>
+		<nev>2-124 (Microsoft Labor)</nev>
+		<meret>20</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>2</emelet>
+		<kezelokod>IN</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>286</terem_azonosito>
+		<nev>7.87</nev>
+		<meret>15</meret>
+		<tipuskod>z</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>7</emelet>
+		<kezelokod>54</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>287</terem_azonosito>
+		<nev>7.57</nev>
+		<meret>12</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>7</emelet>
+		<kezelokod>54</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>291</terem_azonosito>
+		<nev>2.113 (Gyógyszerész labor)</nev>
+		<meret>10</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>2</emelet>
+		<kezelokod>15</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>292</terem_azonosito>
+		<nev>UNIX gépterem</nev>
+		<meret>30</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>3</emelet>
+		<kezelokod>M3</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>293</terem_azonosito>
+		<nev>5.81</nev>
+		<meret>20</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>5</emelet>
+		<kezelokod>34</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>350</terem_azonosito>
+		<nev>1-401 Földrajz pc labor</nev>
+		<meret>20</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>1</emelet>
+		<kezelokod>FO</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>352</terem_azonosito>
+		<nev>Botanikus kert</nev>
+		<meret>30</meret>
+		<tipuskod>e</tipuskod>
+		<epuletkod>bot</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>366</terem_azonosito>
+		<nev>039 - NMR laboratórium</nev>
+		<meret>10</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>15</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>367</terem_azonosito>
+		<nev>6-108 (nem osztható)</nev>
+		<meret>10</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>25</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>369</terem_azonosito>
+		<nev>3-517</nev>
+		<meret>20</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>3</emelet>
+		<kezelokod>46</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>370</terem_azonosito>
+		<nev>3-204 (csak kérésre osztható)</nev>
+		<meret>10</meret>
+		<tipuskod>d</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>3</emelet>
+		<kezelokod>10</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>371</terem_azonosito>
+		<nev>318</nev>
+		<meret>12</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>3</emelet>
+		<kezelokod>T2</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>372</terem_azonosito>
+		<nev>7-412 Bioinformatikai terem</nev>
+		<meret>25</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>7</emelet>
+		<kezelokod>14</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>373</terem_azonosito>
+		<nev>3.124</nev>
+		<meret>10</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>3</emelet>
+		<kezelokod>28</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>374</terem_azonosito>
+		<nev>7.55</nev>
+		<meret>24</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>7</emelet>
+		<kezelokod>54</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>375</terem_azonosito>
+		<nev>1-513 Szeizmikus labor</nev>
+		<meret>20</meret>
+		<tipuskod>z</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>67</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>376</terem_azonosito>
+		<nev>7.33</nev>
+		<meret>16</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>7</emelet>
+		<kezelokod>65</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>377</terem_azonosito>
+		<nev>7.13 Sulinet labor</nev>
+		<meret>16</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>7</emelet>
+		<kezelokod>65</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>397</terem_azonosito>
+		<nev>6.107</nev>
+		<meret>16</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>15</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>423</terem_azonosito>
+		<nev>0-215 (tanszékvezetõi szoba)</nev>
+		<meret>20</meret>
+		<tipuskod>d</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>5</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>424</terem_azonosito>
+		<nev>7.54</nev>
+		<meret>20</meret>
+		<tipuskod>d</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>7</emelet>
+		<kezelokod>54</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>463</terem_azonosito>
+		<nev>2-107/2 (PC2/2)</nev>
+		<meret>0</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>2</emelet>
+		<kezelokod>IN</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>464</terem_azonosito>
+		<nev>00-803/2 Programozási Nyelvi Labor/2</nev>
+		<meret>0</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>-1</emelet>
+		<kezelokod>IN</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>465</terem_azonosito>
+		<nev>1-417 Földrajz pc labor II.</nev>
+		<meret>15</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>1</emelet>
+		<kezelokod>FO</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>466</terem_azonosito>
+		<nev>2.126 Buzágh-labor</nev>
+		<meret>18</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>2</emelet>
+		<kezelokod>36</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>469</terem_azonosito>
+		<nev>Kém.tech.labor 2.(502;504;506-508;510-513;515-516)</nev>
+		<meret>20</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>5</emelet>
+		<kezelokod>35</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>473</terem_azonosito>
+		<nev>3-105 Grafika labor</nev>
+		<meret>20</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>3</emelet>
+		<kezelokod>M3</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>475</terem_azonosito>
+		<nev>00-66b (IK HÖK Iroda)</nev>
+		<meret>20</meret>
+		<tipuskod>q</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>-1</emelet>
+		<kezelokod>IH</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>476</terem_azonosito>
+		<nev>3-110</nev>
+		<meret>21</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>3</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>477</terem_azonosito>
+		<nev>5.129</nev>
+		<meret>20</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>5</emelet>
+		<kezelokod>52</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>479</terem_azonosito>
+		<nev>00-803/3 Programozási Nyelvi Labor/3</nev>
+		<meret>0</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>-1</emelet>
+		<kezelokod>IN</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>480</terem_azonosito>
+		<nev>00-803/4 Programozási Nyelvi Labor/4</nev>
+		<meret>0</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>-1</emelet>
+		<kezelokod>IN</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>483</terem_azonosito>
+		<nev>6.104 Optikai és Számítástechnikai labor</nev>
+		<meret>13</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>24</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>484</terem_azonosito>
+		<nev>3-107 UNIX labor</nev>
+		<meret>20</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>3</emelet>
+		<kezelokod>M3</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>485</terem_azonosito>
+		<nev>5.84 - Információtechnológiai Lab.</nev>
+		<meret>12</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>5</emelet>
+		<kezelokod>34</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>486</terem_azonosito>
+		<nev>3-516 (megszûnt)</nev>
+		<meret>14</meret>
+		<tipuskod>q</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>3</emelet>
+		<kezelokod>M3</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>487</terem_azonosito>
+		<nev>-1.85 Harmónia terem</nev>
+		<meret>300</meret>
+		<tipuskod>e</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>-1</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>488</terem_azonosito>
+		<nev>-1.52 ???</nev>
+		<meret>18</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>-1</emelet>
+		<kezelokod>TH</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>489</terem_azonosito>
+		<nev>0.99</nev>
+		<meret>64</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>490</terem_azonosito>
+		<nev>0.100A</nev>
+		<meret>64</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>491</terem_azonosito>
+		<nev>0.100B Cseh-Szombathy</nev>
+		<meret>60</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>492</terem_azonosito>
+		<nev>0.100C</nev>
+		<meret>30</meret>
+		<tipuskod>q</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>TA</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>493</terem_azonosito>
+		<nev>0.100D</nev>
+		<meret>24</meret>
+		<tipuskod>q</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>TA</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>494</terem_azonosito>
+		<nev>3.113</nev>
+		<meret>0</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>3</emelet>
+		<kezelokod>TA</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>495</terem_azonosito>
+		<nev>4.95</nev>
+		<meret>65</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>4</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>497</terem_azonosito>
+		<nev>210 (hajóorr)</nev>
+		<meret>26</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>2</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>498</terem_azonosito>
+		<nev>317 (hajóorr)</nev>
+		<meret>26</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>3</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>499</terem_azonosito>
+		<nev>415 (hajóorr)</nev>
+		<meret>20</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>4</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>500</terem_azonosito>
+		<nev>7.102</nev>
+		<meret>20</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>7</emelet>
+		<kezelokod>TH</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>501</terem_azonosito>
+		<nev>-1.54</nev>
+		<meret>20</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>-1</emelet>
+		<kezelokod>XX</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>502</terem_azonosito>
+		<nev>Fiz. kém. tsz. 3. labor (101;102;134-140)</nev>
+		<meret>50</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>1</emelet>
+		<kezelokod>28</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>503</terem_azonosito>
+		<nev>6.80 Nemeskéri</nev>
+		<meret>20</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>SZ</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>505</terem_azonosito>
+		<nev>3.126 (Gyógyszerész labor)</nev>
+		<meret>20</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>3</emelet>
+		<kezelokod>15</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>506</terem_azonosito>
+		<nev>1-511</nev>
+		<meret>20</meret>
+		<tipuskod>d</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>1</emelet>
+		<kezelokod>16</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>507</terem_azonosito>
+		<nev>1-523 Kõzetgyakorló laboratórium</nev>
+		<meret>20</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>1</emelet>
+		<kezelokod>16</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>508</terem_azonosito>
+		<nev>-1.53</nev>
+		<meret>20</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>-1</emelet>
+		<kezelokod>SZ</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>509</terem_azonosito>
+		<nev>2-710 (PC 1)</nev>
+		<meret>20</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>2</emelet>
+		<kezelokod>IN</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>510</terem_azonosito>
+		<nev>2-108 (PC5)</nev>
+		<meret>20</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>2</emelet>
+		<kezelokod>IN</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>511</terem_azonosito>
+		<nev>-1.23/A</nev>
+		<meret>20</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>-1</emelet>
+		<kezelokod>ID</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>512</terem_azonosito>
+		<nev>3-716</nev>
+		<meret>21</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>3</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>513</terem_azonosito>
+		<nev>4-202</nev>
+		<meret>21</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>4</emelet>
+		<kezelokod>KK</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>514</terem_azonosito>
+		<nev>6-203 Friedmann Imre terem</nev>
+		<meret>12</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>72</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>520</terem_azonosito>
+		<nev>7-207</nev>
+		<meret>20</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>7</emelet>
+		<kezelokod>67</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>521</terem_azonosito>
+		<nev>6.121</nev>
+		<meret>20</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>24</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>522</terem_azonosito>
+		<nev>202 (módszertan)</nev>
+		<meret>20</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>2</emelet>
+		<kezelokod>51</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>523</terem_azonosito>
+		<nev>6-102 (csak elõkészítõ)</nev>
+		<meret>0</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>14</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>524</terem_azonosito>
+		<nev>4.70 Ált. Fiz. Tsz. Tanácsterme</nev>
+		<meret>12</meret>
+		<tipuskod>q</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>4</emelet>
+		<kezelokod>17</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>525</terem_azonosito>
+		<nev>7.15 MsLabor</nev>
+		<meret>0</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>7</emelet>
+		<kezelokod>65</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>526</terem_azonosito>
+		<nev>603</nev>
+		<meret>14</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>KE</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>527</terem_azonosito>
+		<nev>609</nev>
+		<meret>14</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>KE</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>528</terem_azonosito>
+		<nev>610</nev>
+		<meret>14</meret>
+		<tipuskod>a</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>KE</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>529</terem_azonosito>
+		<nev>611</nev>
+		<meret>20</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>KE</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>530</terem_azonosito>
+		<nev>00-725</nev>
+		<meret>20</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>-1</emelet>
+		<kezelokod>12</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>531</terem_azonosito>
+		<nev>601</nev>
+		<meret>14</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>KE</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>532</terem_azonosito>
+		<nev>602</nev>
+		<meret>14</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>KE</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>533</terem_azonosito>
+		<nev>4.113 labor</nev>
+		<meret>16</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>4</emelet>
+		<kezelokod>17</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>534</terem_azonosito>
+		<nev>4.99</nev>
+		<meret>20</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>4</emelet>
+		<kezelokod>50</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>535</terem_azonosito>
+		<nev>5.87 - Elektronikai laboratórium</nev>
+		<meret>20</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>5</emelet>
+		<kezelokod>37</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>536</terem_azonosito>
+		<nev>6.79 (SPSS-labor)</nev>
+		<meret>20</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>SZ</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>537</terem_azonosito>
+		<nev>334 (349)</nev>
+		<meret>30</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aae</epuletkod>
+		<emelet>3</emelet>
+		<kezelokod>12</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>538</terem_azonosito>
+		<nev>7-209 (Geofizika Tsz. szmítógép terem)</nev>
+		<meret>20</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>7</emelet>
+		<kezelokod>67</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>539</terem_azonosito>
+		<nev>2.133 Kármán labor</nev>
+		<meret>12</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>2</emelet>
+		<kezelokod>37</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>540</terem_azonosito>
+		<nev>6.105</nev>
+		<meret>8</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>15</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>541</terem_azonosito>
+		<nev>7.28</nev>
+		<meret>0</meret>
+		<tipuskod>z</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>7</emelet>
+		<kezelokod>65</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>542</terem_azonosito>
+		<nev>1-207</nev>
+		<meret>0</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>1</emelet>
+		<kezelokod>FO</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>544</terem_azonosito>
+		<nev>Gömb aula</nev>
+		<meret>300</meret>
+		<tipuskod>e</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>0</emelet>
+		<kezelokod>K2</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>545</terem_azonosito>
+		<nev>7.25</nev>
+		<meret>10</meret>
+		<tipuskod>z</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>7</emelet>
+		<kezelokod>TU</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>546</terem_azonosito>
+		<nev>6.132 Meteorológiai szgépes labor</nev>
+		<meret>15</meret>
+		<tipuskod>l</tipuskod>
+		<epuletkod>aaa</epuletkod>
+		<emelet>6</emelet>
+		<kezelokod>41</kezelokod>
+	</ROW>
+
+	<ROW>
+		<terem_azonosito>547</terem_azonosito>
+		<nev>2-315</nev>
+		<meret>20</meret>
+		<tipuskod>p</tipuskod>
+		<epuletkod>aaf</epuletkod>
+		<emelet>2</emelet>
+		<kezelokod>IN</kezelokod>
+	</ROW>
+</DATA>

@@ -6,7 +6,7 @@
 package com.elte.osz.logic.controllers;
 
 import com.elte.osz.logic.controllers.exceptions.NonexistentEntityException;
-import com.elte.osz.logic.entities.Syllabus;
+import com.elte.osz.logic.entities.Teacher;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -16,11 +16,11 @@ import javax.persistence.EntityNotFoundException;
 
 /**
  *
- * @author toarabi
+ * @author Tóth Ákos
  */
-public class SyllabusJpaController implements Serializable {
+public class TeacherJpaController implements Serializable {
 
-    public SyllabusJpaController(EntityManagerFactory emf) {
+    public TeacherJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
@@ -29,12 +29,12 @@ public class SyllabusJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Syllabus syllabus) {
+    public void create(Teacher teacher) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(syllabus);
+            em.persist(teacher);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -43,19 +43,19 @@ public class SyllabusJpaController implements Serializable {
         }
     }
 
-    public void edit(Syllabus syllabus) throws NonexistentEntityException, Exception {
+    public void edit(Teacher teacher) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            syllabus = em.merge(syllabus);
+            teacher = em.merge(teacher);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Long id = syllabus.getId();
-                if (findSyllabus(id) == null) {
-                    throw new NonexistentEntityException("The syllabus with id " + id + " no longer exists.");
+                Long id = teacher.getId();
+                if (findTeacher(id) == null) {
+                    throw new NonexistentEntityException("The teacher with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -71,14 +71,14 @@ public class SyllabusJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Syllabus syllabus;
+            Teacher teacher;
             try {
-                syllabus = em.getReference(Syllabus.class, id);
-                syllabus.getId();
+                teacher = em.getReference(Teacher.class, id);
+                teacher.getId();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The syllabus with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The teacher with id " + id + " no longer exists.", enfe);
             }
-            em.remove(syllabus);
+            em.remove(teacher);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -87,18 +87,18 @@ public class SyllabusJpaController implements Serializable {
         }
     }
 
-    public List<Syllabus> findSyllabusEntities() {
-        return findSyllabusEntities(true, -1, -1);
+    public List<Teacher> findTeacherEntities() {
+        return findTeacherEntities(true, -1, -1);
     }
 
-    public List<Syllabus> findSyllabusEntities(int maxResults, int firstResult) {
-        return findSyllabusEntities(false, maxResults, firstResult);
+    public List<Teacher> findTeacherEntities(int maxResults, int firstResult) {
+        return findTeacherEntities(false, maxResults, firstResult);
     }
 
-    private List<Syllabus> findSyllabusEntities(boolean all, int maxResults, int firstResult) {
+    private List<Teacher> findTeacherEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("select object(o) from Syllabus as o");
+            Query q = em.createQuery("select object(o) from Teacher as o");
             if (!all) {
                 q.setMaxResults(maxResults);
                 q.setFirstResult(firstResult);
@@ -109,19 +109,19 @@ public class SyllabusJpaController implements Serializable {
         }
     }
 
-    public Syllabus findSyllabus(Long id) {
+    public Teacher findTeacher(Long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Syllabus.class, id);
+            return em.find(Teacher.class, id);
         } finally {
             em.close();
         }
     }
 
-    public int getSyllabusCount() {
+    public int getTeacherCount() {
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("select count(o) from Syllabus as o");
+            Query q = em.createQuery("select count(o) from Teacher as o");
             return ((Long) q.getSingleResult()).intValue();
         } finally {
             em.close();

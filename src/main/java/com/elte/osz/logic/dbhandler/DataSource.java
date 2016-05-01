@@ -5,20 +5,29 @@
  */
 package com.elte.osz.logic.dbhandler;
 
+import java.util.Map;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-/**
- *
- * @author Tóth Ákos
- */
+
 public class DataSource {
     protected EntityManagerFactory emf;
+
+    public EntityManagerFactory getEmf() {
+        return emf;
+    }
     
-    public DataSource(String name){
-        emf = Persistence.createEntityManagerFactory(name);
+    public DataSource(String name,Map map){
+        emf = Persistence.createEntityManagerFactory(name,map);
+        
     }
     public void close(){
         emf.close();
     }
+    
+    public DataSource(String name){
+        emf = Persistence.createEntityManagerFactory(name);
+        
+    }
+    
 }

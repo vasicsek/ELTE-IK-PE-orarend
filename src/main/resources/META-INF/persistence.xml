@@ -2,20 +2,36 @@
 <persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
   <persistence-unit name="puOsz" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>com.elte.osz.logic.entities.Subject</class>
-    <class>com.elte.osz.logic.entities.RoomGroup</class>
     <class>com.elte.osz.logic.entities.Room</class>
-    <class>com.elte.osz.logic.entities.ProposedTime</class>
-    <class>com.elte.osz.logic.entities.SyllabusItem</class>
-    <class>com.elte.osz.logic.entities.Syllabus</class>
-    <class>com.elte.osz.logic.entities.ProposedTimeItem</class>
+    <class>com.elte.osz.logic.entities.Semester</class>
+    <class>com.elte.osz.logic.entities.SemesterItem</class>
+    <class>com.elte.osz.logic.entities.Subject</class>
+    <class>com.elte.osz.logic.entities.Teacher</class>
+    <class>com.elte.osz.logic.entities.Timetable</class>
+    <mapping-file>META-INF/orm.xml</mapping-file>
     <properties>
       <property name="eclipselink.loglevel" value="ALL"/>
+      <!-- <property name="eclipselink.logging.level" value="FINE"/> -->
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/osz"/>
       <property name="javax.persistence.jdbc.user" value="osz"/>
       <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
       <property name="javax.persistence.jdbc.password" value="osz"/>
-      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+    </properties>
+  </persistence-unit>
+  <persistence-unit name="DEFAULT_PU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>Subject</class>
+    <class>Timetable</class>
+    <class>Room</class>
+    <class>Teacher</class>
+    <class>SemesterItem</class>
+    <class>Semester</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/sample"/>
+      <property name="javax.persistence.jdbc.password" value="app"/>
+      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
+      <property name="javax.persistence.jdbc.user" value="app"/>
+      <property name="javax.persistence.schema-generation.database.action" value="create"/>
     </properties>
   </persistence-unit>
 </persistence>

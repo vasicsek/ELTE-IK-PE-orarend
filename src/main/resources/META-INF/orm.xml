@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://www.eclipse.org/eclipselink/xsds/persistence/orm" version="2.1">
+    <converter class="com.elte.osz.logic.entities.BuildingConverter" />
+</entity-mappings>
