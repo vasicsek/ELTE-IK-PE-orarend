@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node1_0" href="./BaseEntity.html" title="com.elte.osz.logic.dbhandler.BaseEntity" alt="" coords="16,19,100,45"/>
+<area shape="rect" id="node1" href="./BaseEntity.html" title="&lt;TABLE&gt;" alt="" coords="5,8,111,56"/>
+<area shape="rect" id="node2_1" href="./DataSource.html" title="com.elte.osz.logic.dbhandler.DataSource" alt="" coords="146,19,234,45"/>
+<area shape="rect" id="node2" href="./DataSource.html" title="&lt;TABLE&gt;" alt="" coords="135,8,245,56"/>
+<area shape="rect" id="node3_2" href="./IController.html" title="com.elte.osz.logic.dbhandler.IController" alt="" coords="279,11,383,53"/>
+<area shape="rect" id="node3" href="./IController.html" title="&lt;TABLE&gt;" alt="" coords="269,5,394,59"/>
+</map>

@@ -1,0 +1,6 @@
+com.elte.osz.etc
+com.elte.osz.logic
+com.elte.osz.logic.controllers
+com.elte.osz.logic.controllers.exceptions
+com.elte.osz.logic.dbhandler
+com.elte.osz.logic.entities

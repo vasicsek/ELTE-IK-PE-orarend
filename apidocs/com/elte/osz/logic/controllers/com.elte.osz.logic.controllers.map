@@ -1,0 +1,14 @@
+<map id="G" name="G">
+<area shape="rect" id="node1_0" href="./SemesterItemJpaController.html" title="com.elte.osz.logic.controllers.SemesterItemJpaController" alt="" coords="16,17,195,42"/>
+<area shape="rect" id="node1" href="./SemesterItemJpaController.html" title="&lt;TABLE&gt;" alt="" coords="5,5,205,53"/>
+<area shape="rect" id="node2_1" href="./SubjectJpaController.html" title="com.elte.osz.logic.controllers.SubjectJpaController" alt="" coords="239,17,379,42"/>
+<area shape="rect" id="node2" href="./SubjectJpaController.html" title="&lt;TABLE&gt;" alt="" coords="229,5,390,53"/>
+<area shape="rect" id="node3_2" href="./TeacherJpaController.html" title="com.elte.osz.logic.controllers.TeacherJpaController" alt="" coords="425,17,569,42"/>
+<area shape="rect" id="node3" href="./TeacherJpaController.html" title="&lt;TABLE&gt;" alt="" coords="415,5,580,53"/>
+<area shape="rect" id="node4_3" href="./RoomJpaController.html" title="com.elte.osz.logic.controllers.RoomJpaController" alt="" coords="615,17,747,42"/>
+<area shape="rect" id="node4" href="./RoomJpaController.html" title="&lt;TABLE&gt;" alt="" coords="605,5,758,53"/>
+<area shape="rect" id="node5_4" href="./TimetableJpaController.html" title="com.elte.osz.logic.controllers.TimetableJpaController" alt="" coords="793,17,946,42"/>
+<area shape="rect" id="node5" href="./TimetableJpaController.html" title="&lt;TABLE&gt;" alt="" coords="782,5,957,53"/>
+<area shape="rect" id="node6_5" href="./SemesterJpaController.html" title="com.elte.osz.logic.controllers.SemesterJpaController" alt="" coords="992,17,1144,42"/>
+<area shape="rect" id="node6" href="./SemesterJpaController.html" title="&lt;TABLE&gt;" alt="" coords="981,5,1155,53"/>
+</map>

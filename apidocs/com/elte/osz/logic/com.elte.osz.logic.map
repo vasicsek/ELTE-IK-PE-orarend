@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" id="node1_0" href="./Building.html" title="com.elte.osz.logic.Building" alt="" coords="16,11,120,53"/>
+<area shape="rect" id="node1" href="./Building.html" title="&lt;TABLE&gt;" alt="" coords="5,5,131,59"/>
+<area shape="rect" id="node2_1" href="./Osz.html" title="com.elte.osz.logic.Osz" alt="" coords="169,19,213,45"/>
+<area shape="rect" id="node2" href="./Osz.html" title="&lt;TABLE&gt;" alt="" coords="155,8,227,56"/>
+<area shape="rect" id="node3_2" href="./Utils.html" title="com.elte.osz.logic.Utils" alt="" coords="263,19,310,45"/>
+<area shape="rect" id="node3" href="./Utils.html" title="&lt;TABLE&gt;" alt="" coords="251,8,323,56"/>
+<area shape="rect" id="node4_3" href="./Department.html" title="com.elte.osz.logic.Department" alt="" coords="357,11,461,53"/>
+<area shape="rect" id="node4" href="./Department.html" title="&lt;TABLE&gt;" alt="" coords="347,5,472,59"/>
+<area shape="rect" id="node5_4" href="./OszDS.html" title="com.elte.osz.logic.OszDS" alt="" coords="507,19,570,45"/>
+<area shape="rect" id="node5" href="./OszDS.html" title="&lt;TABLE&gt;" alt="" coords="497,8,581,56"/>
+</map>

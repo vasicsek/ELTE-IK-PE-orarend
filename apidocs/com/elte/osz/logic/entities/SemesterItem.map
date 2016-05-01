@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node1_0" href="../dbhandler/BaseEntity.html" title="com.elte.osz.logic.dbhandler.BaseEntity" alt="" coords="16,121,100,146"/>
+<area shape="rect" id="node1" href="../dbhandler/BaseEntity.html" title="&lt;TABLE&gt;" alt="" coords="5,109,111,157"/>
+<area shape="rect" id="node2_1" href="./SemesterItem.html" title="com.elte.osz.logic.entities.SemesterItem" alt="" coords="98,219,199,245"/>
+<area shape="rect" id="node2" href="./SemesterItem.html" title="&lt;TABLE&gt;" alt="" coords="87,208,210,256"/>
+<area shape="rect" id="node3_2" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/Serializable.html" title="java.io.Serializable" alt="" coords="60,11,147,53"/>
+<area shape="rect" id="node3" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/Serializable.html" title="&lt;TABLE&gt;" alt="" coords="49,5,157,59"/>
+<area shape="rect" id="node4_3" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Comparable.html" title="java.lang.Comparable" alt="" coords="197,112,311,155"/>
+<area shape="rect" id="node4" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Comparable.html" title="&lt;TABLE&gt;" alt="" coords="187,107,321,160"/>
+</map>

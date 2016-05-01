@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node1_0" href="./NonexistentEntityException.html" title="com.elte.osz.logic.controllers.exceptions.NonexistentEntityException" alt="" coords="16,17,197,42"/>
+<area shape="rect" id="node1" href="./NonexistentEntityException.html" title="&lt;TABLE&gt;" alt="" coords="5,5,208,53"/>
+<area shape="rect" id="node2_1" href="./IllegalOrphanException.html" title="com.elte.osz.logic.controllers.exceptions.IllegalOrphanException" alt="" coords="243,17,397,42"/>
+<area shape="rect" id="node2" href="./IllegalOrphanException.html" title="&lt;TABLE&gt;" alt="" coords="233,5,407,53"/>
+<area shape="rect" id="node3_2" href="./PreexistingEntityException.html" title="com.elte.osz.logic.controllers.exceptions.PreexistingEntityException" alt="" coords="443,17,619,42"/>
+<area shape="rect" id="node3" href="./PreexistingEntityException.html" title="&lt;TABLE&gt;" alt="" coords="432,5,629,53"/>
+</map>
