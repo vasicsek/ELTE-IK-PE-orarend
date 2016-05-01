@@ -5,17 +5,13 @@
  */
 package com.elte.osz.etc;
 
-import com.elte.osz.logic.Building;
+import com.elte.osz.logic.OszDS;
 import com.elte.osz.logic.controllers.RoomJpaController;
 import com.elte.osz.logic.controllers.SubjectJpaController;
 import com.elte.osz.logic.controllers.TeacherJpaController;
-import com.elte.osz.logic.entities.BuildingConverter;
-import com.elte.osz.logic.entities.Room;
-import com.elte.osz.logic.entities.Teacher;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -47,21 +43,25 @@ public class InitialDataTransform {
     private final String fpRoomsXml;
     private final String fpTeachersXml;
     private final String fpCoursesXml;
+    
     private final DocumentBuilder db;
     private EntityManagerFactory emf;
     private SubjectJpaController ctrlSubject;
     private TeacherJpaController ctrlTeacher;
     private RoomJpaController ctrlRoom;
+    
 
     public InitialDataTransform(
             String fpCoursesXml,
             String fpRoomsXml,
             String fpTeachersXml
+        
     ) throws ParserConfigurationException {
         this.fpCoursesXml = fpCoursesXml;
         this.fpRoomsXml = fpRoomsXml;
         this.fpTeachersXml = fpTeachersXml;
         this.db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+        
 
     }
 
@@ -89,8 +89,8 @@ public class InitialDataTransform {
         Map map = new HashMap();
         map.put("javax.persistence.schema-generation.database.action", "drop-and-create");
 
-        Persistence.generateSchema("puOsz", map);
-        emf = Persistence.createEntityManagerFactory("puOsz");
+        Persistence.generateSchema(OszDS.PU, map);
+        emf = Persistence.createEntityManagerFactory(OszDS.PU);
 
         ctrlSubject = new SubjectJpaController(emf);
         ctrlTeacher = new TeacherJpaController(emf);

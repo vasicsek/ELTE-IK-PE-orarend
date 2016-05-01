@@ -7,6 +7,7 @@ package com.elte.osz.logic.entities;
 import com.elte.osz.logic.Building;
 import com.elte.osz.logic.dbhandler.BaseEntity;
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Convert;
@@ -61,4 +62,35 @@ public class Room extends BaseEntity implements Serializable {
     public void setBuilding(Building building) {
         this.building = building;
     }
+
+    @Override
+    public int hashCode() {
+       
+        return Objects.hash(id,name,building,floor);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Room other = (Room) obj;
+        if (this.floor != other.floor) {
+            return false;
+        }
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (this.building != other.building) {
+            return false;
+        }
+        return true;
+    }
+    
 }

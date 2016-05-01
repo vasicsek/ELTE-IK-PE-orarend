@@ -10,9 +10,12 @@ import com.elte.osz.logic.controllers.SubjectJpaController;
 import com.elte.osz.logic.controllers.TeacherJpaController;
 import com.elte.osz.logic.controllers.TimetableJpaController;
 import com.elte.osz.logic.dbhandler.DataSource;
+import java.util.Map;
 
 
 public class OszDS extends DataSource{
+    
+    public static final String PU = "puOsz";
     
     private final RoomJpaController ctrlRoom;
     private final SubjectJpaController ctrlSubject;
@@ -44,12 +47,8 @@ public class OszDS extends DataSource{
     public SemesterJpaController getCtrlSemester() {
         return ctrlSemester;
     }
-    
-    
     public OszDS() {       
-        super("puOsz");       
-        
-        
+        super(PU);       
         
         ctrlRoom = new RoomJpaController(emf);
         ctrlSubject  = new SubjectJpaController(emf);

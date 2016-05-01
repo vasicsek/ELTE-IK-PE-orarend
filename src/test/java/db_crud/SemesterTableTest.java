@@ -1,12 +1,7 @@
 package db_crud;
 
 import com.elte.osz.logic.Department;
-import com.elte.osz.logic.OszDS;
 import com.elte.osz.logic.Utils;
-import com.elte.osz.logic.controllers.RoomJpaController;
-import com.elte.osz.logic.controllers.SemesterJpaController;
-import com.elte.osz.logic.controllers.SubjectJpaController;
-import com.elte.osz.logic.controllers.TeacherJpaController;
 import com.elte.osz.logic.controllers.exceptions.NonexistentEntityException;
 import com.elte.osz.logic.entities.Room;
 import com.elte.osz.logic.entities.Semester;
@@ -17,35 +12,28 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
-import javax.persistence.metamodel.EntityType;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class SemesterTableTest {
-
-    private final OszDS ds;
-    private final SemesterJpaController ctrlSemester;
-    private final SubjectJpaController ctrlSubject;
-    private final RoomJpaController ctrlRoom;
-    private final TeacherJpaController ctrlTeacher;
+public class SemesterTableTest extends DBTest{
     
     private final String semester_name ="2015/16 tavasz";
     private Semester sem;
 
+    public Semester getSem() {
+        return sem;
+    }
     public SemesterTableTest() {
-        ds = new OszDS();
-        this.ctrlTeacher = ds.getCtrlTeacher();
-        this.ctrlRoom = ds.getCtrlRoom();
-        this.ctrlSubject = ds.getCtrlSubject();
-        this.ctrlSemester = ds.getCtrlSemester();
     }
 
     @BeforeClass
@@ -58,7 +46,6 @@ public class SemesterTableTest {
 
     @Before
     public void setUp() {
-
     }
 
     @After
@@ -67,6 +54,7 @@ public class SemesterTableTest {
 
     @Test
     public void testCRUD() throws NonexistentEntityException, Exception {
+            
         this.sem = null;
         System.out.println("CREATING semester:"+semester_name);
         createSemester();
@@ -74,7 +62,7 @@ public class SemesterTableTest {
         readSemester();
         System.out.println("UPDATING semester:"+semester_name);
         updateSemester();
-        readSemester();
+        readSemester();    
         System.out.println("DELETING semester:"+semester_name);
         deleteSemester();
         
@@ -104,7 +92,7 @@ public class SemesterTableTest {
         List<Subject> lsSubjects = tq.getResultList();
 
         //ebben tároljuk a semester tantárgy+időpontokat
-        List<SemesterItem> lsSi = new ArrayList<SemesterItem>();
+        Set<SemesterItem> lsSi = new TreeSet<SemesterItem>();
 
         Iterator<Subject> itSubject = lsSubjects.iterator();
 
@@ -141,17 +129,16 @@ public class SemesterTableTest {
         //mivel cascading merge,persit be van állítva ezért létrejönnek a megfelelő táblákban
         semester.setItems(lsSi);
         ctrlSemester.create(semester);
+        this.sem = semester;
     }
 
     public void readSemester() {
         List<Semester> lsSemester = ctrlSemester.findSemesterEntities();
         
         for(Semester semester : lsSemester){
-            if ( semester.getName().toLowerCase().equals(semester_name.toLowerCase()))
-               sem = semester;
-            System.out.println(semester);
-            List<SemesterItem> lsSi = semester.getItems();
-            for( SemesterItem si : lsSi){
+            
+            System.out.println(semester);            
+            for( SemesterItem si : semester.getItems()){
                 System.out.println(si);
             }
         }
@@ -159,26 +146,27 @@ public class SemesterTableTest {
     
     public void updateSemester() throws Exception{
         //Mivel a cascadetype ALL ra van állítva a edit frissül minden a kapcsolódó semesteritem-ek és a subject is akár
-        sem.setName(semester_name+" 1234 ");
+        sem.setName(semester_name+" ÁTNEVEZVE ");
         
-        List<SemesterItem> ls = sem.getItems();
+        List<SemesterItem> ls = sem.getItemsAsList();
         for ( int i = 0; i < ls.size(); ++i){
             ls.get(i).setEndTime(new Timestamp(Timestamp.valueOf("2015-01-01 00:00:00").getTime()));
             //Mivel a semesteritem-ben a cascadetype -ban a merge is szerepel, ezért meg fog változni a subject tábla is.
             ls.get(i).getSubject().setSubjectType("TESZT"+ls.size());
         }
         int rmcnt =Utils.getRandomInt(0, ls.size()-1);
-        System.out.println("REMOVE COUNT="+rmcnt);
+        System.out.println("REMOVING ITEM COUNT="+rmcnt);
         for( int i = 0; i < rmcnt ;++i)
             ls.remove(0);
         
         ctrlSemester.edit(sem);
         
-    }
+   }
     
     public void deleteSemester() throws NonexistentEntityException{
         //Mivel a cascadetype ALL-ra van állítva a destroyal törlődnek a kapcsolódó semesteritem-ek is
-        ctrlSemester.destroy(sem.getId());
+        //sem.getId();
+       ctrlSemester.destroy(sem);
     }
 
 }

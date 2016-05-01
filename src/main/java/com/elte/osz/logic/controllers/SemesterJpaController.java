@@ -7,7 +7,9 @@ package com.elte.osz.logic.controllers;
 
 import com.elte.osz.logic.controllers.exceptions.NonexistentEntityException;
 import com.elte.osz.logic.entities.Semester;
+import com.elte.osz.logic.entities.SemesterItem;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -27,6 +29,34 @@ public class SemesterJpaController implements Serializable {
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
+    }
+
+    public List<SemesterItem> findSemesterItems(Semester semester, String subjectName) {
+        List<SemesterItem> result = new ArrayList<SemesterItem>();
+
+        String str = subjectName.toLowerCase();
+        result.forEach((si) -> {
+            if (si.getSubject().getName().toLowerCase().contains(str)) {
+                result.add(si);
+            }
+        });
+
+        return result;
+    }
+
+    public List<SemesterItem> findSemesterItems(Semester semester, String subjectName, String teacherName) {
+        List<SemesterItem> result = new ArrayList<SemesterItem>();
+
+        String strName = subjectName.toLowerCase();
+        String strTeacher = teacherName.toLowerCase();
+        result.forEach((si) -> {
+            if (si.getSubject().getName().toLowerCase().contains(strName)
+                    && si.getTeacher().getName().toLowerCase().contains(strTeacher)) {
+                result.add(si);
+            }
+        });
+
+        return result;
     }
 
     public void create(Semester semester) {
@@ -64,6 +94,10 @@ public class SemesterJpaController implements Serializable {
                 em.close();
             }
         }
+    }
+
+    public void destroy(Semester semester) throws NonexistentEntityException {
+        destroy(semester.getId());
     }
 
     public void destroy(Long id) throws NonexistentEntityException {
@@ -127,5 +161,5 @@ public class SemesterJpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }

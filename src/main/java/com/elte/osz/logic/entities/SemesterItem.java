@@ -7,21 +7,96 @@ package com.elte.osz.logic.entities;
 import com.elte.osz.logic.dbhandler.BaseEntity;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Objects;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityResult;
+import javax.persistence.FieldResult;
+import javax.persistence.NamedNativeQueries;
+import javax.persistence.NamedNativeQuery;
 import javax.persistence.OneToOne;
+import javax.persistence.SqlResultSetMapping;
+
 
 @Entity
-public class SemesterItem extends BaseEntity implements Serializable {
+@SqlResultSetMapping(
+        name = "SearchBySubjectMapping",        
+        entities ={ 
+            @EntityResult(
+                entityClass = SemesterItem.class,
+                fields = {
+                    @FieldResult(name = "id", column = "sid"),
+                    @FieldResult(name = "startTime", column = "starttime"),
+                    @FieldResult(name = "endTime", column = "sendtime") }
+            )       
+        }
+)
+@NamedNativeQueries({
+    
+    @NamedNativeQuery(name="searchBySubject", query=
+                "SELECT t1.id as sid, endtime, starttime, "
+                + "t2.id as subid, t2.name as subname, code, department, "
+                + "hours_nightly, hours_practical, hours_presentation, semester, subjecttype, "
+                + "t3.id as rid, building, floor, t3.name as rname, "
+                + "t4.id as tid, t4.name as tname "
+                + "FROM semesteritem t1, subject t2, room t3, teacher t4, semester_semesteritem t5 "
+                + "WHERE t2.id = t1.subject_id "
+                + "AND t3.id = t1.room_id "
+                + "AND t4.id = t1.teacher_id "
+                + "AND t5.items_id = t1.id "
+                + "AND t5.semester_id = ? "
+                + "AND LOWER(t2.\"NAME\") like LOWER('%' || ? || '%' ) "
+                + "AND LOWER(t2.\"CODE\") like LOWER( '%'|| ? || '%' ) ",
+        resultSetMapping = "SearchBySubjectMapping"
+     ),
+    @NamedNativeQuery(name="searchBySubjectWithSemester", query=
+                "SELECT t1.id as sid, endtime, starttime, "
+                + "t2.id as subid, t2.name as subname, code, department, "
+                + "hours_nightly, hours_practical, hours_presentation, semester, subjecttype, "
+                + "t3.id as rid, building, floor, t3.name as rname, "
+                + "t4.id as tid, t4.name as tname "
+                + "FROM semesteritem t1, subject t2, room t3, teacher t4, semester_semesteritem t5 "
+                + "WHERE t2.id = t1.subject_id "
+                + "AND t3.id = t1.room_id "
+                + "AND t4.id = t1.teacher_id "
+                + "AND t5.items_id = t1.id "
+                + "AND t5.semester_id = ? "                        
+                + "AND LOWER(t2.\"NAME\") like LOWER('%' || ? || '%') "
+                + "AND LOWER(t2.\"CODE\") like LOWER('%' || ? || '%') "
+                + "AND t2.\"SEMESTER\"=? ",
+        resultSetMapping = "SearchBySubjectMapping"
+     ),
+    @NamedNativeQuery(name="searchBySubjectFull", query=
+                "SELECT t1.id as sid, endtime, starttime, "
+                + "t2.id as subid, t2.name as subname, code, department, "
+                + "hours_nightly, hours_practical, hours_presentation, semester, subjecttype, "
+                + "t3.id as rid, building, floor, t3.name as rname, "
+                + "t4.id as tid, t4.name as tname "
+                + "FROM semesteritem t1, subject t2, room t3, teacher t4, semester_semesteritem t5 "
+                + "WHERE t2.id = t1.subject_id "
+                + "AND t3.id = t1.room_id "
+                + "AND t4.id = t1.teacher_id "
+                + "AND t5.items_id = t1.id "
+                + "AND t5.semester_id = ? "                        
+                + "AND LOWER(t2.\"NAME\") like LOWER('%' || ? || '%') "
+                + "AND LOWER(t2.\"CODE\") like LOWER('%' || ? || '%') "
+                + "AND LOWER(t2.\"SUBJECTTYPE\") like LOWER('%' || ? || '%') "
+                + "AND t2.\"SEMESTER\"=? ",
+        resultSetMapping = "SearchBySubjectMapping"
+     )
+
+
+})
+public class SemesterItem extends BaseEntity implements Serializable, Comparable {
 
     
-    @OneToOne(optional = false, targetEntity = Teacher.class)
+    @OneToOne(optional = true, targetEntity = Teacher.class)
     private Teacher teacher;
 
     
-    @OneToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE},optional = false, targetEntity = Subject.class)
+    @OneToOne(cascade = {CascadeType.MERGE},optional = false, targetEntity = Subject.class)
     private Subject subject;
 
     @Column(nullable = false)
@@ -33,7 +108,7 @@ public class SemesterItem extends BaseEntity implements Serializable {
     private Timestamp endTime;
 
     
-    @OneToOne(optional = false, targetEntity = Room.class)
+    @OneToOne(optional = true, targetEntity = Room.class)
     private Room room;
 
     public SemesterItem() {
@@ -81,6 +156,54 @@ public class SemesterItem extends BaseEntity implements Serializable {
     }
     @Override
     public String toString(){        
-        return this.teacher + "@" + this.subject + " | Kezdés:"+ this.startTime + " | Vége: " + this.endTime;
+        return "("+this.teacher + "@" + this.subject + "*"+ getSubject().getSemester()+ ", " + getSubject().getSubjectType() + "*"+ " | Kezdés:"+ this.startTime + " | Vége: " + this.endTime +")";
     }
+
+    @Override
+    public int hashCode() {        
+        //return Objects.hash(id,startTime,endTime,teacher,room);
+        //return Objects.hash(id);
+        return Objects.hash(id,subject);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+            
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final SemesterItem other = (SemesterItem) obj;
+        
+        if  (!Objects.equals(this.id,other.id) ){
+            return false;
+        }
+        if (!Objects.equals(this.teacher, other.teacher)) {
+            return false;
+        }
+        if (!Objects.equals(this.subject, other.subject)) {
+            return false;
+        }
+        if (!Objects.equals(this.startTime, other.startTime)) {
+            return false;
+        }
+        if (!Objects.equals(this.endTime, other.endTime)) {
+            return false;
+        }
+        if (!Objects.equals(this.room, other.room)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public int compareTo(Object o) {        
+            return hashCode() - o.hashCode();
+    }
+    
 }

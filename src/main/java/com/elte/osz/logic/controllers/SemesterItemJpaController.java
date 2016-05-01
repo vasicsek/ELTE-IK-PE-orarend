@@ -7,6 +7,7 @@ package com.elte.osz.logic.controllers;
 
 import com.elte.osz.logic.controllers.exceptions.NonexistentEntityException;
 import com.elte.osz.logic.controllers.exceptions.PreexistingEntityException;
+import com.elte.osz.logic.entities.Semester;
 import com.elte.osz.logic.entities.SemesterItem;
 import com.elte.osz.logic.entities.Teacher;
 import java.io.Serializable;
@@ -30,7 +31,65 @@ public class SemesterItemJpaController implements Serializable {
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-
+    
+    public List<SemesterItem> searchBySubjectFull(
+            Long semesterId, 
+            String subjectName, 
+            String subjectCode, 
+            String subjectType,
+            int semesterNr
+    ){
+      return getEntityManager().createNamedQuery("searchBySubjectFull")
+                .setParameter(1, semesterId)
+                .setParameter(2, subjectName)
+                .setParameter(3, subjectCode)
+                .setParameter(4, subjectType)
+                .setParameter(5, semesterNr)
+                .getResultList();        
+    }
+    public List<SemesterItem> searchBySubjectFull(
+            Semester semester, 
+            String subjectName, 
+            String subjectCode, 
+            String subjectType,
+            int semesterNr
+    ){
+        return searchBySubjectFull(semester.getId(), subjectName, subjectCode, subjectType, semesterNr);
+    }
+    public List<SemesterItem> searchBySubjectWithSemesterNr(
+            Long semesterId, 
+            String subjectName, 
+            String subjectCode, 
+            int semesterNr
+    ){           
+        return getEntityManager().createNamedQuery("searchBySubjectWithSemester")
+                .setParameter(1, semesterId)
+                .setParameter(2, subjectName)
+                .setParameter(3, subjectCode)
+                .setParameter(4, semesterNr)
+                .getResultList();        
+    }
+        
+    public List<SemesterItem> searchBySubjectWithSemesterNr(
+            Semester semester, 
+            String subjectName, 
+            String subjectCode, 
+            int semesterNr
+    ){
+        return searchBySubjectWithSemesterNr(semester.getId(), subjectName, subjectCode, semesterNr);
+    }
+    public List<SemesterItem> searchBySubject(Long semesterId, String subjectName, String subjectCode) {
+        EntityManager em = getEntityManager();
+                 
+        return getEntityManager().createNamedQuery("searchBySubject")
+                .setParameter(1, semesterId)
+                .setParameter(2, subjectName)
+                .setParameter(3, subjectCode)
+                .getResultList();
+    }
+    public List<SemesterItem> searchBySubject(Semester semester, String subjectName, String subjectCode) {
+        return searchBySubject(semester.getId(), subjectName, subjectCode);
+    }
     public void create(SemesterItem semesterItem) throws PreexistingEntityException, Exception {
         EntityManager em = null;
         try {
@@ -142,5 +201,5 @@ public class SemesterItemJpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }

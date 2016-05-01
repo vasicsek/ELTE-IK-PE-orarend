@@ -65,7 +65,9 @@ public class TimetableJpaController implements Serializable {
             }
         }
     }
-
+    public void destroy(Timetable tt) throws NonexistentEntityException{
+        destroy(tt.getId());
+    }
     public void destroy(Long id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
