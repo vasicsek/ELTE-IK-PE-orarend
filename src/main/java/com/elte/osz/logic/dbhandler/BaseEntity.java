@@ -5,6 +5,7 @@ package com.elte.osz.logic.dbhandler;
 //
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +18,7 @@ public abstract class BaseEntity implements Serializable {
     @Column(updatable = false, insertable = true, nullable = false)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    protected Long id;
 
     public BaseEntity() {
 
@@ -25,6 +26,14 @@ public abstract class BaseEntity implements Serializable {
 
     public Long getId() {
         return this.id;
+    }
+    public void setId(Long id){
+        this.id = id;
+    }
+        @Override
+    public int hashCode() {
+
+       return Objects.hash(id);
     }
 
    

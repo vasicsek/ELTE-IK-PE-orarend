@@ -5,6 +5,7 @@
  */
 package com.elte.osz.logic.dbhandler;
 
+import java.util.Map;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
@@ -16,11 +17,17 @@ public class DataSource {
         return emf;
     }
     
-    public DataSource(String name){
-        emf = Persistence.createEntityManagerFactory(name);
+    public DataSource(String name,Map map){
+        emf = Persistence.createEntityManagerFactory(name,map);
         
     }
     public void close(){
         emf.close();
     }
+    
+    public DataSource(String name){
+        emf = Persistence.createEntityManagerFactory(name);
+        
+    }
+    
 }
