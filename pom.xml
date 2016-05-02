@@ -186,4 +186,40 @@
         <url>https://github.com/vasicsek/ELTE-IK-PE-orarend</url>
         <developerConnection>scm:git:git@github.com:vasicsek/ELTE-IK-PE-orarend.git</developerConnection>
     </scm>
+    
+    
+    
+<reporting>    
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.10.3</version>
+        <reportSets>
+          <reportSet>
+            <id>html</id>
+            <configuration>
+              <doctitle> ${project.name} ${project.version}</doctitle>
+              <windowtitle> ${project.name} ${project.version}</windowtitle>   
+                <aggregate>true</aggregate>
+                <show>private</show>
+                <doclet>org.umlgraph.doclet.UmlGraphDoc</doclet>
+                <docletArtifact>
+                    <groupId>org.umlgraph</groupId>
+                    <artifactId>umlgraph</artifactId>
+                    <version>5.6.6</version>
+                </docletArtifact>           
+            </configuration>
+            <reports>
+              <report>javadoc</report>
+            </reports>
+          </reportSet>
+          
+        </reportSets>
+      </plugin>
+    </plugins>
+  </reporting>
+
+    
+    
 </project>
