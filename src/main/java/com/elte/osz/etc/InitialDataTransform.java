@@ -30,54 +30,58 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 /**
- *  Adatbázist létrehozása, és adatokkal való feltöltése.
- *  Azt az adatbázist használja, amely a persistence.xml-ben van megjelölve.
- *  @version 1.0
- *  @author RMUGLK
+ * Adatbázist létrehozása, és adatokkal való feltöltése. Azt az adatbázist
+ * használja, amely a persistence.xml-ben van megjelölve.
+ *
+ * @version 1.0
+ * @author RMUGLK
  */
 public class InitialDataTransform {
-    
+
     private interface ElementFound {
+
         void elementFound(Element element);
     }
     private final String fpRoomsXml;
     private final String fpTeachersXml;
     private final String fpCoursesXml;
-    
+
     private final DocumentBuilder db;
     private EntityManagerFactory emf;
     private SubjectJpaController ctrlSubject;
     private TeacherJpaController ctrlTeacher;
     private RoomJpaController ctrlRoom;
-    
+
     /**
-       Inicializálja az objektumot. 
-       Át kell adni paraméterként a három xml fájlt, amiből
-       transform() függvény feltölti az adatbázist.
-       ParserConfigurationException-dob ha nem sikerült inicializálni az
-       XML parsert.
-       @param fpCoursesXml Kurzusok xml fájl útvonala
-       @param fpRoomsXml Termek xml fájl útvonala
-       @param fpTeachersXml Oktatók xml fájl útvonala
-       @throws ParserConfigurationException
-    */
+     * Inicializálja az objektumot. Át kell adni paraméterként a három xml
+     * fájlt, amiből transform() függvény feltölti az adatbázist.
+     * ParserConfigurationException-dob ha nem sikerült inicializálni az XML
+     * parsert.
+     *
+     * @param fpCoursesXml Kurzusok xml fájl útvonala
+     * @param fpRoomsXml Termek xml fájl útvonala
+     * @param fpTeachersXml Oktatók xml fájl útvonala
+     * @throws ParserConfigurationException Hiba az xml parser
+     * inicializálásában.
+     */
     public InitialDataTransform(
             String fpCoursesXml,
             String fpRoomsXml,
             String fpTeachersXml
-        
     ) throws ParserConfigurationException {
         this.fpCoursesXml = fpCoursesXml;
         this.fpRoomsXml = fpRoomsXml;
         this.fpTeachersXml = fpTeachersXml;
         this.db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-        
 
     }
+
     /**
      * XML fájl beolvasása és értelmezése.
+     *
      * @param fpXml XML fájl, amit be kell olvasni.
-     * @param cb callback függvény, amelyen keresztül értesítés kapunk az éppen aktuális elemről.
+     * @param cb callback függvény, amelyen keresztül értesítés kapunk az éppen
+     * aktuális elemről.
      * @throws SAXException xml fájl belső struktúrális hiba.
      * @throws IOException fájl elérés/olvasás hiba.
      */
@@ -96,18 +100,20 @@ public class InitialDataTransform {
             }
         }
     }
-/**
- * Törli az adatbázist ha létezett, és létrehozza újból, majd feltölti adatokkal.
- * IOException kapunk ha a konstruktorban megadott xml fájlokat nem tudja beolvasni,
- * illetve SAXExcception ha XML parse hiba van.
- * @throws SAXException
- * @throws IOException 
- */
+
+    /**
+      Törli az adatbázist ha létezett, és létrehozza újból, majd feltölti
+      adatokkal. IOException kapunk ha a konstruktorban megadott xml fájlokat
+      nem tudja beolvasni, illetve SAXExcception ha XML parse hiba van.
+     
+      @throws SAXException XML fájl struktúrális, belső hiba.
+      @throws IOException  Fájl elérés hiba
+     */
     public void transform()
-            throws  
+            throws
             SAXException, IOException {
         //TODO ahogyan itt http://www.mkyong.com/java/how-to-read-xml-file-in-java-dom-parser/          
-        System.out.println("Adatbázis törlése és létrehozása..."); 
+        System.out.println("Adatbázis törlése és létrehozása...");
         Map map = new HashMap();
         map.put("javax.persistence.schema-generation.database.action", "drop-and-create");
 
@@ -120,11 +126,11 @@ public class InitialDataTransform {
         System.out.println("SQL Insertek generálása xml fájlokból...");
         final String line = "INSERT INTO %s(%s) VALUES(%s)";
         System.out.println("Room tábla feltöltése adatokkal..." + fpRoomsXml);
-        
+
         parse(fpRoomsXml, new ElementFound() {
             @Override
             public void elementFound(Element element) {
-                                
+
                 /*
                 Példa:
                 <terem_azonosito>4</terem_azonosito>
@@ -229,16 +235,19 @@ public class InitialDataTransform {
 
             }
         });
-        
+
         emf.close();
         System.out.println("Kész!");
 
     }
+
     /**
-     * Szöveget esc-pel hogy sql adatbázis utasításaiban szereplhessen.(dátumra is)
+     * Szöveget esc-pel hogy sql adatbázis utasításaiban szereplhessen.(dátumra
+     * is)
+     *
      * @param value Szöveg amit esc-pelni szeretnék
      * @return sql szöveg, ha value értéke null akkor 'NULL'-t kapunk.
-    */
+     */
     private String makeSqlString(String value) {
         if (value == null) {
             return "NULL";
@@ -259,10 +268,11 @@ public class InitialDataTransform {
 
     /**
      * XML element-ből tag érték kinyerése szövegként.
+     *
      * @param element amelynek gyereke a txt nevű tag
      * @param txt a tag neve, amelynek értékét szeretnénk
      * @return tag értéke, lehet null.
-     */   
+     */
     private String getElementTxt(Element element, String txt) {
         Node n = element.getElementsByTagName(txt).item(0);
         if (n == null) {
@@ -271,30 +281,33 @@ public class InitialDataTransform {
 
         return element.getElementsByTagName(txt).item(0).getTextContent();
     }
+
     /**
-     * XML elemből kiszedit az names nevű tagek értékeit, 
-     * majd olyan formájú szöveget hoz létre amely egy SQL-es insert into kifejezés
-     * values részébe való. 
-     * 
-     * @param element XML elem 
-     * @param names tag nevek a element-n belül.
-     * @param indexedEsc Azok az indexek az előző names paraméterből, 
-     *                  amelyeket esc-pelni kell(mert sql string vag dátum), a növekvő sorrend fontos!
-     * @return Esc-pelt szöveg, SQL-es insert into kifejezés values részé.
-     * Például:
-     * <row>
+      XML elemből kiszedit az names nevű tagek értékeit, majd olyan formájú
+      szöveget hoz létre amely egy SQL-es insert into kifejezés values részébe
+      való.
+     
+      @param element XML elem
+      @param names tag nevek a element-n belül.
+      @param indexedEsc Azok az indexek az előző names paraméterből, amelyeket
+      esc-pelni kell(mert sql string vag dátum), a növekvő sorrend fontos!
+      @return Esc-pelt szöveg, SQL-es insert into kifejezés values részé.
+      Például:
+      {@code
+      <row>
       <tanev_felev>2015-2016-2</tanev_felev>
-		<kurzus_azonosito>BIO/3/2</kurzus_azonosito>
-		<kurzuskod>BIO/3/2</kurzuskod>
-		<oraszam_e>0</oraszam_e>
-		<oraszam_g>0</oraszam_g>
-		<oraszam_l>0</oraszam_l>
-		<kurzusnev>Doktoranduszok beszámolói</kurzusnev>
-		<kar>TTK</kar>
-        </row>
-        Ekkor ha element  objektum tartalmazza <row> tagek közötti xml-t.
-        names tömb legyen [kurzuskod,kurzusnev], és a indexedEsc=[0,1] akkor
-        a visszatérési érték: 'BIO/3/2','Doktoranduszok beszámolói'
+      <kurzus_azonosito>BIO/3/2</kurzus_azonosito>
+      <kurzuskod>BIO/3/2</kurzuskod>
+      <oraszam_e>0</oraszam_e>
+      <oraszam_g>0</oraszam_g>
+      <oraszam_l>0</oraszam_l>
+      <kurzusnev>Doktoranduszok beszámolói</kurzusnev>
+      <kar>TTK</kar>
+      </row>
+      Ekkor ha element  objektum tartalmazza <row> tagek közötti xml-t.
+      names tömb legyen [kurzuskod,kurzusnev], és a indexedEsc=[0,1] akkor
+      a visszatérési érték: 'BIO/3/2','Doktoranduszok beszámolói'
+      }
      */
     private String getValues(Element element, List<String> names, List<Integer> indexedEsc) {
 
@@ -314,20 +327,21 @@ public class InitialDataTransform {
         }
         return sb.toString();
     }
-    
+
     /**
-       Program, amely létrehoz egy InitialDataTransform típusú objektumot és 
-       meghívja a transform() függvényét.
-       Program argumentumként kötelező megadni a három xml fájlt, a következő sorrendben:
-       kurzusok, termek oktatok.       
-     * @param args program argumentumok
-     * @throws java.lang.Exception       
-    */
+      Program, amely létrehoz egy InitialDataTransform típusú objektumot és
+      meghívja a transform() függvényét. Program argumentumként kötelező
+      megadni a három xml fájlt, a következő sorrendben: kurzusok, termek
+      oktatok.
+     
+      @param args program argumentumok
+      @throws java.lang.Exception Hiba tovább dobása.
+     */
     public static void main(String args[]) throws Exception {
 
         if (args.length == 3) {
-            try {                              
-                new InitialDataTransform(args[0], args[1], args[2]).transform();               
+            try {
+                new InitialDataTransform(args[0], args[1], args[2]).transform();
             } catch (Exception e) {
                 System.err.println(">>> HIBA <<< :" + e.getLocalizedMessage());
                 e.printStackTrace();
