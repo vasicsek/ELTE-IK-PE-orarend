@@ -10,7 +10,6 @@ import com.elte.osz.logic.controllers.RoomJpaController;
 import com.elte.osz.logic.controllers.SubjectJpaController;
 import com.elte.osz.logic.controllers.TeacherJpaController;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -31,13 +30,14 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 /**
- *
- * @author Tóth Ákos
+ *  Adatbázist létrehozása, és adatokkal való feltöltése.
+ *  Azt az adatbázist használja, amely a persistence.xml-ben van megjelölve.
+ *  @version 1.0
+ *  @author RMUGLK
  */
 public class InitialDataTransform {
-
+    
     private interface ElementFound {
-
         void elementFound(Element element);
     }
     private final String fpRoomsXml;
@@ -50,7 +50,17 @@ public class InitialDataTransform {
     private TeacherJpaController ctrlTeacher;
     private RoomJpaController ctrlRoom;
     
-
+    /**
+       Inicializálja az objektumot. 
+       Át kell adni paraméterként a három xml fájlt, amiből
+       transform() függvény feltölti az adatbázist.
+       ParserConfigurationException-dob ha nem sikerült inicializálni az
+       XML parsert.
+       @param fpCoursesXml Kurzusok xml fájl útvonala
+       @param fpRoomsXml Termek xml fájl útvonala
+       @param fpTeachersXml Oktatók xml fájl útvonala
+       @throws ParserConfigurationException
+    */
     public InitialDataTransform(
             String fpCoursesXml,
             String fpRoomsXml,
@@ -64,7 +74,13 @@ public class InitialDataTransform {
         
 
     }
-
+    /**
+     * XML fájl beolvasása és értelmezése.
+     * @param fpXml XML fájl, amit be kell olvasni.
+     * @param cb callback függvény, amelyen keresztül értesítés kapunk az éppen aktuális elemről.
+     * @throws SAXException xml fájl belső struktúrális hiba.
+     * @throws IOException fájl elérés/olvasás hiba.
+     */
     private void parse(String fpXml, ElementFound cb) throws SAXException, IOException {
 
         Document doc = db.parse(new File(fpXml));
@@ -80,9 +96,15 @@ public class InitialDataTransform {
             }
         }
     }
-
+/**
+ * Törli az adatbázist ha létezett, és létrehozza újból, majd feltölti adatokkal.
+ * IOException kapunk ha a konstruktorban megadott xml fájlokat nem tudja beolvasni,
+ * illetve SAXExcception ha XML parse hiba van.
+ * @throws SAXException
+ * @throws IOException 
+ */
     public void transform()
-            throws FileNotFoundException, ParserConfigurationException,
+            throws  
             SAXException, IOException {
         //TODO ahogyan itt http://www.mkyong.com/java/how-to-read-xml-file-in-java-dom-parser/          
         System.out.println("Adatbázis törlése és létrehozása..."); 
@@ -212,7 +234,11 @@ public class InitialDataTransform {
         System.out.println("Kész!");
 
     }
-
+    /**
+     * Szöveget esc-pel hogy sql adatbázis utasításaiban szereplhessen.(dátumra is)
+     * @param value Szöveg amit esc-pelni szeretnék
+     * @return sql szöveg, ha value értéke null akkor 'NULL'-t kapunk.
+    */
     private String makeSqlString(String value) {
         if (value == null) {
             return "NULL";
@@ -231,6 +257,12 @@ public class InitialDataTransform {
         return sb.toString();
     }
 
+    /**
+     * XML element-ből tag érték kinyerése szövegként.
+     * @param element amelynek gyereke a txt nevű tag
+     * @param txt a tag neve, amelynek értékét szeretnénk
+     * @return tag értéke, lehet null.
+     */   
     private String getElementTxt(Element element, String txt) {
         Node n = element.getElementsByTagName(txt).item(0);
         if (n == null) {
@@ -239,7 +271,31 @@ public class InitialDataTransform {
 
         return element.getElementsByTagName(txt).item(0).getTextContent();
     }
-
+    /**
+     * XML elemből kiszedit az names nevű tagek értékeit, 
+     * majd olyan formájú szöveget hoz létre amely egy SQL-es insert into kifejezés
+     * values részébe való. 
+     * 
+     * @param element XML elem 
+     * @param names tag nevek a element-n belül.
+     * @param indexedEsc Azok az indexek az előző names paraméterből, 
+     *                  amelyeket esc-pelni kell(mert sql string vag dátum), a növekvő sorrend fontos!
+     * @return Esc-pelt szöveg, SQL-es insert into kifejezés values részé.
+     * Például:
+     * <row>
+      <tanev_felev>2015-2016-2</tanev_felev>
+		<kurzus_azonosito>BIO/3/2</kurzus_azonosito>
+		<kurzuskod>BIO/3/2</kurzuskod>
+		<oraszam_e>0</oraszam_e>
+		<oraszam_g>0</oraszam_g>
+		<oraszam_l>0</oraszam_l>
+		<kurzusnev>Doktoranduszok beszámolói</kurzusnev>
+		<kar>TTK</kar>
+        </row>
+        Ekkor ha element  objektum tartalmazza <row> tagek közötti xml-t.
+        names tömb legyen [kurzuskod,kurzusnev], és a indexedEsc=[0,1] akkor
+        a visszatérési érték: 'BIO/3/2','Doktoranduszok beszámolói'
+     */
     private String getValues(Element element, List<String> names, List<Integer> indexedEsc) {
 
         StringBuilder sb = new StringBuilder();
@@ -258,7 +314,15 @@ public class InitialDataTransform {
         }
         return sb.toString();
     }
-
+    
+    /**
+       Program, amely létrehoz egy InitialDataTransform típusú objektumot és 
+       meghívja a transform() függvényét.
+       Program argumentumként kötelező megadni a három xml fájlt, a következő sorrendben:
+       kurzusok, termek oktatok.       
+     * @param args program argumentumok
+     * @throws java.lang.Exception       
+    */
     public static void main(String args[]) throws Exception {
 
         if (args.length == 3) {

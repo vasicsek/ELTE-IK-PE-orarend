@@ -21,7 +21,7 @@ import org.junit.Test;
 
 /**
  *
- * @author Tóth Ákos
+ * @author RMUGLK
  */
 public class TimetableTest extends DBTest {
     

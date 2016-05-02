@@ -20,7 +20,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Tóth Ákos
+ * @author RMUGLK
  */
 public class TimetableEdit extends DBTest {
 
