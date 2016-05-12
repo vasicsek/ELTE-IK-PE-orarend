@@ -5,17 +5,31 @@
  */
 package com.elte.osz.gui;
 
+import java.awt.Frame;
+import com.elte.osz.logic.*;
+import com.elte.osz.logic.entities.Subject;
+import java.util.List;
+
 /**
  *
  * @author gabor
  */
 public class MainWindow extends javax.swing.JFrame {
 
+    Osz osz;
+    
     /**
      * Creates new form MainWindow
      */
     public MainWindow() {
         initComponents();
+        osz = new Osz();
+        //this.setExtendedState(this.getExtendedState()|javax.swing.JFrame.MAXIMIZED_BOTH);
+        Orarend.setValueAt("08:00-10:00", 0, 0);
+        Orarend.setValueAt("10:00-12:00", 1, 0);
+        Orarend.setValueAt("12:00-14:00", 2, 0);
+        Orarend.setValueAt("14:00-16:00", 3, 0);
+        Orarend.setValueAt("16:00-18:00", 4, 0);
     }
 
     /**
@@ -27,21 +41,89 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Orarend = new javax.swing.JTable();
+        jTextField1 = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(640, 480));
+
+        Orarend.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "", "Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        Orarend.setDoubleBuffered(true);
+        Orarend.setFillsViewportHeight(true);
+        Orarend.setPreferredSize(new java.awt.Dimension(0, 0));
+        Orarend.setRowHeight(75);
+        Orarend.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(Orarend);
+        if (Orarend.getColumnModel().getColumnCount() > 0) {
+            Orarend.getColumnModel().getColumn(0).setResizable(false);
+            Orarend.getColumnModel().getColumn(0).setPreferredWidth(50);
+            Orarend.getColumnModel().getColumn(1).setResizable(false);
+            Orarend.getColumnModel().getColumn(2).setResizable(false);
+            Orarend.getColumnModel().getColumn(3).setResizable(false);
+            Orarend.getColumnModel().getColumn(4).setResizable(false);
+            Orarend.getColumnModel().getColumn(5).setResizable(false);
+        }
+
+        btnSearch.setText("Keresés");
+        btnSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSearchMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSearch)))
+                .addGap(15, 15, 15))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearch))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseClicked
+        // TODO add your handling code here:
+        List<Subject> subject = osz.getDataSet().getCtrlSubject().findSubjectEntities();
+    }//GEN-LAST:event_btnSearchMouseClicked
 
     /**
      * @param args the command line arguments
@@ -79,5 +161,9 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable Orarend;
+    private javax.swing.JButton btnSearch;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
