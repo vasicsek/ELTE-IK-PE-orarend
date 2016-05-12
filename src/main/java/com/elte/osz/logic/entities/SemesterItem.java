@@ -29,14 +29,17 @@ import javax.persistence.SqlResultSetMapping;
                 fields = {
                     @FieldResult(name = "id", column = "sid"),
                     @FieldResult(name = "startTime", column = "starttime"),
-                    @FieldResult(name = "endTime", column = "sendtime") }
+                    @FieldResult(name = "endTime", column = "sendtime"),
+                    @FieldResult(name = "day", column = "day")
+                
+                }
             )       
         }
 )
 @NamedNativeQueries({
     
     @NamedNativeQuery(name="searchBySubject", query=
-                "SELECT t1.id as sid, endtime, starttime, "
+                "SELECT t1.id as sid, endtime, starttime, day, "
                 + "t2.id as subid, t2.name as subname, code, department, "
                 + "hours_nightly, hours_practical, hours_presentation, semester, subjecttype, "
                 + "t3.id as rid, building, floor, t3.name as rname, "
@@ -52,7 +55,7 @@ import javax.persistence.SqlResultSetMapping;
         resultSetMapping = "SearchBySubjectMapping"
      ),
     @NamedNativeQuery(name="searchBySubjectWithSemester", query=
-                "SELECT t1.id as sid, endtime, starttime, "
+                "SELECT t1.id as sid, endtime, starttime, day, "
                 + "t2.id as subid, t2.name as subname, code, department, "
                 + "hours_nightly, hours_practical, hours_presentation, semester, subjecttype, "
                 + "t3.id as rid, building, floor, t3.name as rname, "
@@ -69,7 +72,7 @@ import javax.persistence.SqlResultSetMapping;
         resultSetMapping = "SearchBySubjectMapping"
      ),
     @NamedNativeQuery(name="searchBySubjectFull", query=
-                "SELECT t1.id as sid, endtime, starttime, "
+                "SELECT t1.id as sid, endtime, starttime, day, "
                 + "t2.id as subid, t2.name as subname, code, department, "
                 + "hours_nightly, hours_practical, hours_presentation, semester, subjecttype, "
                 + "t3.id as rid, building, floor, t3.name as rname, "
@@ -101,12 +104,23 @@ public class SemesterItem extends BaseEntity implements Serializable, Comparable
 
     @Column(nullable = false)
     @Basic
-    private Timestamp startTime;
+    private String startTime;
 
     @Column(nullable = false)
     @Basic
-    private Timestamp endTime;
+    private String endTime;
+    
+    @Column(nullable = false)
+    @Basic
+    private String day;    
 
+    public String getDay() {
+        return day;
+    }
+
+    public void setDay(String day) {
+        this.day = day;
+    }
     
     @OneToOne(optional = true, targetEntity = Room.class)
     private Room room;
@@ -131,19 +145,19 @@ public class SemesterItem extends BaseEntity implements Serializable, Comparable
         this.subject = subject;
     }
 
-    public Timestamp getStartTime() {
+    public String getStartTime() {
         return this.startTime;
     }
 
-    public void setStartTime(Timestamp startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
-    public Timestamp getEndTime() {
+    public String getEndTime() {
         return this.endTime;
     }
 
-    public void setEndTime(Timestamp endTime) {
+    public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
 

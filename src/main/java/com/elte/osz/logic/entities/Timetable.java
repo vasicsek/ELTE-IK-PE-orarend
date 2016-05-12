@@ -80,7 +80,7 @@ public class Timetable extends BaseEntity implements Serializable {
     public void setClassesAsList(List<SemesterItem> classes) {
        this.classes = new TreeSet(classes);
     }
-    public boolean  hasTimeCollitionWith( SemesterItem other ){
+ /*   public boolean  hasTimeCollitionWith( SemesterItem other ){
         Set<SemesterItem> cls = getClasses();
         
         for( SemesterItem si : cls ){
@@ -99,7 +99,7 @@ public class Timetable extends BaseEntity implements Serializable {
         }
         
         return cls;
-    }
+    }*/
     public String getName() {
         return this.name;
     }

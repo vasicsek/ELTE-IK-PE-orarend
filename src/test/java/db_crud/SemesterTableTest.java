@@ -116,9 +116,10 @@ public class SemesterTableTest extends DBTest{
             s.setSemester(iSem);
 
             SemesterItem si = new SemesterItem();
-            si.setStartTime(ts);
+            si.setStartTime(ts.toString());
 
-            si.setEndTime(new Timestamp(ts.getTime() + 2 * 3600000));
+            si.setEndTime(new Timestamp(ts.getTime() + 2 * 3600000) .toString());
+            si.setDay("Hétfő");
             si.setSubject(s);
             si.setTeacher(teacher);
             si.setRoom(room);
@@ -150,7 +151,8 @@ public class SemesterTableTest extends DBTest{
         
         List<SemesterItem> ls = sem.getItemsAsList();
         for ( int i = 0; i < ls.size(); ++i){
-            ls.get(i).setEndTime(new Timestamp(Timestamp.valueOf("2015-01-01 00:00:00").getTime()));
+            ls.get(i).setEndTime(new Timestamp(Timestamp.valueOf("2015-01-01 00:00:00").getTime()).toString());
+            ls.get(i).setDay("Hétfő");
             //Mivel a semesteritem-ben a cascadetype -ban a merge is szerepel, ezért meg fog változni a subject tábla is.
             ls.get(i).getSubject().setSubjectType("TESZT"+ls.size());
         }
