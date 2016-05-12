@@ -5,10 +5,10 @@
  */
 package com.elte.osz.gui;
 
-import java.awt.Frame;
 import com.elte.osz.logic.*;
 import com.elte.osz.logic.entities.Subject;
-import java.util.List;
+import java.util.ArrayList;
+import javax.swing.JDialog;
 
 /**
  *
@@ -24,12 +24,12 @@ public class MainWindow extends javax.swing.JFrame {
     public MainWindow() {
         initComponents();
         osz = new Osz();
-        //this.setExtendedState(this.getExtendedState()|javax.swing.JFrame.MAXIMIZED_BOTH);
         Orarend.setValueAt("08:00-10:00", 0, 0);
         Orarend.setValueAt("10:00-12:00", 1, 0);
         Orarend.setValueAt("12:00-14:00", 2, 0);
         Orarend.setValueAt("14:00-16:00", 3, 0);
         Orarend.setValueAt("16:00-18:00", 4, 0);
+        Orarend.setValueAt("18:00-20:00", 5, 0);
     }
 
     /**
@@ -47,10 +47,12 @@ public class MainWindow extends javax.swing.JFrame {
         btnSearch = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Órarend tervező");
         setPreferredSize(new java.awt.Dimension(640, 480));
 
         Orarend.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -122,7 +124,9 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void btnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseClicked
         // TODO add your handling code here:
-        List<Subject> subject = osz.getDataSet().getCtrlSubject().findSubjectEntities();
+        //List<Subject> subject = osz.getDataSet().getCtrlSubject().findSubjectEntities();
+        PopupWindow popupFrame = new PopupWindow(this, true, new ArrayList<Subject>());
+        int selected = popupFrame.showDialog();
     }//GEN-LAST:event_btnSearchMouseClicked
 
     /**
