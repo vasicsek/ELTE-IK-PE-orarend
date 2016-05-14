@@ -43,4 +43,11 @@
                 <exec.executable>java</exec.executable>
             </properties>
         </action>
+        <action>
+            <actionName>CUSTOM-standard</actionName>
+            <displayName>standard</displayName>
+            <goals>
+                <goal>site</goal>
+            </goals>
+        </action>
     </actions>

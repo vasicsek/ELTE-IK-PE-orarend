@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.elte.osz.etc;
 
 import com.elte.osz.logic.OszDS;
@@ -45,7 +40,7 @@ public class InitialDataTransform {
     private final String fpRoomsXml;
     private final String fpTeachersXml;
     private final String fpCoursesXml;
-
+    private EntityManager em;
     private final DocumentBuilder db;
     private EntityManagerFactory emf;
     private SubjectJpaController ctrlSubject;
@@ -100,6 +95,19 @@ public class InitialDataTransform {
             }
         }
     }
+    
+    private void execQuery(EntityManager em, String cmd){
+         try {
+             
+                    em.getTransaction().begin();
+                    em.createNativeQuery(cmd).executeUpdate();
+                    em.getTransaction().commit();
+                } catch (Exception e) {
+                    em.close();
+                    e.printStackTrace();
+                    throw e;
+                }
+    }
 
     /**
       Törli az adatbázist ha létezett, és létrehozza újból, majd feltölti
@@ -116,7 +124,21 @@ public class InitialDataTransform {
         System.out.println("Adatbázis törlése és létrehozása...");
         Map map = new HashMap();
         map.put("javax.persistence.schema-generation.database.action", "drop-and-create");
-
+        //Optimalizálás
+        //http://java-persistence-performance.blogspot.hu/2011/06/how-to-improve-jpa-performance-by-1825.html
+        map.put("eclipselink.jdbc.batch-writing", "JDBC");
+        map.put("eclipselink.jdbc.batch-writing.size", "1000");
+        map.put("eclipselink.jdbc.cache-statements", "true");
+        //disable caching for batch insert (caching only improves reads, so only adds overhead for inserts)
+        map.put("eclipselink.cache.shared.default", "false");
+        //Avoids the cost of flushing on every query execution.        
+        map.put("eclipselink.persistence-context.flush-mode", "commit");
+        //Avoids some logging overhead
+        map.put("eclipselink.logging.level", "off");
+        //avoid cost of persist on commit
+        map.put("eclipselink.persistence-context.persist-on-commit","false");
+          
+        
         Persistence.generateSchema(OszDS.PU, map);
         emf = Persistence.createEntityManagerFactory(OszDS.PU);
 
@@ -125,8 +147,11 @@ public class InitialDataTransform {
         ctrlRoom = new RoomJpaController(emf);
         System.out.println("SQL Insertek generálása xml fájlokból...");
         final String line = "INSERT INTO %s(%s) VALUES(%s)";
+        
         System.out.println("Room tábla feltöltése adatokkal..." + fpRoomsXml);
-
+        em = InitialDataTransform.this.ctrlRoom.getEntityManager();
+        em.getTransaction().begin();
+        
         parse(fpRoomsXml, new ElementFound() {
             @Override
             public void elementFound(Element element) {
@@ -149,19 +174,14 @@ public class InitialDataTransform {
                 final List<Integer> iesc = Arrays.asList(0, 1);
                 String values = getValues(element, tags, iesc);
                 String cmd = String.format(line, "\"ROOM\"", "\"NAME\",\"BUILDING\",\"FLOOR\"", values);
-                EntityManager em = InitialDataTransform.this.ctrlRoom.getEntityManager();
-                try {
-                    em.getTransaction().begin();
-                    em.createNativeQuery(cmd).executeUpdate();
-                    em.getTransaction().commit();
-                } catch (Exception e) {
-                    em.close();
-                    e.printStackTrace();
-                    throw e;
-                }
+                em.createNativeQuery(cmd).executeUpdate();
             }
         });
-
+        
+        em.getTransaction().commit();
+        
+        em = InitialDataTransform.this.ctrlTeacher.getEntityManager();
+        em.getTransaction().begin();
         System.out.println("Teacher tábla feltöltése adatokkal..." + fpTeachersXml);
         parse(fpTeachersXml, new ElementFound() {
             @Override
@@ -179,20 +199,13 @@ public class InitialDataTransform {
                 final List<Integer> iesc = Arrays.asList(0);
                 String values = getValues(element, tags, iesc);
                 String cmd = String.format(line, "\"TEACHER\"", "\"NAME\"", values);
-
-                EntityManager em = InitialDataTransform.this.ctrlTeacher.getEntityManager();
-
-                try {
-                    em.getTransaction().begin();
-                    em.createNativeQuery(cmd).executeUpdate();
-                    em.getTransaction().commit();
-                } catch (Exception e) {
-                    em.close();
-                    e.printStackTrace();
-                    throw e;
-                }
+                em.createNativeQuery(cmd).executeUpdate();
             }
         });
+        em.getTransaction().commit();
+         
+        em = InitialDataTransform.this.ctrlSubject.getEntityManager();
+        em.getTransaction().begin();
         System.out.println("Subject tábla feltöltése adatokkal..." + fpCoursesXml);
         parse(fpCoursesXml, new ElementFound() {
             @Override
@@ -222,20 +235,13 @@ public class InitialDataTransform {
                         + "\"NAME\",\"DEPARTMENT\"";
 
                 String cmd = String.format(line, "\"SUBJECT\"", cols, values);
-                EntityManager em = InitialDataTransform.this.ctrlSubject.getEntityManager();
-                try {
-                    em.getTransaction().begin();
-                    em.createNativeQuery(cmd).executeUpdate();
-                    em.getTransaction().commit();
-                } catch (Exception e) {
-                    em.close();
-                    e.printStackTrace();
-                    throw e;
-                }
+                em.createNativeQuery(cmd).executeUpdate();
 
             }
         });
-
+        
+        em.getTransaction().commit();
+        
         emf.close();
         System.out.println("Kész!");
 
