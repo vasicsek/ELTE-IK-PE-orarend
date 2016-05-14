@@ -16,7 +16,7 @@ import javax.persistence.EntityNotFoundException;
 
 /**
  *
- * @author Tóth Ákos
+ * @author RMUGLK
  */
 public class SubjectJpaController implements Serializable {
 

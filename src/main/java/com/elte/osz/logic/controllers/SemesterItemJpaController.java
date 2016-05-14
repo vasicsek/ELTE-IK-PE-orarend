@@ -18,8 +18,8 @@ import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 
 /**
- *
- * @author Tóth Ákos
+ 
+ * @author RMUGLK
  */
 public class SemesterItemJpaController implements Serializable {
 
@@ -31,7 +31,15 @@ public class SemesterItemJpaController implements Serializable {
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-    
+    /**
+     * SemesterItem-k(Tantárgy+időpont+terem) keresése az összes lehetséges paraméterrel.      * 
+     * @param semesterId semester azonositó egész szám
+     * @param subjectName tantárgy neve
+     * @param subjectCode tantárgy kódja
+     * @param subjectType tantárgy típusa
+     * @param semesterNr ajánlott félév
+     * @return SemesterItem lista, találatok
+     */
     public List<SemesterItem> searchBySubjectFull(
             Long semesterId, 
             String subjectName, 
@@ -47,6 +55,15 @@ public class SemesterItemJpaController implements Serializable {
                 .setParameter(5, semesterNr)
                 .getResultList();        
     }
+    /**
+     * SemesterItem-k(Tantárgy+időpont+terem) keresése az összes lehetséges paraméterrel.      * 
+     * @param semester semester aminek a semesteritem-eit szeretnénk.
+     * @param subjectName tantárgy neve
+     * @param subjectCode tantárgy kódja
+     * @param subjectType tantárgy típusa
+     * @param semesterNr ajánlott félév
+     * @return SemesterItem lista, találatok
+     */
     public List<SemesterItem> searchBySubjectFull(
             Semester semester, 
             String subjectName, 
@@ -56,6 +73,15 @@ public class SemesterItemJpaController implements Serializable {
     ){
         return searchBySubjectFull(semester.getId(), subjectName, subjectCode, subjectType, semesterNr);
     }
+     /**
+     * SemesterItem-k(Tantárgy+időpont+terem) keresése az összes lehetséges paraméterrel.      * 
+     * @param semesterId semester azonositó egész szám
+     * @param subjectName tantárgy neve
+     * @param subjectCode tantárgy kódja
+     * @param subjectType tantárgy típusa
+     * @param semesterNr ajánlott félév
+     * @return SemesterItem lista, találatok
+     */
     public List<SemesterItem> searchBySubjectWithSemesterNr(
             Long semesterId, 
             String subjectName, 

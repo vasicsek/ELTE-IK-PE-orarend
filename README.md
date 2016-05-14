@@ -1,13 +1,31 @@
-#ELTE IK Projekt Eszközök 2015/16/2 beadandó
+##ELTE IK Projekt Eszközök 2015/16/2 beadandó
 
-#Készítette
-(...)
+###A feladatunk leírása:
 
-#Report
+Órarend összeállító java-ban.
+Az időpontok hozzáadásánál figyel az ütközésekre.
+Saját adatbázisból dolgozik.
+
+###A projektünkkel kapcsolatos alap információk:
+
+- Fejlesztő környezet: NetBeans
+- Programozási nyelv: Java
+- Build rendszer: Maven
+- Verziókezelő: Git
+
+###Dokumentáció
+
+http://vasicsek.github.io/ELTE-IK-PE-orarend/apidocs/index.html
+
+###Report
 
 http://vasicsek.github.io/ELTE-IK-PE-orarend/
 
-#Dokumentáció
+###Készítette
 
-http://vasicsek.github.io/ELTE-IK-PE-orarend/apidocs/index.html
- 
+* IOP8IZ(vasicsek)
+* RMUGLK(akooos)
+* M8B02C(dobi79)
+* IQM7WZ(Regulus93)
+
+
