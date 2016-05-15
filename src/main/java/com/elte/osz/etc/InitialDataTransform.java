@@ -401,7 +401,7 @@ public class InitialDataTransform {
 
         ps.setString(1, null);
         ps.setString(2, "SEMESTER_SEMESTERITEM");
-        ps.setString(3, dir + "semester_semesteritem.tbl");
+        ps.setString(3, dir + "semesterxsemesteritem.tbl");
         ps.setString(4, null);
         ps.setString(5, null);
         ps.setString(6, null);
@@ -478,7 +478,7 @@ public class InitialDataTransform {
 
         ps.setString(1, null);
         ps.setString(2, "SEMESTER_SEMESTERITEM");
-        ps.setString(3, dir + "semester_semesteritem.tbl");
+        ps.setString(3, dir + "semesterxsemesteritem.tbl");
         ps.setString(4, null);
         ps.setString(5, null);
         ps.setString(6, null);
@@ -510,7 +510,7 @@ public class InitialDataTransform {
         File fSubject = new File("src/main/resources/subject.tbl");
         File fSemester = new File("src/main/resources/semester.tbl");
         File fSemesterItem = new File("src/main/resources/semesteritem.tbl");
-        File fSemester_SemesterItem = new File("src/main/resources/semester_semesteritem.tbl");
+        File fSemester_SemesterItem = new File("src/main/resources/semesterxsemesteritem.tbl");
         
         String dir = fTeacher.getParentFile().getAbsolutePath() + File.separator;
 
