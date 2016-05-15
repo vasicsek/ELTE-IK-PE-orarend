@@ -38,24 +38,23 @@ public class PhpRequest {
             Iterator<Element> it = element.select("tr").iterator();
             it.next();
             Iterator<Element> it2 = it.next().select("td").iterator();
-            it2.next();
-            it2.next();
-            String time = it2.next().text();
-            String lab = it2.next().text();
-            it2.next();
-            it2.next();
-            String type = it2.next().text();
-            for(int i = 0; i < 4; ++i)it2.next();
-            String teacher = it2.next().text();
-            System.out.println(time);
-            System.out.println(lab);
-            System.out.println(type);
-            System.out.println(teacher); 
-            SubjectInfo.add(code);
-            SubjectInfo.add(time);
-            SubjectInfo.add(lab);
-            SubjectInfo.add(type);
-            SubjectInfo.add(teacher);
+            if(it2.next().text().equals("Nincs ilyen adat.")){}
+            else{
+                it2.next();
+                String time = it2.next().text();
+                String lab = it2.next().text();
+                it2.next();
+                it2.next();
+                String type = it2.next().text();
+                if(!type.equals("gyakorlat")) type = "előadás";
+                for(int i = 0; i < 4; ++i)it2.next();
+                String teacher = it2.next().text(); 
+                SubjectInfo.add(code);
+                SubjectInfo.add(time);
+                SubjectInfo.add(lab);
+                SubjectInfo.add(type);
+                SubjectInfo.add(teacher);
+            }
         } catch (IOException ex) {
             Logger.getLogger(PhpRequest.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -5,7 +5,10 @@
  */
 package com.elte.osz.logic.phprequest;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.eclipse.persistence.jpa.jpql.parser.SubExpression;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -49,16 +52,16 @@ public class PhpRequestTest {
         String code2 = "IP-08EAN1E";
         PhpRequest instance = new PhpRequest();
         instance.downloadSubjectData(code);
-        // TODO review the generated test code and remove the default call to fail.
-        ArrayList<String> subjectDate = new ArrayList<String>();
-        subjectDate = instance.getSubjectInfo();
-        assertTrue("Hibas tomb meret", subjectDate.size() == 5);
-        assertTrue("Hibas elemet tett hozzas", subjectDate.get(3).equals("gyakorlat"));
-        assertTrue("Hibas a tanarnev", subjectDate.get(4).equals("Daiki Tennó"));
+        ArrayList<String> subjectData = new ArrayList<String>();
+        subjectData = instance.getSubjectInfo();
+        assertTrue("Hibas tomb meret", subjectData.size() == 5);
+        assertTrue("Hibas elemet tett hozzas", subjectData.get(3).equals("gyakorlat"));
+        assertTrue("Hibas a tanarnev", subjectData.get(4).equals("Daiki Tennó"));
         instance.downloadSubjectData(code2);
-        assertTrue("Hibas tomb merete", subjectDate.size() == 5);
-        assertTrue("Hibas a targy tipusa", subjectDate.get(3).equals("előadás"));
-        assertTrue("Hibas a tanarnev", subjectDate.get(4).equals("Kovács Sándor"));
+        assertTrue("Hibas tomb merete", subjectData.size() == 5);
+       // System.out.println(subjectData.get(3));
+        assertTrue("Hibas a targy tipusa", "előadás".equals(subjectData.get(3)));
+        assertTrue("Hibas a tanarnev", subjectData.get(4).equals("Kovács Sándor"));
         
     }    
 }
