@@ -87,6 +87,7 @@ public class PopupWindow extends javax.swing.JDialog {
     }//GEN-LAST:event_btnAdd
 
     public int showDialog(){
+        setLocationRelativeTo(null);
         setVisible(true);
         return jList1.getSelectedIndex();
     }

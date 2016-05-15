@@ -164,7 +164,9 @@ public class MainWindow extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainWindow().setVisible(true);
+                MainWindow mw = new MainWindow();
+                mw.setLocationRelativeTo(null);
+                mw.setVisible(true);
             }
         });
     }
