@@ -434,7 +434,7 @@ public class InitialDataTransform {
         ps.setString(6, null);
         ps.setInt(7, 0);
 
-        ps.addBatch();
+        ps.execute();
 
         ps.setString(1, null);
         ps.setString(2, "SUBJECT");
@@ -444,7 +444,7 @@ public class InitialDataTransform {
         ps.setString(6, null);
         ps.setInt(7, 0);
         
-        ps.addBatch();
+        ps.execute();
 
         ps.setString(1, null);
         ps.setString(2, "TEACHER");
@@ -454,7 +454,7 @@ public class InitialDataTransform {
         ps.setString(6, null);
         ps.setInt(7, 0);
         
-        ps.addBatch();
+        ps.execute();
 
         ps.setString(1, null);
         ps.setString(2, "SEMESTER");
@@ -464,7 +464,7 @@ public class InitialDataTransform {
         ps.setString(6, null);
         ps.setInt(7, 0);
         
-        ps.addBatch();
+        ps.execute();
 
         ps.setString(1, null);
         ps.setString(2, "SEMESTERITEM");
@@ -474,7 +474,7 @@ public class InitialDataTransform {
         ps.setString(6, null);
         ps.setInt(7, 0);
         
-        ps.addBatch();
+        ps.execute();
 
         ps.setString(1, null);
         ps.setString(2, "SEMESTER_SEMESTERITEM");
@@ -484,10 +484,10 @@ public class InitialDataTransform {
         ps.setString(6, null);
         ps.setInt(7, 0);
         
-        ps.addBatch();
+        ps.execute();
 
         Utils.logger.log(Level.INFO, "DUMPok feltöltése...");
-        ps.executeBatch();
+        //ps.executeBatch();
 
         //connection.commit();
 
