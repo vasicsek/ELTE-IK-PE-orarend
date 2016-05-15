@@ -24,7 +24,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
+/**
+ * Szemeszter hozzáadás/szerkesztés/törlés műveletek ellenőrzése.
+ * A szemeszter elemek = tantárgy+időpont+terem+tanár
+ * @author RMUGLK
+ */
 public class SemesterTable extends DBTest{
     
     private final String semester_name ="2015/16 tavasz";
@@ -69,7 +73,9 @@ public class SemesterTable extends DBTest{
         
     }
 
-    
+    /**
+     * Létrehoz egy szemeszter, szemeszter elemekkel.
+     */
     public void createSemester()  {
 
         // A tantárgyak időpontjait fel akarjuk vinni adatbázisba
@@ -142,10 +148,9 @@ public class SemesterTable extends DBTest{
         
         Assert.assertFalse("Szemeszter helyesen megjelent az adatbázisban!", index == -1 );        
         Assert.assertTrue("Szemeszter helyesen megjelent az adatbázisban!", sem.equals(lsSemester.get(index)));
-        println(lsSi);
-        logInfo("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+                
         for( SemesterItem si : lsSemester.get(index).getItems() )       {     
-            logInfo(si);
+        
            Assert.assertTrue("Szemeszter elemek helyesen megjelentek az adatbázisban!", lsSi.contains(si));
         }
             
