@@ -138,7 +138,7 @@ public class Subject extends BaseEntity implements Serializable {
     @Override
     public int hashCode() {
        //return Objects.hash(id,code,name,department,semester,subjectType,hours_nightly,hours_practical,hours_presentation);
-       return  Objects.hash(id,code,name);
+       return  Objects.hash(id,code,name,hours_practical);
        //return Objects.hash(id);
     }
 

@@ -5,11 +5,7 @@
  */
 package com.elte.osz.logic.phprequest;
 
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.eclipse.persistence.jpa.jpql.parser.SubExpression;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

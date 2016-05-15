@@ -60,7 +60,7 @@ public class TimetableTest extends DBTest {
     @Before
     public void setUp() {
         //kelenek szemeszter elemek
-        System.out.println("TimetableTest::Semeszter létrehozása!");
+        logInfo("TimetableTest::Semeszter létrehozása!");
         stt = new SemesterTableTest();
         stt.createSemester();
         
@@ -69,7 +69,7 @@ public class TimetableTest extends DBTest {
     @After
     public void tearDown() throws NonexistentEntityException {
           //takarítás, persze miután timetable-eket töröltük, különben SQLIntergrityContraintViolationException
-        System.out.println("TimetableTest::Semeszter törlése!");
+        logInfo("TimetableTest::Semeszter törlése!");
         stt.deleteSemester();
         stt = null;
     }
@@ -87,7 +87,7 @@ public class TimetableTest extends DBTest {
     public void createTimetable(){
 
         tt1 = new Timetable();     
-        System.out.println("1. Üres órarend létrehozása");
+        logInfo("1. Üres órarend létrehozása");
         tt1.setName("2016 tavasz");
         Set<SemesterItem> classes= new TreeSet<SemesterItem>();
         tt1.setClasses(classes);
@@ -95,52 +95,52 @@ public class TimetableTest extends DBTest {
         ctrlTimetable.create(tt1);
         
         tt2 = new Timetable();     
-        System.out.println("2. Üres órarend létrehozása");
+        logInfo("2. Üres órarend létrehozása");
         tt2.setName("2016 ősz");              
         tt2.setSemester(stt.getSem());
         ctrlTimetable.create(tt2);        
         
         tt3 = new Timetable();     
-        System.out.println("3. Órarend létrehozása néhány semeszter elemmel(=tantárgy+időpont).");
+        logInfo("3. Órarend létrehozása néhány semeszter elemmel(=tantárgy+időpont).");
         tt3.setName("2017 tavasz");        
         classes= new TreeSet<SemesterItem>();        
         attachRandomClasses(classes,stt.getSem());        
         tt3.setSemester(stt.getSem());
         tt3.setClasses(classes);
-        System.out.println("2017 tavaszhoz adunk szemeszter elemeket: "+classes.size()+" db-ot");
+        logInfo("2017 tavaszhoz adunk szemeszter elemeket: "+classes.size()+" db-ot");
         ctrlTimetable.create(tt3);
     }
     public void readTimetable(){
         
-        System.out.println("Órarendek listázása...");
+        logInfo("Órarendek listázása...");
         List<Timetable> lsTt = ctrlTimetable.findTimetableEntities();
                
         for( int i = 0; i < lsTt.size(); ++i){
-            System.out.println(lsTt.get(i));
+            logInfo(lsTt.get(i));
         }
     }
     public void updateTimetable() throws Exception{
         
-        System.out.println("1. Üres órarend szemeszter elem hozzárendelés");
+        logInfo("1. Üres órarend szemeszter elem hozzárendelés");
         tt1.setName("2016 tavasz"+tt1.getClasses().size());        
         Set<SemesterItem> classes = new TreeSet<SemesterItem>();
         attachRandomClasses(classes,stt.getSem());
-        System.out.println("2016 tavasz kapott szemeszter elemeket: "+classes.size()+" db-ot");
+        logInfo("2016 tavasz kapott szemeszter elemeket: "+classes.size()+" db-ot");
         tt1.setClasses(classes);
         ctrlTimetable.edit(tt1);             
                 
         
-        System.out.println("2. Üres órarendhez szemeszter elem hozzárendelés");
+        logInfo("2. Üres órarendhez szemeszter elem hozzárendelés");
         tt2.setName("2016 ősz ÁTNEVEZVE");              
         classes = new TreeSet<SemesterItem>();
         attachRandomClasses(classes,stt.getSem());
-        System.out.println("2016 ősz kapott szemeszter elemeket: "+classes.size()+" db-ot");
+        logInfo("2016 ősz kapott szemeszter elemeket: "+classes.size()+" db-ot");
         tt2.setClasses(classes);
         ctrlTimetable.edit(tt2);              
         /*
           Órák törlése, hozzáadása
         */
-        System.out.println("3. Órarend szemeszter eleminek eltávolítása(=tantárgy+időpont).");
+        logInfo("3. Órarend szemeszter eleminek eltávolítása(=tantárgy+időpont).");
         tt3.setName("2017 tavasz ÁTNEVEZVE");        
         classes = tt3.getClasses();
         Iterator<SemesterItem> it = classes.iterator();
@@ -154,10 +154,10 @@ public class TimetableTest extends DBTest {
             }
             
         }
-        System.out.println("REMOVED COUNT:"+rmcnt);
+        logInfo("REMOVED COUNT:"+rmcnt);
         
         attachRandomClasses(classes,stt.getSem());
-        System.out.println("2017 tavasz kapott szemeszter elemeket: "+classes.size()+" db-ot");
+        logInfo("2017 tavasz kapott szemeszter elemeket: "+classes.size()+" db-ot");
          ctrlTimetable.edit(tt3);
     }
     

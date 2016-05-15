@@ -9,11 +9,11 @@ import com.elte.osz.logic.entities.SemesterItem;
 import com.elte.osz.logic.entities.Subject;
 import com.elte.osz.logic.entities.Teacher;
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.logging.Logger;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -21,6 +21,7 @@ import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -29,7 +30,7 @@ public class SemesterTableTest extends DBTest{
     
     private final String semester_name ="2015/16 tavasz";
     private Semester sem;
-
+    private Set<SemesterItem> lsSi;
     public Semester getSem() {
         return sem;
     }
@@ -56,14 +57,15 @@ public class SemesterTableTest extends DBTest{
     public void testCRUD() throws NonexistentEntityException, Exception {
             
         this.sem = null;
-        System.out.println("CREATING semester:"+semester_name);
+        
+        logInfo("CREATING semester:"+semester_name);
         createSemester();
-        System.out.println("READING semester:"+semester_name);        
+        logInfo("READING semester:"+semester_name);        
         readSemester();
-        System.out.println("UPDATING semester:"+semester_name);
+        logInfo("UPDATING semester:"+semester_name);
         updateSemester();
         readSemester();    
-        System.out.println("DELETING semester:"+semester_name);
+        logInfo("DELETING semester:"+semester_name);
         deleteSemester();
         
     }
@@ -92,7 +94,7 @@ public class SemesterTableTest extends DBTest{
         List<Subject> lsSubjects = tq.getResultList();
 
         //ebben tároljuk a semester tantárgy+időpontokat
-        Set<SemesterItem> lsSi = new TreeSet<SemesterItem>();
+        lsSi = new TreeSet<SemesterItem>();
 
         Iterator<Subject> itSubject = lsSubjects.iterator();
 
@@ -134,15 +136,14 @@ public class SemesterTableTest extends DBTest{
     }
 
     public void readSemester() {
-        List<Semester> lsSemester = ctrlSemester.findSemesterEntities();
+        List<Semester> lsSemester = ctrlSemester.findSemesterEntities();        
+        int index = lsSemester.indexOf(this.sem);        
         
-        for(Semester semester : lsSemester){
+        Assert.assertFalse("Szemeszter helyesen megjelent az adatbázisban!", index == -1 );        
+        Assert.assertTrue("Szemeszter helyesen megjelent az adatbázisban!", sem.getName().toLowerCase().equals(lsSemester.get(index).getName().toLowerCase()));;
+        for( SemesterItem si : lsSemester.get(index).getItems() )            
+           Assert.assertTrue("Szemeszter elemek helyesen megjelentek az adatbázisban!", lsSi.contains(si));
             
-            System.out.println(semester);            
-            for( SemesterItem si : semester.getItems()){
-                System.out.println(si);
-            }
-        }
     }
     
     public void updateSemester() throws Exception{
@@ -157,7 +158,7 @@ public class SemesterTableTest extends DBTest{
             ls.get(i).getSubject().setSubjectType("TESZT"+ls.size());
         }
         int rmcnt =Utils.getRandomInt(0, ls.size()-1);
-        System.out.println("REMOVING ITEM COUNT="+rmcnt);
+        logInfo("REMOVING ITEM COUNT="+rmcnt);
         for( int i = 0; i < rmcnt ;++i)
             ls.remove(0);
         
