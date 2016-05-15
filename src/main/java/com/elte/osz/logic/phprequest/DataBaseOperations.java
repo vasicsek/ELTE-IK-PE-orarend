@@ -5,6 +5,7 @@
  */
 package com.elte.osz.logic.phprequest;
 
+import com.elte.osz.logic.entities.SemesterItem;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -81,14 +82,14 @@ public class DataBaseOperations {
         try {
             connection = DriverManager.getConnection(SQL_URL, properties);
             phprequest.downloadSubjectData(subjectCode);
-            ArrayList<String> subjectData = new ArrayList<String>();
+            ArrayList<SemesterItem> subjectData = new ArrayList<SemesterItem>();
             subjectData = phprequest.getSubjectInfo();
-            if(subjectData.size() > 0){
+            for(SemesterItem item : subjectData){
             ResultSet resSubjectID = connection.createStatement().executeQuery(GET_SUBJECT_ID+"'"+subjectCode+"'");
             subjectID = resSubjectID.next() ? resSubjectID.getString("ID") : null;
-            ResultSet resTeacherID = connection.createStatement().executeQuery(GET_TEACHER_ID + "'"+ subjectData.get(4) + "'");
+            ResultSet resTeacherID = connection.createStatement().executeQuery(GET_TEACHER_ID + "'"+ item.getTeacher().getName() + "'");
             teacherID = resTeacherID.next() ? resTeacherID.getString("ID") : null;
-            String[] room = subjectData.get(2).split(" ");
+            String[] room = item.getRoom().getName().split(" ");
             if(room.length < 2){
                 roomID = null;
             } else{
@@ -96,7 +97,10 @@ public class DataBaseOperations {
                 roomID = resRoomID.next() ? resRoomID.getString("ID") : null;
                 resRoomID.close();
             }
-            String[] time = subjectData.get(1).split(" |-");
+                startTime = item.getStartTime();
+                endTime = item.getEndTime();
+                day = item.getDay();
+           /* String[] time = subjectData.get(1).split(" |-");
             if(time.length < 2){
                 startTime = "";
                 endTime = "";
@@ -105,7 +109,7 @@ public class DataBaseOperations {
                 startTime = time[1];
                 day = time[0];
                 endTime = time[2];
-            }
+            }*/
             PreparedStatement prep = connection.prepareStatement(ADD_ELEMENT_TO_SEMESTERITEM);
             prep.setString(1, day);
             prep.setString(2, endTime);
@@ -117,7 +121,7 @@ public class DataBaseOperations {
             prep.close();
             resSubjectID.close();
             resTeacherID.close();
-            updateSubjectData(subjectID, subjectData.get(3));
+            updateSubjectData(subjectID, item.getSubject().getSubjectType());
             }
             connection.close(); 
         } catch (SQLException ex) {
