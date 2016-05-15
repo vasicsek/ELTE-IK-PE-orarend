@@ -23,7 +23,7 @@ import org.junit.Test;
 public class TimetableEdit extends DBTest {
 
     private Timetable tt;
-    private SemesterTableTest stt;
+    private SemesterTable stt;
     public TimetableEdit() {
 
     }
@@ -40,7 +40,7 @@ public class TimetableEdit extends DBTest {
     @Before
     public void setUp() {
          logInfo("TimetableEdit::Semeszter létrehozása!");
-        stt = new SemesterTableTest();
+        stt = new SemesterTable();
         stt.createSemester();
     }
 

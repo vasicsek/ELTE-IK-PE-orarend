@@ -132,18 +132,21 @@ public class Subject extends BaseEntity implements Serializable {
     }
       @Override
     public String toString(){        
-        return this.name + "["+ code +"]";
+        return "["+this.id + "] "+ this.name + "["+ code +"]";
     }
 
     @Override
     public int hashCode() {
+        
+       // System.out.println("Subject::hashCode()");
        //return Objects.hash(id,code,name,department,semester,subjectType,hours_nightly,hours_practical,hours_presentation);
-       return  Objects.hash(id,code,name,hours_practical);
+       return  Objects.hash(id,code,name);
        //return Objects.hash(id);
     }
 
     @Override
     public boolean equals(Object obj) {
+     //   System.out.println("Subject::equals()");
         if (this == obj) {
             return true;
         }

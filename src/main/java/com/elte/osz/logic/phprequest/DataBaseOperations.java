@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,10 +23,10 @@ import java.util.logging.Logger;
  */
 public class DataBaseOperations {
     private Connection connection;
-    private Properties properties;
+    
     private PhpRequest phprequest;
     
-    private final String SQL_URL = "jdbc:derby://localhost:1527/osz";
+    public static final String SQL_URL = "jdbc:derby://localhost:1527/osz";
     
     private final String GET_ALL_SUBJECTS_CODE = "SELECT CODE FROM SUBJECT";
     private final String GET_SUBJECT_ID = "SELECT ID FROM SUBJECT WHERE CODE = ";
@@ -41,11 +42,13 @@ public class DataBaseOperations {
     public String startTime;
     public String endTime;
     public String day;
-    
-    public DataBaseOperations() {
-            properties = new Properties();
-            properties.put("user", "osz");
-            properties.put("password", "osz");
+    public static final Properties properties = new Properties();
+    static {
+        properties.put("user", "osz");
+        properties.put("password", "osz");
+    }
+    public DataBaseOperations() {            
+            
             phprequest = new PhpRequest();
     }
     
@@ -114,8 +117,21 @@ public class DataBaseOperations {
             prep.close();
             resSubjectID.close();
             resTeacherID.close();
+            updateSubjectData(subjectID, subjectData.get(3));
             }
             connection.close(); 
+        } catch (SQLException ex) {
+            Logger.getLogger(DataBaseOperations.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void updateSubjectData(String subjectID, String subjectType){
+        try {
+            connection = DriverManager.getConnection(SQL_URL, properties);
+            Statement stat = connection.createStatement();
+            Random rand = new Random();
+            int semester = rand.nextInt(6) + 1;
+            stat.executeUpdate("UPDATE SUBJECT SET SEMESTER = " + semester + ", SUBJECTTYPE = '" + subjectType + "' WHERE ID = " + Integer.parseInt(subjectID));
         } catch (SQLException ex) {
             Logger.getLogger(DataBaseOperations.class.getName()).log(Level.SEVERE, null, ex);
         }

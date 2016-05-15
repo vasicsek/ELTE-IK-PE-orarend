@@ -16,3 +16,6 @@ CALL SYSCS_UTIL.SYSCS_EXPORT_TABLE(
 
 CALL SYSCS_UTIL.SYSCS_EXPORT_TABLE(
     null,'SEMESTER_SEMESTERITEM','/tmp/semester_semesteritem.tbl',null,null,null);
+
+--SQL160515205018460
+select  * from semesteritem;

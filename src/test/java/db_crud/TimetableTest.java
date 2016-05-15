@@ -41,7 +41,7 @@ public class TimetableTest extends DBTest {
     public Timetable getTt3() {
         return tt3;
     }
-    private SemesterTableTest stt;
+    private SemesterTable stt;
     public TimetableTest() {
     }
     
@@ -61,7 +61,7 @@ public class TimetableTest extends DBTest {
     public void setUp() {
         //kelenek szemeszter elemek
         logInfo("TimetableTest::Semeszter létrehozása!");
-        stt = new SemesterTableTest();
+        stt = new SemesterTable();
         stt.createSemester();
         
     }

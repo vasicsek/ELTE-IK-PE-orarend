@@ -166,19 +166,21 @@ public class SemesterItem extends BaseEntity implements Serializable, Comparable
 
     @Override
     public String toString() {
-        return "(" + this.teacher + "@" + this.subject + "*" + getSubject().getSemester() + ", " + getSubject().getSubjectType() + "*" + " | Kezdés:" + this.startTime + " | Vége: " + this.endTime + ")";
+        return "["+id+"](" + this.teacher + "@" + this.subject + "*" + getSubject().getSemester() + ", " + getSubject().getSubjectType() + "*" + " | Kezdés:" + this.startTime + " | Vége: " + this.endTime + ")";
     }
 
     @Override
     public int hashCode() {
         //return Objects.hash(id,startTime,endTime,teacher,room);
         //return Objects.hash(id);
+        //System.out.println("SemesterItem::hashCode()");
         return Objects.hash(id, subject);
     }
 
     @Override
     public boolean equals(Object obj) {
 
+        //System.out.println("SemesterItem::equals()");
         if (this == obj) {
             return true;
         }
@@ -189,10 +191,10 @@ public class SemesterItem extends BaseEntity implements Serializable, Comparable
             return false;
         }
         final SemesterItem other = (SemesterItem) obj;
-
+/*
         if (!Objects.equals(this.id, other.id)) {
             return false;
-        }
+        }*/
         if (!Objects.equals(this.teacher, other.teacher)) {
             return false;
         }

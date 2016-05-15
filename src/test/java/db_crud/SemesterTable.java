@@ -13,7 +13,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.logging.Logger;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -26,7 +25,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class SemesterTableTest extends DBTest{
+public class SemesterTable extends DBTest{
     
     private final String semester_name ="2015/16 tavasz";
     private Semester sem;
@@ -34,7 +33,7 @@ public class SemesterTableTest extends DBTest{
     public Semester getSem() {
         return sem;
     }
-    public SemesterTableTest() {
+    public SemesterTable() {
     }
 
     @BeforeClass
@@ -55,7 +54,7 @@ public class SemesterTableTest extends DBTest{
 
     @Test
     public void testCRUD() throws NonexistentEntityException, Exception {
-            
+        
         this.sem = null;
         
         logInfo("CREATING semester:"+semester_name);
@@ -71,7 +70,7 @@ public class SemesterTableTest extends DBTest{
     }
 
     
-    public void createSemester() {
+    public void createSemester()  {
 
         // A tantárgyak időpontjait fel akarjuk vinni adatbázisba
         // Ezért látrehozunk egy semeszter objektumot.      
@@ -113,13 +112,13 @@ public class SemesterTableTest extends DBTest{
 
             //SemesterItem és subject kapcsolatában be van állítva a cascade=PERSIST ezért
             //egy subject-et lehet így is frissíteni a tulajdonságait
+            //ajánlott szemeszter
             int iSem = Utils.getRandomInt(1, 6);
-            
+            //ajánlott szemeszter
             s.setSemester(iSem);
 
             SemesterItem si = new SemesterItem();
             si.setStartTime(ts.toString());
-
             si.setEndTime(new Timestamp(ts.getTime() + 2 * 3600000) .toString());
             si.setDay("Hétfő");
             si.setSubject(s);
@@ -132,17 +131,23 @@ public class SemesterTableTest extends DBTest{
         //mivel cascading merge,persit be van állítva ezért létrejönnek a megfelelő táblákban
         semester.setItems(lsSi);
         ctrlSemester.create(semester);
+        
         this.sem = semester;
     }
 
     public void readSemester() {
-        List<Semester> lsSemester = ctrlSemester.findSemesterEntities();        
+        List<Semester> lsSemester = ctrlSemester.findSemesterEntities();  
+        
         int index = lsSemester.indexOf(this.sem);        
         
         Assert.assertFalse("Szemeszter helyesen megjelent az adatbázisban!", index == -1 );        
-        Assert.assertTrue("Szemeszter helyesen megjelent az adatbázisban!", sem.getName().toLowerCase().equals(lsSemester.get(index).getName().toLowerCase()));;
-        for( SemesterItem si : lsSemester.get(index).getItems() )            
+        Assert.assertTrue("Szemeszter helyesen megjelent az adatbázisban!", sem.equals(lsSemester.get(index)));
+        println(lsSi);
+        logInfo("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        for( SemesterItem si : lsSemester.get(index).getItems() )       {     
+            logInfo(si);
            Assert.assertTrue("Szemeszter elemek helyesen megjelentek az adatbázisban!", lsSi.contains(si));
+        }
             
     }
     

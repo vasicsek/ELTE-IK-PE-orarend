@@ -20,7 +20,7 @@ import org.junit.Test;
  */
 public class SemesterItemSearches extends DBTest {
     
-    private static SemesterTableTest stt;
+    private static SemesterTable stt;
     
     public SemesterItemSearches() {
     }
@@ -30,7 +30,7 @@ public class SemesterItemSearches extends DBTest {
         
         //kelenek szemeszter elemek
         logInfo("SemesterItemSearches::Semeszter létrehozása!");
-        stt = new SemesterTableTest();
+        stt = new SemesterTable();
         stt.createSemester();
         //stt.readSemester();
     }

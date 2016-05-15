@@ -1,9 +1,11 @@
 package com.elte.osz.etc;
 
 import com.elte.osz.logic.OszDS;
+import com.elte.osz.logic.Utils;
 import com.elte.osz.logic.controllers.RoomJpaController;
 import com.elte.osz.logic.controllers.SubjectJpaController;
 import com.elte.osz.logic.controllers.TeacherJpaController;
+import com.elte.osz.logic.phprequest.DataBaseOperations;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
@@ -15,6 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.logging.Level;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.persistence.EntityManager;
@@ -126,7 +129,7 @@ public class InitialDataTransform {
             throws
             SAXException, IOException {
         //TODO ahogyan itt http://www.mkyong.com/java/how-to-read-xml-file-in-java-dom-parser/          
-        System.out.println("Adatbázis törlése és létrehozása...");
+        Utils.logger.log(Level.INFO, "Adatbázis törlése és létrehozása...");
         Map map = new HashMap();
         map.put("javax.persistence.schema-generation.database.action", "drop-and-create");
         //Optimalizálás
@@ -149,10 +152,10 @@ public class InitialDataTransform {
         ctrlSubject = new SubjectJpaController(emf);
         ctrlTeacher = new TeacherJpaController(emf);
         ctrlRoom = new RoomJpaController(emf);
-        System.out.println("SQL Insertek generálása xml fájlokból...");
+        Utils.logger.log(Level.INFO, "SQL Insertek generálása xml fájlokból...");
         final String line = "INSERT INTO %s(%s) VALUES(%s)";
 
-        System.out.println("Room tábla feltöltése adatokkal..." + fpRoomsXml);
+        Utils.logger.log(Level.INFO, "Room tábla feltöltése adatokkal..." + fpRoomsXml);
         em = InitialDataTransform.this.ctrlRoom.getEntityManager();
         em.getTransaction().begin();
 
@@ -186,7 +189,7 @@ public class InitialDataTransform {
 
         em = InitialDataTransform.this.ctrlTeacher.getEntityManager();
         em.getTransaction().begin();
-        System.out.println("Teacher tábla feltöltése adatokkal..." + fpTeachersXml);
+        Utils.logger.log(Level.INFO, "Teacher tábla feltöltése adatokkal..." + fpTeachersXml);
         parse(fpTeachersXml, new ElementFound() {
             @Override
             public void elementFound(Element element) {
@@ -210,7 +213,7 @@ public class InitialDataTransform {
 
         em = InitialDataTransform.this.ctrlSubject.getEntityManager();
         em.getTransaction().begin();
-        System.out.println("Subject tábla feltöltése adatokkal..." + fpCoursesXml);
+        Utils.logger.log(Level.INFO, "Subject tábla feltöltése adatokkal..." + fpCoursesXml);
         parse(fpCoursesXml, new ElementFound() {
             @Override
             public void elementFound(Element element) {
@@ -247,7 +250,7 @@ public class InitialDataTransform {
         em.getTransaction().commit();
 
         emf.close();
-        System.out.println("Kész!");
+        Utils.logger.log(Level.INFO, "Kész!");
 
     }
 
@@ -337,17 +340,20 @@ public class InitialDataTransform {
         return sb.toString();
     }
 
-    private void dumpTables(String dir) throws SQLException {
-        final String SQL_URL = "jdbc:derby://localhost:1527/osz";
-        final Properties properties = new Properties();
+    private void loadSemesterItems() {
+        Utils.logger.log(Level.INFO, "Jelenlegi szemeszter adatok gyűjtése a TTK TO-ról!");
+        new DataBaseOperations().searchSubjectSchedule();
+        Utils.logger.log(Level.INFO, "Kész!");
+    }
 
-        properties.put("user", "osz");
-        properties.put("password", "osz");
-        final Connection connection = DriverManager.getConnection(SQL_URL, properties);
+    private void dumpTables(String dir) throws SQLException {
+        final Connection connection = DriverManager.getConnection(DataBaseOperations.SQL_URL, DataBaseOperations.properties);
+
+        connection.setAutoCommit(false);
 
         PreparedStatement ps = connection.prepareStatement(
                 "CALL SYSCS_UTIL.SYSCS_EXPORT_TABLE (?,?,?,?,?,?)");
-        
+
         ps.setString(1, null);
         ps.setString(2, "ROOM");
         ps.setString(3, dir + "room.tbl");
@@ -399,10 +405,115 @@ public class InitialDataTransform {
         ps.setString(4, null);
         ps.setString(5, null);
         ps.setString(6, null);
-        System.out.println("DUMP készítése...");
-        ps.execute();
+
+        ps.addBatch();
+
+        Utils.logger.log(Level.INFO, "DUMPok készítése...");
+        ps.executeBatch();
+
+        connection.commit();
+
+        connection.close();
     }
 
+    
+    private static void loadDump(String dir) throws SQLException{
+        
+        
+        final Connection connection = DriverManager.getConnection(DataBaseOperations.SQL_URL, DataBaseOperations.properties);
+    
+        connection.setAutoCommit(false);
+
+        PreparedStatement ps = connection.prepareStatement(
+                "CALL SYSCS_UTIL.SYSCS_IMPORT_TABLE (?,?,?,?,?,?,?)");
+
+        ps.setString(1, null);
+        ps.setString(2, "ROOM");
+        ps.setString(3, dir + "room.tbl");
+        ps.setString(4, null);
+        ps.setString(5, null);
+        ps.setString(6, null);
+        ps.setInt(7, 0);
+
+        ps.addBatch();
+
+        ps.setString(1, null);
+        ps.setString(2, "SUBJECT");
+        ps.setString(3, dir + "subject.tbl");
+        ps.setString(4, null);
+        ps.setString(5, null);
+        ps.setString(6, null);
+        ps.setInt(7, 0);
+        
+        ps.addBatch();
+
+        ps.setString(1, null);
+        ps.setString(2, "TEACHER");
+        ps.setString(3, dir + "teacher.tbl");
+        ps.setString(4, null);
+        ps.setString(5, null);
+        ps.setString(6, null);
+        ps.setInt(7, 0);
+        
+        ps.addBatch();
+
+        ps.setString(1, null);
+        ps.setString(2, "SEMESTER");
+        ps.setString(3, dir + "semester.tbl");
+        ps.setString(4, null);
+        ps.setString(5, null);
+        ps.setString(6, null);
+        ps.setInt(7, 0);
+        
+        ps.addBatch();
+
+        ps.setString(1, null);
+        ps.setString(2, "SEMESTERITEM");
+        ps.setString(3, dir + "semesteritem.tbl");
+        ps.setString(4, null);
+        ps.setString(5, null);
+        ps.setString(6, null);
+        ps.setInt(7, 0);
+        
+        ps.addBatch();
+
+        ps.setString(1, null);
+        ps.setString(2, "SEMESTER_SEMESTERITEM");
+        ps.setString(3, dir + "semester_semesteritem.tbl");
+        ps.setString(4, null);
+        ps.setString(5, null);
+        ps.setString(6, null);
+        ps.setInt(7, 0);
+        
+        ps.addBatch();
+
+        Utils.logger.log(Level.INFO, "DUMPok feltöltése...");
+        ps.executeBatch();
+
+        connection.commit();
+
+        connection.close();
+        
+        
+       /* CALL SYSCS_UTIL.SYSCS_IMPORT_TABLE(
+    null,'TEACHER','/tmp/teacher.tbl',null,null,null,0);
+
+CALL SYSCS_UTIL.SYSCS_IMPORT_TABLE(
+    null,'ROOM','/tmp/room.tbl',null,null,null,0);
+
+CALL SYSCS_UTIL.SYSCS_IMPORT_TABLE(
+    null,'SUBJECT','/tmp/subject.tbl',null,null,null,0);
+
+CALL SYSCS_UTIL.SYSCS_IMPORT_TABLE(
+    null,'SEMESTER','/tmp/semester.tbl',null,null,null,0);
+
+CALL SYSCS_UTIL.SYSCS_IMPORT_TABLE(
+    null,'SEMESTERITEM','/tmp/semesteritem.tbl',null,null,null,0);
+
+CALL SYSCS_UTIL.SYSCS_IMPORT_TABLE(
+    null,'SEMESTER_SEMESTERITEM','/tmp/semester_semesteritem.tbl',null,null,null,0);*/
+
+    }
     /**
      * Program, amely létrehoz egy InitialDataTransform típusú objektumot és
      * meghívja a transform() függvényét. Program argumentumként kötelező
@@ -420,15 +531,15 @@ public class InitialDataTransform {
         File fSemester = new File("src/main/resources/semester.tbl");
         File fSemesterItem = new File("src/main/resources/semesteritem.tbl");
         File fSemester_SemesterItem = new File("src/main/resources/semester_semesteritem.tbl");
-
+        
         String dir = fTeacher.getParentFile().getAbsolutePath() + File.separator;
 
         if (dir == null) {
             throw new Exception("Unable to get parent directory: " + fTeacher.getAbsolutePath());
         }
-
         if (args.length == 3) {
             try {
+                
 
                 if (fTeacher.exists()) {
                     assert (fTeacher.delete());
@@ -455,8 +566,8 @@ public class InitialDataTransform {
                 }
 
                 InitialDataTransform idt = new InitialDataTransform(args[0], args[1], args[2]);
-
                 idt.transform();
+                idt.loadSemesterItems();
                 idt.dumpTables(dir);
 
             } catch (Exception e) {
@@ -464,11 +575,28 @@ public class InitialDataTransform {
                 e.printStackTrace();
                 throw e;
             }
-        } else {
-
-            throw new IllegalArgumentException("Rossz argumentum paraméterek az erőforrás generáláshoz!\nMegadott paraméterek száma:" + args.length);
-
-        }
+        } else if (fRoom.exists()
+                && fSemester.exists()
+                && fSemesterItem.exists()
+                && fSemester_SemesterItem.exists()
+                && fSubject.exists()
+                && fTeacher.exists()) {
+            
+            Utils.logger.log(Level.INFO,"Adatbázis újraépítése meglévő adatok alapján!");
+            
+            Map map = new HashMap();
+            map.put("javax.persistence.schema-generation.database.action", "drop-and-create");
+            //disable caching for batch insert (caching only improves reads, so only adds overhead for inserts)
+            map.put("eclipselink.cache.shared.default", "false");
+            //Avoids some logging overhead
+            map.put("eclipselink.logging.level", "off");            
+                        
+            Persistence.generateSchema(OszDS.PU, map);
+            loadDump(dir);
+            
+            Utils.logger.log(Level.INFO,"Kész!");
+            
+        } 
 
     }
 

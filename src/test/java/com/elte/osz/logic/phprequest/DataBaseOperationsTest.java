@@ -5,8 +5,6 @@
  */
 package com.elte.osz.logic.phprequest;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -36,6 +34,7 @@ public class DataBaseOperationsTest {
     
     @Before
     public void setUp() {
+        instance.deleteTestTable();
     }
     
     @After
@@ -48,13 +47,13 @@ public class DataBaseOperationsTest {
      */
     @Test
     public void testSearchSubjectSchedule() {
-        System.out.println("searchSubjectScheduleTest");
+        //System.out.println("searchSubjectScheduleTest");
         //DataBaseOperations instance = new DataBaseOperations();
         instance.searchSubjectSchedule();
         // TODO review the generated test code and remove the default call to fail.
     }
     
-   /*
+   
     @Test
     public void uploadSubjectTimeTest(){
         System.out.println("uploadSubjectTimeTest");
@@ -76,5 +75,12 @@ public class DataBaseOperationsTest {
         assertTrue("Hibas endTime", instance.endTime.equals("21:00"));
         assertTrue("Hibas day", instance.day.equals("Csütörtök"));
     }
-    */
+    
+    @Test
+    public void updateSubjectDataTest(){
+        System.out.println("updateSubjectDataTest");
+        instance.updateSubjectData("1", "eloadás");
+    }
+    
+   
 }
