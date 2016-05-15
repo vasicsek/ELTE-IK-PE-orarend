@@ -7,7 +7,10 @@ package com.elte.osz.gui;
 
 import com.elte.osz.logic.*;
 import com.elte.osz.logic.entities.Subject;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
 
 /**
  *
@@ -77,6 +80,11 @@ public class MainWindow extends javax.swing.JFrame {
         Orarend.setPreferredSize(new java.awt.Dimension(0, 0));
         Orarend.setRowHeight(75);
         Orarend.getTableHeader().setReorderingAllowed(false);
+        Orarend.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mouseRightClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(Orarend);
         if (Orarend.getColumnModel().getColumnCount() > 0) {
             Orarend.getColumnModel().getColumn(0).setResizable(false);
@@ -133,6 +141,16 @@ public class MainWindow extends javax.swing.JFrame {
         PopupWindow popupFrame = new PopupWindow(this, true, new ArrayList<Subject>());
         int selected = popupFrame.showDialog();
     }//GEN-LAST:event_btnSearchMouseClicked
+
+    private void mouseRightClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mouseRightClicked
+        // TODO add your handling code here:
+        JPopupMenu popupMenu = new JPopupMenu();
+        popupMenu.add(new JMenuItem("Információ"));
+        popupMenu.add(new JMenuItem("Törlés"));
+        if(evt.getButton() == MouseEvent.BUTTON3){
+            popupMenu.show(evt.getComponent(), evt.getX(), evt.getY());
+        }
+    }//GEN-LAST:event_mouseRightClicked
 
     /**
      * @param args the command line arguments
