@@ -298,7 +298,7 @@
                     <reportSet>
                         <id>html</id>
                         <configuration>
-                
+                             <additionalparam>-Xdoclint:none</additionalparam>
                             <doctitle> ${project.name} ${project.version}</doctitle>
                             <windowtitle> ${project.name} ${project.version}</windowtitle>   
                             <aggregate>true</aggregate>

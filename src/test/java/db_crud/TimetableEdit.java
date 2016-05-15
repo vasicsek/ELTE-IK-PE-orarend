@@ -17,7 +17,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- *
+ * Órarend szerkesztését ellenőrzi: 
+ * véletlenszerűen kiválaszt egy tantárgyat és hozzárendel az órarendhez, ezzel
+ * a tantárgy keresést és a órarend szerkesztést szimulálva.
  * @author RMUGLK
  */
 public class TimetableEdit extends DBTest {
@@ -52,7 +54,12 @@ public class TimetableEdit extends DBTest {
         stt.deleteSemester();
         stt = null;
     }
-
+/**
+ * Órarend szerkesztését ellenőrzi: 
+ * véletlenszerűen kiválaszt egy tantárgyat és hozzárendel az órarendhez, ezzel
+ * a tantárgy keresést és a órarend szerkesztést szimulálva.
+ * @author RMUGLK
+ */
     @Test
     public void editTimetable() throws Exception {
         
