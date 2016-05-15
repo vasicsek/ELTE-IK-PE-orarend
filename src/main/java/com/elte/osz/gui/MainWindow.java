@@ -7,9 +7,12 @@ package com.elte.osz.gui;
 
 import com.elte.osz.logic.*;
 import com.elte.osz.logic.entities.Subject;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
 
 /**
@@ -145,7 +148,14 @@ public class MainWindow extends javax.swing.JFrame {
     private void mouseRightClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mouseRightClicked
         // TODO add your handling code here:
         JPopupMenu popupMenu = new JPopupMenu();
-        popupMenu.add(new JMenuItem("Információ"));
+        JMenuItem menuItem = new JMenuItem("Óra adatai");
+        menuItem.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent evt)
+            {
+                JOptionPane.showMessageDialog(null, "Információ", "Felvett óra adatai", JOptionPane.PLAIN_MESSAGE);
+            }
+        });
+        popupMenu.add(menuItem);
         popupMenu.add(new JMenuItem("Törlés"));
         if(evt.getButton() == MouseEvent.BUTTON3){
             popupMenu.show(evt.getComponent(), evt.getX(), evt.getY());
