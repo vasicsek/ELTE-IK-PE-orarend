@@ -349,7 +349,7 @@ public class InitialDataTransform {
     private void dumpTables(String dir) throws SQLException {
         final Connection connection = DriverManager.getConnection(DataBaseOperations.SQL_URL, DataBaseOperations.properties);
 
-        connection.setAutoCommit(false);
+       // connection.setAutoCommit(false);
 
         PreparedStatement ps = connection.prepareStatement(
                 "CALL SYSCS_UTIL.SYSCS_EXPORT_TABLE (?,?,?,?,?,?)");
@@ -361,7 +361,7 @@ public class InitialDataTransform {
         ps.setString(5, null);
         ps.setString(6, null);
 
-        ps.addBatch();
+        ps.execute();
 
         ps.setString(1, null);
         ps.setString(2, "SUBJECT");
@@ -370,7 +370,7 @@ public class InitialDataTransform {
         ps.setString(5, null);
         ps.setString(6, null);
 
-        ps.addBatch();
+        ps.execute();
 
         ps.setString(1, null);
         ps.setString(2, "TEACHER");
@@ -379,7 +379,7 @@ public class InitialDataTransform {
         ps.setString(5, null);
         ps.setString(6, null);
 
-        ps.addBatch();
+        ps.execute();
 
         ps.setString(1, null);
         ps.setString(2, "SEMESTER");
@@ -388,7 +388,7 @@ public class InitialDataTransform {
         ps.setString(5, null);
         ps.setString(6, null);
 
-        ps.addBatch();
+        ps.execute();
 
         ps.setString(1, null);
         ps.setString(2, "SEMESTERITEM");
@@ -397,7 +397,7 @@ public class InitialDataTransform {
         ps.setString(5, null);
         ps.setString(6, null);
 
-        ps.addBatch();
+        ps.execute();
 
         ps.setString(1, null);
         ps.setString(2, "SEMESTER_SEMESTERITEM");
@@ -406,12 +406,12 @@ public class InitialDataTransform {
         ps.setString(5, null);
         ps.setString(6, null);
 
-        ps.addBatch();
+        ps.execute();
 
         Utils.logger.log(Level.INFO, "DUMPok készítése...");
-        ps.executeBatch();
+        //ps.executeBatch();
 
-        connection.commit();
+        //connection.commit();
 
         connection.close();
     }
@@ -421,8 +421,7 @@ public class InitialDataTransform {
         
         
         final Connection connection = DriverManager.getConnection(DataBaseOperations.SQL_URL, DataBaseOperations.properties);
-    
-        connection.setAutoCommit(false);
+       // connection.setAutoCommit(false);
 
         PreparedStatement ps = connection.prepareStatement(
                 "CALL SYSCS_UTIL.SYSCS_IMPORT_TABLE (?,?,?,?,?,?,?)");
@@ -490,29 +489,10 @@ public class InitialDataTransform {
         Utils.logger.log(Level.INFO, "DUMPok feltöltése...");
         ps.executeBatch();
 
-        connection.commit();
+        //connection.commit();
 
         connection.close();
-        
-        
-       /* CALL SYSCS_UTIL.SYSCS_IMPORT_TABLE(
-    null,'TEACHER','/tmp/teacher.tbl',null,null,null,0);
-
-CALL SYSCS_UTIL.SYSCS_IMPORT_TABLE(
-    null,'ROOM','/tmp/room.tbl',null,null,null,0);
-
-CALL SYSCS_UTIL.SYSCS_IMPORT_TABLE(
-    null,'SUBJECT','/tmp/subject.tbl',null,null,null,0);
-
-CALL SYSCS_UTIL.SYSCS_IMPORT_TABLE(
-    null,'SEMESTER','/tmp/semester.tbl',null,null,null,0);
-
-CALL SYSCS_UTIL.SYSCS_IMPORT_TABLE(
-    null,'SEMESTERITEM','/tmp/semesteritem.tbl',null,null,null,0);
-
-CALL SYSCS_UTIL.SYSCS_IMPORT_TABLE(
-    null,'SEMESTER_SEMESTERITEM','/tmp/semester_semesteritem.tbl',null,null,null,0);*/
-
+          
     }
     /**
      * Program, amely létrehoz egy InitialDataTransform típusú objektumot és
@@ -542,7 +522,8 @@ CALL SYSCS_UTIL.SYSCS_IMPORT_TABLE(
                 
 
                 if (fTeacher.exists()) {
-                    assert (fTeacher.delete());
+                    assert(fTeacher.delete());
+                    
                 }
 
                 if (fRoom.exists()) {

@@ -142,10 +142,9 @@ public class SemesterTable extends DBTest{
         
         Assert.assertFalse("Szemeszter helyesen megjelent az adatbázisban!", index == -1 );        
         Assert.assertTrue("Szemeszter helyesen megjelent az adatbázisban!", sem.equals(lsSemester.get(index)));
-        println(lsSi);
-        logInfo("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+                
         for( SemesterItem si : lsSemester.get(index).getItems() )       {     
-            logInfo(si);
+        
            Assert.assertTrue("Szemeszter elemek helyesen megjelentek az adatbázisban!", lsSi.contains(si));
         }
             

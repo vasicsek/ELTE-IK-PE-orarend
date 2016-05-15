@@ -34,7 +34,7 @@ public class DataBaseOperationsTest {
     
     @Before
     public void setUp() {
-        instance.deleteTestTable();
+        //instance.deleteTestTable();
     }
     
     @After
@@ -58,7 +58,7 @@ public class DataBaseOperationsTest {
     public void uploadSubjectTimeTest(){
         System.out.println("uploadSubjectTimeTest");
        // DataBaseOperations instance = new DataBaseOperations();
-        instance.uploadSubjectTime("IP-08EAN1E");
+       instance.uploadSubjectTime("IP-08EAN1E");
        // System.out.println("StartTime: " + instance.startTime);
         //System.out.println(instance.day);
         assertTrue("Hibas subjectID", Integer.parseInt(instance.subjectID) == 209);
@@ -69,11 +69,10 @@ public class DataBaseOperationsTest {
         assertTrue("Hibas day", instance.day.equals("Hétfo"));
         instance.uploadSubjectTime("IP-08EPNY1EG");
         assertTrue("Hibas subjectID", Integer.parseInt(instance.subjectID) == 585);
-        assertTrue("Hibas teacherID", Integer.parseInt(instance.teacherID) == 2619);
-        assertTrue("Hibas roomID", Integer.parseInt(instance.roomID) == 68);
+        assertTrue("Hibas teacherID", Integer.parseInt(instance.teacherID) == 320);
         assertTrue("Hibas startTime", instance.startTime.equals("19:30"));
         assertTrue("Hibas endTime", instance.endTime.equals("21:00"));
-        assertTrue("Hibas day", instance.day.equals("Csütörtök"));
+        assertTrue("Hibas day", instance.day.equals("Kedd"));
     }
     
     @Test
