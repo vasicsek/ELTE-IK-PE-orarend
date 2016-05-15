@@ -17,6 +17,8 @@ import com.elte.osz.logic.entities.Semester;
 import com.elte.osz.logic.entities.SemesterItem;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -42,14 +44,17 @@ public class DBTest {
     protected final TimetableJpaController ctrlTimetable;
     protected final SemesterItemJpaController ctrlSemesterItem;
     
+    protected static void logInfo(Object o){
+        Utils.logger.log(Level.INFO ,o.toString());
+    }
     protected void println(Set<SemesterItem> sis ){
-       sis.forEach( (si)->{
-           System.out.println(si);
+       sis.forEach( (si)->{           
+           Utils.logger.log(Level.INFO ,si.toString());
        });
    }
     protected void println(List<SemesterItem> sis ){
        sis.forEach( (si)->{
-           System.out.println(si);
+           Utils.logger.log(Level.INFO ,si.toString());
        });
    }
     protected void attachRandomClasses(Set<SemesterItem> classes, Semester semester){

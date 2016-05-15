@@ -2,12 +2,16 @@ package com.elte.osz.logic;
 
 import java.sql.Timestamp;
 import java.util.Random;
+import java.util.logging.Logger;
 
 /**
  *
  * @author RMUGLK
  */
 public class Utils {
+    
+   public static final Logger logger = java.util.logging.Logger.getGlobal();
+    
    private static final Random random = new Random(System.currentTimeMillis());
    
    public static java.sql.Timestamp getRandomTimeStamp(){

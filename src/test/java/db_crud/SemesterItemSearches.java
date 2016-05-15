@@ -20,7 +20,7 @@ import org.junit.Test;
  */
 public class SemesterItemSearches extends DBTest {
     
-    private static SemesterTableTest stt;
+    private static SemesterTable stt;
     
     public SemesterItemSearches() {
     }
@@ -29,15 +29,15 @@ public class SemesterItemSearches extends DBTest {
     public static void setUpClass() {
         
         //kelenek szemeszter elemek
-        System.out.println("SemesterItemSearches::Semeszter létrehozása!");
-        stt = new SemesterTableTest();
+        logInfo("SemesterItemSearches::Semeszter létrehozása!");
+        stt = new SemesterTable();
         stt.createSemester();
         //stt.readSemester();
     }
     @AfterClass
     public static void tearDownClass() throws NonexistentEntityException {
              
-        System.out.println("SemesterItemSearches::Semeszter törlése!");
+        logInfo("SemesterItemSearches::Semeszter törlése!");
         stt.deleteSemester();
         stt = null;
     }
@@ -53,42 +53,42 @@ public class SemesterItemSearches extends DBTest {
     
    
    private void doSearchWithSemesterNr(String subjectName, String subjectCode, int semesterNr){
-      System.out.println("Keresés tantárgy név, kód és ajánlott szemeszter  alapján: \"" + subjectName + "\", \"" + subjectCode + "\", " + semesterNr);
+      logInfo("Keresés tantárgy név, kód és ajánlott szemeszter  alapján: \"" + subjectName + "\", \"" + subjectCode + "\", " + semesterNr);
       List<SemesterItem> ls = ctrlSemesterItem.searchBySubjectWithSemesterNr(stt.getSem().getId(),subjectName, subjectCode, semesterNr);
-      System.out.println("Találatok száma:"+ ls.size());
+      logInfo("Találatok száma:"+ ls.size());
       ls.forEach((element)->{       
-           System.out.println(element.getSubject() );                 
+           logInfo(element.getSubject() );                 
       });
-      System.out.println("-------------------------------------------------");
+      logInfo("-------------------------------------------------");
    }
    private void doSearch(String subjectName, String subjectCode){
-      System.out.println("Keresés tantárgy név és kód alapján: \"" + subjectName + "\", \"" + subjectCode + "\"");
+      logInfo("Keresés tantárgy név és kód alapján: \"" + subjectName + "\", \"" + subjectCode + "\"");
       List<SemesterItem> ls = ctrlSemesterItem.searchBySubject(stt.getSem().getId(),subjectName, subjectCode);
-      System.out.println("Találatok száma "+ ls.size());
+      logInfo("Találatok száma "+ ls.size());
       println(ls);
       
-      System.out.println("-------------------------------------------------");
+      logInfo("-------------------------------------------------");
    }
    private void doSearchFull(String subjectName, String subjectCode, String subjectType, int semesterNr ){
-      System.out.println("\"Teljes\" keresés...: \"" + subjectName + "\", \"" + subjectCode + "\", " + "\""+ subjectType +"\", " + semesterNr);
+      logInfo("\"Teljes\" keresés...: \"" + subjectName + "\", \"" + subjectCode + "\", " + "\""+ subjectType +"\", " + semesterNr);
       List<SemesterItem> ls = ctrlSemesterItem.searchBySubjectFull(stt.getSem().getId(),subjectName, subjectCode, subjectType, semesterNr);
-      System.out.println("Találatok száma "+ ls.size());
+      logInfo("Találatok száma "+ ls.size());
       println(ls);
       
-      System.out.println("-------------------------------------------------");       
+      logInfo("-------------------------------------------------");       
    }
    
    @Test
    public void searchSemesters(){
-       System.out.println("Első féléves tantárgyak kilistázása...");
+       logInfo("Első féléves tantárgyak kilistázása...");
        doSearchWithSemesterNr("", "",1);
-       System.out.println("Keresés névre...:");
+       logInfo("Keresés névre...:");
        doSearch("diszkrét","");
-       System.out.println("Keresés kódra..:");
+       logInfo("Keresés kódra..:");
        doSearch("", "IKP");
-       System.out.println("Keresés névre és kódra..:");
+       logInfo("Keresés névre és kódra..:");
        doSearch("rendszer", "EA");  
-       System.out.println("Keresés:");
+       logInfo("Keresés:");
        doSearchFull("a", "IK", "",1);
    }
 }

@@ -87,9 +87,9 @@ public class Semester extends BaseEntity implements Serializable {
             return false;
         }
         final Semester other = (Semester) obj;
-        if (!Objects.equals(this.id, other.id)) {
+      /*  if (!Objects.equals(this.id, other.id)) {
             return false;
-        }
+        }*/
         
         if (!Objects.equals(this.name, other.name)) {
             return false;

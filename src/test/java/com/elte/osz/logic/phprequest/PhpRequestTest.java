@@ -5,11 +5,8 @@
  */
 package com.elte.osz.logic.phprequest;
 
-import java.io.UnsupportedEncodingException;
+import com.elte.osz.logic.entities.SemesterItem;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.eclipse.persistence.jpa.jpql.parser.SubExpression;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -48,7 +45,21 @@ public class PhpRequestTest {
     @Test
     public void testGetSubject() {
         System.out.println("getSubject");
-        String code = "IKP-9169";
+        String code = "IP-08cPNY2EG";
+        ArrayList<SemesterItem> sem = new ArrayList<SemesterItem>();
+        PhpRequest instance = new PhpRequest();
+        instance.downloadSubjectData(code);
+        sem = instance.getSubjectInfo();
+        assertTrue("Hibas tombmeret", sem.size() == 13);
+        assertTrue("Hibas tanarnev", sem.get(1).getTeacher().getName().equals("Lázár Katalin Anna"));
+        // System.out.println(sem.get(1).getSubject().getSubjectType());
+        // System.out.println(sem.get(1).getRoom().getName());
+        assertTrue("Hibas tipus", sem.get(12).getSubject().getSubjectType().equals("konzultáció"));
+        //System.out.println(sem.size());
+       // System.out.println(sem.get(1).getTeacher().getName());
+        
+       
+        /*String code = "IKP-9169";
         String code2 = "IP-08EAN1E";
         PhpRequest instance = new PhpRequest();
         instance.downloadSubjectData(code);
@@ -61,7 +72,7 @@ public class PhpRequestTest {
         assertTrue("Hibas tomb merete", subjectData.size() == 5);
        // System.out.println(subjectData.get(3));
         assertTrue("Hibas a targy tipusa", "előadás".equals(subjectData.get(3)));
-        assertTrue("Hibas a tanarnev", subjectData.get(4).equals("Kovács Sándor"));
+        assertTrue("Hibas a tanarnev", subjectData.get(4).equals("Kovács Sándor"));*/
         
     }    
 }
