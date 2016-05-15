@@ -54,6 +54,7 @@ public class DataBaseOperationsTest {
         // TODO review the generated test code and remove the default call to fail.
     }
     
+   /*
     @Test
     public void uploadSubjectTimeTest(){
         System.out.println("uploadSubjectTimeTest");
@@ -75,5 +76,5 @@ public class DataBaseOperationsTest {
         assertTrue("Hibas endTime", instance.endTime.equals("21:00"));
         assertTrue("Hibas day", instance.day.equals("Csütörtök"));
     }
-    
+    */
 }
