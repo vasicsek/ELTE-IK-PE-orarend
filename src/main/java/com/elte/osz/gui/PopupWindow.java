@@ -6,7 +6,6 @@
 package com.elte.osz.gui;
 
 import com.elte.osz.logic.entities.Subject;
-import java.awt.Window;
 import java.util.List;
 
 /**
