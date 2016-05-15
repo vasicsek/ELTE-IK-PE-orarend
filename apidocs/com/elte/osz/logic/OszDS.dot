@@ -10,18 +10,18 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// com.elte.osz.logic.OszDS
-	c481 [label=<<table title="com.elte.osz.logic.OszDS" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./OszDS.html">
+	c575 [label=<<table title="com.elte.osz.logic.OszDS" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./OszDS.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> OszDS </td></tr>
 		</table></td></tr>
 		</table>>, URL="./OszDS.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// com.elte.osz.logic.dbhandler.DataSource
-	c483 [label=<<table title="com.elte.osz.logic.dbhandler.DataSource" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./dbhandler/DataSource.html">
+	c577 [label=<<table title="com.elte.osz.logic.dbhandler.DataSource" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./dbhandler/DataSource.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> DataSource </td></tr>
 		</table></td></tr>
 		</table>>, URL="./dbhandler/DataSource.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	//com.elte.osz.logic.OszDS extends com.elte.osz.logic.dbhandler.DataSource
-	c483:p -> c481:p [dir=back,arrowtail=empty];
+	c577:p -> c575:p [dir=back,arrowtail=empty];
 }
 

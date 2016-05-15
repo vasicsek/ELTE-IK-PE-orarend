@@ -4,3 +4,4 @@ com.elte.osz.logic.controllers
 com.elte.osz.logic.controllers.exceptions
 com.elte.osz.logic.dbhandler
 com.elte.osz.logic.entities
+com.elte.osz.logic.phprequest

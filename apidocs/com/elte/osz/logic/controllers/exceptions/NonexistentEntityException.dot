@@ -10,15 +10,15 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// com.elte.osz.logic.controllers.exceptions.NonexistentEntityException
-	c445 [label=<<table title="com.elte.osz.logic.controllers.exceptions.NonexistentEntityException" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./NonexistentEntityException.html">
+	c535 [label=<<table title="com.elte.osz.logic.controllers.exceptions.NonexistentEntityException" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./NonexistentEntityException.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> NonexistentEntityException </td></tr>
 		</table></td></tr>
 		</table>>, URL="./NonexistentEntityException.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	//com.elte.osz.logic.controllers.exceptions.NonexistentEntityException extends java.lang.Exception
-	c450:p -> c445:p [dir=back,arrowtail=empty];
+	c540:p -> c535:p [dir=back,arrowtail=empty];
 	// java.lang.Exception
-	c450 [label=<<table title="java.lang.Exception" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Exception.html">
+	c540 [label=<<table title="java.lang.Exception" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Exception.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Exception </td></tr>
 		</table></td></tr>

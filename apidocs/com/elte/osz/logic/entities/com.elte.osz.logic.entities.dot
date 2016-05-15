@@ -10,43 +10,43 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// com.elte.osz.logic.entities.SemesterItem
-	c60 [label=<<table title="com.elte.osz.logic.entities.SemesterItem" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./SemesterItem.html">
+	c94 [label=<<table title="com.elte.osz.logic.entities.SemesterItem" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./SemesterItem.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> SemesterItem </td></tr>
 		</table></td></tr>
 		</table>>, URL="./SemesterItem.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// com.elte.osz.logic.entities.Semester
-	c61 [label=<<table title="com.elte.osz.logic.entities.Semester" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Semester.html">
+	c95 [label=<<table title="com.elte.osz.logic.entities.Semester" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Semester.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Semester </td></tr>
 		</table></td></tr>
 		</table>>, URL="./Semester.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// com.elte.osz.logic.entities.Timetable
-	c62 [label=<<table title="com.elte.osz.logic.entities.Timetable" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Timetable.html">
+	c96 [label=<<table title="com.elte.osz.logic.entities.Timetable" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Timetable.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Timetable </td></tr>
 		</table></td></tr>
 		</table>>, URL="./Timetable.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// com.elte.osz.logic.entities.BuildingConverter
-	c63 [label=<<table title="com.elte.osz.logic.entities.BuildingConverter" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./BuildingConverter.html">
+	c97 [label=<<table title="com.elte.osz.logic.entities.BuildingConverter" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./BuildingConverter.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> BuildingConverter </td></tr>
 		</table></td></tr>
 		</table>>, URL="./BuildingConverter.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// com.elte.osz.logic.entities.Subject
-	c64 [label=<<table title="com.elte.osz.logic.entities.Subject" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Subject.html">
+	c98 [label=<<table title="com.elte.osz.logic.entities.Subject" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Subject.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Subject </td></tr>
 		</table></td></tr>
 		</table>>, URL="./Subject.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// com.elte.osz.logic.entities.Teacher
-	c65 [label=<<table title="com.elte.osz.logic.entities.Teacher" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Teacher.html">
+	c99 [label=<<table title="com.elte.osz.logic.entities.Teacher" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Teacher.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Teacher </td></tr>
 		</table></td></tr>
 		</table>>, URL="./Teacher.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// com.elte.osz.logic.entities.Room
-	c66 [label=<<table title="com.elte.osz.logic.entities.Room" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Room.html">
+	c100 [label=<<table title="com.elte.osz.logic.entities.Room" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Room.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Room </td></tr>
 		</table></td></tr>

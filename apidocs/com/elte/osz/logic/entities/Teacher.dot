@@ -10,25 +10,25 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// com.elte.osz.logic.dbhandler.BaseEntity
-	c752 [label=<<table title="com.elte.osz.logic.dbhandler.BaseEntity" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../dbhandler/BaseEntity.html">
+	c894 [label=<<table title="com.elte.osz.logic.dbhandler.BaseEntity" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../dbhandler/BaseEntity.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"><font face="Helvetica-Oblique"> BaseEntity </font></td></tr>
 		</table></td></tr>
 		</table>>, URL="../dbhandler/BaseEntity.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// com.elte.osz.logic.entities.Teacher
-	c760 [label=<<table title="com.elte.osz.logic.entities.Teacher" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Teacher.html">
+	c902 [label=<<table title="com.elte.osz.logic.entities.Teacher" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Teacher.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Teacher </td></tr>
 		</table></td></tr>
 		</table>>, URL="./Teacher.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	//com.elte.osz.logic.dbhandler.BaseEntity implements java.io.Serializable
-	c773:p -> c752:p [dir=back,arrowtail=empty,style=dashed];
+	c915:p -> c894:p [dir=back,arrowtail=empty,style=dashed];
 	//com.elte.osz.logic.entities.Teacher extends com.elte.osz.logic.dbhandler.BaseEntity
-	c752:p -> c760:p [dir=back,arrowtail=empty];
+	c894:p -> c902:p [dir=back,arrowtail=empty];
 	//com.elte.osz.logic.entities.Teacher implements java.io.Serializable
-	c773:p -> c760:p [dir=back,arrowtail=empty,style=dashed];
+	c915:p -> c902:p [dir=back,arrowtail=empty,style=dashed];
 	// java.io.Serializable
-	c773 [label=<<table title="java.io.Serializable" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/Serializable.html">
+	c915 [label=<<table title="java.io.Serializable" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/Serializable.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> &#171;interface&#187; </td></tr>
 <tr><td align="center" balign="center"> Serializable </td></tr>

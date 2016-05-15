@@ -10,33 +10,33 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// com.elte.osz.logic.Building
-	c0 [label=<<table title="com.elte.osz.logic.Building" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Building.html">
+	c30 [label=<<table title="com.elte.osz.logic.Building" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Building.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> &#171;enumeration&#187; </td></tr>
 <tr><td align="center" balign="center"> Building </td></tr>
 		</table></td></tr>
 		</table>>, URL="./Building.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// com.elte.osz.logic.Osz
-	c1 [label=<<table title="com.elte.osz.logic.Osz" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Osz.html">
+	c31 [label=<<table title="com.elte.osz.logic.Osz" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Osz.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Osz </td></tr>
 		</table></td></tr>
 		</table>>, URL="./Osz.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// com.elte.osz.logic.Utils
-	c2 [label=<<table title="com.elte.osz.logic.Utils" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Utils.html">
+	c32 [label=<<table title="com.elte.osz.logic.Utils" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Utils.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Utils </td></tr>
 		</table></td></tr>
 		</table>>, URL="./Utils.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// com.elte.osz.logic.Department
-	c3 [label=<<table title="com.elte.osz.logic.Department" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Department.html">
+	c33 [label=<<table title="com.elte.osz.logic.Department" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Department.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> &#171;enumeration&#187; </td></tr>
 <tr><td align="center" balign="center"> Department </td></tr>
 		</table></td></tr>
 		</table>>, URL="./Department.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// com.elte.osz.logic.OszDS
-	c4 [label=<<table title="com.elte.osz.logic.OszDS" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./OszDS.html">
+	c34 [label=<<table title="com.elte.osz.logic.OszDS" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./OszDS.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> OszDS </td></tr>
 		</table></td></tr>

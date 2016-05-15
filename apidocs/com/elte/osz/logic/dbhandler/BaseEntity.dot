@@ -10,75 +10,75 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// com.elte.osz.logic.dbhandler.BaseEntity
-	c169 [label=<<table title="com.elte.osz.logic.dbhandler.BaseEntity" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./BaseEntity.html">
+	c213 [label=<<table title="com.elte.osz.logic.dbhandler.BaseEntity" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./BaseEntity.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"><font face="Helvetica-Oblique"> BaseEntity </font></td></tr>
 		</table></td></tr>
 		</table>>, URL="./BaseEntity.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// com.elte.osz.logic.entities.SemesterItem
-	c175 [label=<<table title="com.elte.osz.logic.entities.SemesterItem" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../entities/SemesterItem.html">
+	c219 [label=<<table title="com.elte.osz.logic.entities.SemesterItem" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../entities/SemesterItem.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> SemesterItem </td></tr>
 		</table></td></tr>
 		</table>>, URL="../entities/SemesterItem.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// com.elte.osz.logic.entities.Semester
-	c177 [label=<<table title="com.elte.osz.logic.entities.Semester" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../entities/Semester.html">
+	c221 [label=<<table title="com.elte.osz.logic.entities.Semester" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../entities/Semester.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Semester </td></tr>
 		</table></td></tr>
 		</table>>, URL="../entities/Semester.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// com.elte.osz.logic.entities.Timetable
-	c179 [label=<<table title="com.elte.osz.logic.entities.Timetable" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../entities/Timetable.html">
+	c223 [label=<<table title="com.elte.osz.logic.entities.Timetable" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../entities/Timetable.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Timetable </td></tr>
 		</table></td></tr>
 		</table>>, URL="../entities/Timetable.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// com.elte.osz.logic.entities.Subject
-	c184 [label=<<table title="com.elte.osz.logic.entities.Subject" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../entities/Subject.html">
+	c228 [label=<<table title="com.elte.osz.logic.entities.Subject" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../entities/Subject.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Subject </td></tr>
 		</table></td></tr>
 		</table>>, URL="../entities/Subject.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// com.elte.osz.logic.entities.Teacher
-	c186 [label=<<table title="com.elte.osz.logic.entities.Teacher" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../entities/Teacher.html">
+	c230 [label=<<table title="com.elte.osz.logic.entities.Teacher" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../entities/Teacher.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Teacher </td></tr>
 		</table></td></tr>
 		</table>>, URL="../entities/Teacher.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// com.elte.osz.logic.entities.Room
-	c188 [label=<<table title="com.elte.osz.logic.entities.Room" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../entities/Room.html">
+	c232 [label=<<table title="com.elte.osz.logic.entities.Room" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../entities/Room.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Room </td></tr>
 		</table></td></tr>
 		</table>>, URL="../entities/Room.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	//com.elte.osz.logic.dbhandler.BaseEntity implements java.io.Serializable
-	c212:p -> c169:p [dir=back,arrowtail=empty,style=dashed];
+	c256:p -> c213:p [dir=back,arrowtail=empty,style=dashed];
 	//com.elte.osz.logic.entities.SemesterItem extends com.elte.osz.logic.dbhandler.BaseEntity
-	c169:p -> c175:p [dir=back,arrowtail=empty];
+	c213:p -> c219:p [dir=back,arrowtail=empty];
 	//com.elte.osz.logic.entities.SemesterItem implements java.io.Serializable
-	c212:p -> c175:p [dir=back,arrowtail=empty,style=dashed];
+	c256:p -> c219:p [dir=back,arrowtail=empty,style=dashed];
 	//com.elte.osz.logic.entities.Semester extends com.elte.osz.logic.dbhandler.BaseEntity
-	c169:p -> c177:p [dir=back,arrowtail=empty];
+	c213:p -> c221:p [dir=back,arrowtail=empty];
 	//com.elte.osz.logic.entities.Semester implements java.io.Serializable
-	c212:p -> c177:p [dir=back,arrowtail=empty,style=dashed];
+	c256:p -> c221:p [dir=back,arrowtail=empty,style=dashed];
 	//com.elte.osz.logic.entities.Timetable extends com.elte.osz.logic.dbhandler.BaseEntity
-	c169:p -> c179:p [dir=back,arrowtail=empty];
+	c213:p -> c223:p [dir=back,arrowtail=empty];
 	//com.elte.osz.logic.entities.Timetable implements java.io.Serializable
-	c212:p -> c179:p [dir=back,arrowtail=empty,style=dashed];
+	c256:p -> c223:p [dir=back,arrowtail=empty,style=dashed];
 	//com.elte.osz.logic.entities.Subject extends com.elte.osz.logic.dbhandler.BaseEntity
-	c169:p -> c184:p [dir=back,arrowtail=empty];
+	c213:p -> c228:p [dir=back,arrowtail=empty];
 	//com.elte.osz.logic.entities.Subject implements java.io.Serializable
-	c212:p -> c184:p [dir=back,arrowtail=empty,style=dashed];
+	c256:p -> c228:p [dir=back,arrowtail=empty,style=dashed];
 	//com.elte.osz.logic.entities.Teacher extends com.elte.osz.logic.dbhandler.BaseEntity
-	c169:p -> c186:p [dir=back,arrowtail=empty];
+	c213:p -> c230:p [dir=back,arrowtail=empty];
 	//com.elte.osz.logic.entities.Teacher implements java.io.Serializable
-	c212:p -> c186:p [dir=back,arrowtail=empty,style=dashed];
+	c256:p -> c230:p [dir=back,arrowtail=empty,style=dashed];
 	//com.elte.osz.logic.entities.Room extends com.elte.osz.logic.dbhandler.BaseEntity
-	c169:p -> c188:p [dir=back,arrowtail=empty];
+	c213:p -> c232:p [dir=back,arrowtail=empty];
 	//com.elte.osz.logic.entities.Room implements java.io.Serializable
-	c212:p -> c188:p [dir=back,arrowtail=empty,style=dashed];
+	c256:p -> c232:p [dir=back,arrowtail=empty,style=dashed];
 	// java.io.Serializable
-	c212 [label=<<table title="java.io.Serializable" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/Serializable.html">
+	c256 [label=<<table title="java.io.Serializable" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/Serializable.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> &#171;interface&#187; </td></tr>
 <tr><td align="center" balign="center"> Serializable </td></tr>
