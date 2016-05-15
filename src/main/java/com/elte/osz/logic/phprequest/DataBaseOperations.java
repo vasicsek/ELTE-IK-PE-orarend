@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -114,8 +115,21 @@ public class DataBaseOperations {
             prep.close();
             resSubjectID.close();
             resTeacherID.close();
+            updateSubjectData(subjectID, subjectData.get(3));
             }
             connection.close(); 
+        } catch (SQLException ex) {
+            Logger.getLogger(DataBaseOperations.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void updateSubjectData(String subjectID, String subjectType){
+        try {
+            connection = DriverManager.getConnection(SQL_URL, properties);
+            Statement stat = connection.createStatement();
+            Random rand = new Random();
+            int semester = rand.nextInt(6) + 1;
+            stat.executeUpdate("UPDATE SUBJECT SET SEMESTER = " + semester + ", SUBJECTTYPE = '" + subjectType + "' WHERE ID = " + Integer.parseInt(subjectID));
         } catch (SQLException ex) {
             Logger.getLogger(DataBaseOperations.class.getName()).log(Level.SEVERE, null, ex);
         }

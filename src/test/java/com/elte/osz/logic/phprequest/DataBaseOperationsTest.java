@@ -36,6 +36,7 @@ public class DataBaseOperationsTest {
     
     @Before
     public void setUp() {
+        instance.deleteTestTable();
     }
     
     @After
@@ -74,6 +75,12 @@ public class DataBaseOperationsTest {
         assertTrue("Hibas startTime", instance.startTime.equals("19:30"));
         assertTrue("Hibas endTime", instance.endTime.equals("21:00"));
         assertTrue("Hibas day", instance.day.equals("Csütörtök"));
+    }
+    
+    @Test
+    public void updateSubjectDataTest(){
+        System.out.println("updateSubjectDataTest");
+        //instance.updateSubjectData("1", "eloadás");
     }
     
 }
