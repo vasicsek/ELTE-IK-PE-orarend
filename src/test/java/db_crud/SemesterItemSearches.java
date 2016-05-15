@@ -15,8 +15,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- *
- * @author Tóth Ákos
+ * Szemeszter elemeket kereső függvények tesztelése(SQL lekérdezések)
+ * @author RMUGLK
  */
 public class SemesterItemSearches extends DBTest {
     
@@ -51,7 +51,12 @@ public class SemesterItemSearches extends DBTest {
     }
 
     
-   
+   /**
+    * Keresés névre, kódra, ajánlott félévvel.
+    * @param subjectName
+    * @param subjectCode
+    * @param semesterNr  ajánlot félév
+    */
    private void doSearchWithSemesterNr(String subjectName, String subjectCode, int semesterNr){
       logInfo("Keresés tantárgy név, kód és ajánlott szemeszter  alapján: \"" + subjectName + "\", \"" + subjectCode + "\", " + semesterNr);
       List<SemesterItem> ls = ctrlSemesterItem.searchBySubjectWithSemesterNr(stt.getSem().getId(),subjectName, subjectCode, semesterNr);
