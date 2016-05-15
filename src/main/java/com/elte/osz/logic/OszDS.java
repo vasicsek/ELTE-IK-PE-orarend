@@ -1,7 +1,4 @@
-
 package com.elte.osz.logic;
-
-
 
 import com.elte.osz.logic.controllers.RoomJpaController;
 import com.elte.osz.logic.controllers.SemesterItemJpaController;
@@ -10,9 +7,11 @@ import com.elte.osz.logic.controllers.SubjectJpaController;
 import com.elte.osz.logic.controllers.TeacherJpaController;
 import com.elte.osz.logic.controllers.TimetableJpaController;
 import com.elte.osz.logic.dbhandler.DataSource;
-import java.util.Map;
 
-
+/**
+ *
+ * @author RMUGLK
+ */
 public class OszDS extends DataSource{
     
     public static final String PU = "puOsz";

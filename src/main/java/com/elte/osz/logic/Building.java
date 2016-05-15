@@ -1,9 +1,8 @@
-
 package com.elte.osz.logic;
 
 /**
  *
- * @author Tóth Ákos
+ * @author RMUGLK
  */
  public enum Building{
     AjtosiDurerSor ("ajt"),

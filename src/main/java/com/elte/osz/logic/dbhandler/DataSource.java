@@ -11,7 +11,7 @@ import javax.persistence.Persistence;
 
 
 public class DataSource {
-    protected EntityManagerFactory emf;
+    protected final EntityManagerFactory emf;
 
     public EntityManagerFactory getEmf() {
         return emf;
