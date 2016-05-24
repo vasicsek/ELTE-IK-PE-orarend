@@ -20,7 +20,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- *
+ * Órarend hozzáadás/szerkesztés/törlés műveleteket teszteli.
  * @author RMUGLK
  */
 public class TimetableTest extends DBTest {
@@ -83,7 +83,10 @@ public class TimetableTest extends DBTest {
         readTimetable();
         deleteTimetable();
     }
-
+    /**
+     * Három órarendet is létrehoz két üreset, és egy pár tantárggyal rendlekezőt.
+     * @author RMUGLK
+     */
     public void createTimetable(){
 
         tt1 = new Timetable();     
@@ -110,6 +113,12 @@ public class TimetableTest extends DBTest {
         logInfo("2017 tavaszhoz adunk szemeszter elemeket: "+classes.size()+" db-ot");
         ctrlTimetable.create(tt3);
     }
+    /**
+     * Visszaolvassa a korábban az adatbázisba elmentett tantárgyat,
+     * és ellenőrzi a globális osztály adattag segítségével, 
+     * hogy helyesen perzisztálódott.
+     * @author RMUGLK
+     */
     public void readTimetable(){
         
         logInfo("Órarendek listázása...");
@@ -119,6 +128,10 @@ public class TimetableTest extends DBTest {
             logInfo(lsTt.get(i));
         }
     }
+    /**
+     * Szerkeszti az órarendeket: hozzáad, eltávolít tantárgyakat.
+     * @throws Exception 
+     */
     public void updateTimetable() throws Exception{
         
         logInfo("1. Üres órarend szemeszter elem hozzárendelés");
@@ -161,7 +174,10 @@ public class TimetableTest extends DBTest {
          ctrlTimetable.edit(tt3);
     }
     
-    
+    /**
+     * Törli a createTimetable() által létrehozott órarendeket.
+     * @throws NonexistentEntityException 
+     */
     public void deleteTimetable() throws NonexistentEntityException{
         //takarítás, a teszt szemeszter is törlöm a tesztek után
         ctrlTimetable.destroy(tt1);

@@ -24,7 +24,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
+/**
+ * Szemeszter hozzáadás/szerkesztés/törlés műveletek ellenőrzése.
+ * A szemeszter elemek = tantárgy+időpont+terem+tanár
+ * @author RMUGLK
+ */
 public class SemesterTable extends DBTest{
     
     private final String semester_name ="2015/16 tavasz";
@@ -69,7 +73,9 @@ public class SemesterTable extends DBTest{
         
     }
 
-    
+    /**
+     * Létrehoz egy szemeszter, szemeszter elemekkel.
+     */
     public void createSemester()  {
 
         // A tantárgyak időpontjait fel akarjuk vinni adatbázisba
@@ -97,7 +103,7 @@ public class SemesterTable extends DBTest{
 
         Iterator<Subject> itSubject = lsSubjects.iterator();
 
-  
+        
         while (itSubject.hasNext()) {
 
             Subject s = itSubject.next();
@@ -118,18 +124,21 @@ public class SemesterTable extends DBTest{
             s.setSemester(iSem);
 
             SemesterItem si = new SemesterItem();
+          //  si.setSemester(semester);
             si.setStartTime(ts.toString());
             si.setEndTime(new Timestamp(ts.getTime() + 2 * 3600000) .toString());
-            si.setDay("Hétfő");
+            si.setDay("(TESZT) Hétfő");
             si.setSubject(s);
             si.setTeacher(teacher);
             si.setRoom(room);
-            lsSi.add(si);
+        
         }
-
+      
         //szemeszter időpontok összeasszociálása
         //mivel cascading merge,persit be van állítva ezért létrejönnek a megfelelő táblákban
         semester.setItems(lsSi);
+        
+        
         ctrlSemester.create(semester);
         
         this.sem = semester;
@@ -142,10 +151,9 @@ public class SemesterTable extends DBTest{
         
         Assert.assertFalse("Szemeszter helyesen megjelent az adatbázisban!", index == -1 );        
         Assert.assertTrue("Szemeszter helyesen megjelent az adatbázisban!", sem.equals(lsSemester.get(index)));
-        println(lsSi);
-        logInfo("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+                
         for( SemesterItem si : lsSemester.get(index).getItems() )       {     
-            logInfo(si);
+        
            Assert.assertTrue("Szemeszter elemek helyesen megjelentek az adatbázisban!", lsSi.contains(si));
         }
             

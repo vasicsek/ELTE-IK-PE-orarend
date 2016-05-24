@@ -92,20 +92,25 @@
             <basic attribute-type="java.sql.Timestamp" visibile="true" name="created" id="_1461936486246210">
                 <jpa:column unique="false" nullable="false" insertable="true" updatable="false" length="255" precision="0" scale="0"/>
             </basic>
+<<<<<<< HEAD
             <one-to-many collection-type="java.util.Set" connected-entity-id="_1461929447733" target-entity="SemesterItem" fetch="LAZY" visibile="true" name="items" id="_146211747122547">
                 <cascade>
                     <jpa:cascade-all/>
                 </cascade>
             </one-to-many>
+=======
+            <one-to-many own="true" collection-type="java.util.List" connected-entity-id="_1461929447733" visibile="true" name="items" id="_146374479834020"/>
+>>>>>>> ce7922028be03ae783a6bf931e49733697b68155
         </jpa:attributes>
     </jpa:entity>
     <jpa:c>
-        <ct>java.util.Set</ct>
         <ct>java.util.List</ct>
+        <ct>java.util.Set</ct>
         <ct>java.util.Collection</ct>
     </jpa:c>
     <jpa:diagram>
         <plane elementRef="_14612361977831">
+<<<<<<< HEAD
             <shape elementRef="_1461236207687" id="_1461236207687_gui">
                 <Bounds x="42.0" y="118.0" width="160.0" height="208.0"/>
             </shape>
@@ -126,6 +131,28 @@
             </shape>
             <shape elementRef="_1461931199589" id="_1461931199589_gui">
                 <Bounds x="421.0" y="10.0" width="158.0" height="61.0"/>
+=======
+            <shape elementRef="_1461236207687">
+                <Bounds x="40.0" y="116.0" width="175.0" height="198.0"/>
+            </shape>
+            <shape elementRef="_1461651402431">
+                <Bounds x="540.0" y="116.0" width="168.0" height="131.0"/>
+            </shape>
+            <shape elementRef="_1461665036391">
+                <Bounds x="736.0" y="116.0" width="137.0" height="98.0"/>
+            </shape>
+            <shape elementRef="_1461667484204">
+                <Bounds x="893.0" y="116.0" width="155.0" height="58.0"/>
+            </shape>
+            <shape elementRef="_1461929447733">
+                <Bounds x="363.0" y="374.0" width="197.0" height="171.0"/>
+            </shape>
+            <shape elementRef="_1461929804176">
+                <Bounds x="235.0" y="116.0" width="166.0" height="111.0"/>
+            </shape>
+            <shape elementRef="_1461931199589">
+                <Bounds x="400.0" y="-23.0" width="174.0" height="57.0"/>
+>>>>>>> ce7922028be03ae783a6bf931e49733697b68155
             </shape>
         </plane>
     </jpa:diagram>

@@ -349,7 +349,7 @@ public class InitialDataTransform {
     private void dumpTables(String dir) throws SQLException {
         final Connection connection = DriverManager.getConnection(DataBaseOperations.SQL_URL, DataBaseOperations.properties);
 
-        connection.setAutoCommit(false);
+       // connection.setAutoCommit(false);
 
         PreparedStatement ps = connection.prepareStatement(
                 "CALL SYSCS_UTIL.SYSCS_EXPORT_TABLE (?,?,?,?,?,?)");
@@ -361,7 +361,7 @@ public class InitialDataTransform {
         ps.setString(5, null);
         ps.setString(6, null);
 
-        ps.addBatch();
+        ps.execute();
 
         ps.setString(1, null);
         ps.setString(2, "SUBJECT");
@@ -370,7 +370,7 @@ public class InitialDataTransform {
         ps.setString(5, null);
         ps.setString(6, null);
 
-        ps.addBatch();
+        ps.execute();
 
         ps.setString(1, null);
         ps.setString(2, "TEACHER");
@@ -379,7 +379,7 @@ public class InitialDataTransform {
         ps.setString(5, null);
         ps.setString(6, null);
 
-        ps.addBatch();
+        ps.execute();
 
         ps.setString(1, null);
         ps.setString(2, "SEMESTER");
@@ -388,7 +388,7 @@ public class InitialDataTransform {
         ps.setString(5, null);
         ps.setString(6, null);
 
-        ps.addBatch();
+        ps.execute();
 
         ps.setString(1, null);
         ps.setString(2, "SEMESTERITEM");
@@ -397,21 +397,21 @@ public class InitialDataTransform {
         ps.setString(5, null);
         ps.setString(6, null);
 
-        ps.addBatch();
+        ps.execute();
 
         ps.setString(1, null);
         ps.setString(2, "SEMESTER_SEMESTERITEM");
-        ps.setString(3, dir + "semester_semesteritem.tbl");
+        ps.setString(3, dir + "semesterxsemesteritem.tbl");
         ps.setString(4, null);
         ps.setString(5, null);
         ps.setString(6, null);
 
-        ps.addBatch();
+        ps.execute();
 
         Utils.logger.log(Level.INFO, "DUMPok készítése...");
-        ps.executeBatch();
+        //ps.executeBatch();
 
-        connection.commit();
+        //connection.commit();
 
         connection.close();
     }
@@ -421,8 +421,7 @@ public class InitialDataTransform {
         
         
         final Connection connection = DriverManager.getConnection(DataBaseOperations.SQL_URL, DataBaseOperations.properties);
-    
-        connection.setAutoCommit(false);
+       // connection.setAutoCommit(false);
 
         PreparedStatement ps = connection.prepareStatement(
                 "CALL SYSCS_UTIL.SYSCS_IMPORT_TABLE (?,?,?,?,?,?,?)");
@@ -435,7 +434,7 @@ public class InitialDataTransform {
         ps.setString(6, null);
         ps.setInt(7, 0);
 
-        ps.addBatch();
+        ps.execute();
 
         ps.setString(1, null);
         ps.setString(2, "SUBJECT");
@@ -445,7 +444,7 @@ public class InitialDataTransform {
         ps.setString(6, null);
         ps.setInt(7, 0);
         
-        ps.addBatch();
+        ps.execute();
 
         ps.setString(1, null);
         ps.setString(2, "TEACHER");
@@ -455,7 +454,7 @@ public class InitialDataTransform {
         ps.setString(6, null);
         ps.setInt(7, 0);
         
-        ps.addBatch();
+        ps.execute();
 
         ps.setString(1, null);
         ps.setString(2, "SEMESTER");
@@ -465,7 +464,7 @@ public class InitialDataTransform {
         ps.setString(6, null);
         ps.setInt(7, 0);
         
-        ps.addBatch();
+        ps.execute();
 
         ps.setString(1, null);
         ps.setString(2, "SEMESTERITEM");
@@ -475,44 +474,25 @@ public class InitialDataTransform {
         ps.setString(6, null);
         ps.setInt(7, 0);
         
-        ps.addBatch();
+        ps.execute();
 
         ps.setString(1, null);
         ps.setString(2, "SEMESTER_SEMESTERITEM");
-        ps.setString(3, dir + "semester_semesteritem.tbl");
+        ps.setString(3, dir + "semesterxsemesteritem.tbl");
         ps.setString(4, null);
         ps.setString(5, null);
         ps.setString(6, null);
         ps.setInt(7, 0);
         
-        ps.addBatch();
+        ps.execute();
 
         Utils.logger.log(Level.INFO, "DUMPok feltöltése...");
-        ps.executeBatch();
+        //ps.executeBatch();
 
-        connection.commit();
+        //connection.commit();
 
         connection.close();
-        
-        
-       /* CALL SYSCS_UTIL.SYSCS_IMPORT_TABLE(
-    null,'TEACHER','/tmp/teacher.tbl',null,null,null,0);
-
-CALL SYSCS_UTIL.SYSCS_IMPORT_TABLE(
-    null,'ROOM','/tmp/room.tbl',null,null,null,0);
-
-CALL SYSCS_UTIL.SYSCS_IMPORT_TABLE(
-    null,'SUBJECT','/tmp/subject.tbl',null,null,null,0);
-
-CALL SYSCS_UTIL.SYSCS_IMPORT_TABLE(
-    null,'SEMESTER','/tmp/semester.tbl',null,null,null,0);
-
-CALL SYSCS_UTIL.SYSCS_IMPORT_TABLE(
-    null,'SEMESTERITEM','/tmp/semesteritem.tbl',null,null,null,0);
-
-CALL SYSCS_UTIL.SYSCS_IMPORT_TABLE(
-    null,'SEMESTER_SEMESTERITEM','/tmp/semester_semesteritem.tbl',null,null,null,0);*/
-
+          
     }
     /**
      * Program, amely létrehoz egy InitialDataTransform típusú objektumot és
@@ -530,7 +510,7 @@ CALL SYSCS_UTIL.SYSCS_IMPORT_TABLE(
         File fSubject = new File("src/main/resources/subject.tbl");
         File fSemester = new File("src/main/resources/semester.tbl");
         File fSemesterItem = new File("src/main/resources/semesteritem.tbl");
-        File fSemester_SemesterItem = new File("src/main/resources/semester_semesteritem.tbl");
+        File fSemester_SemesterItem = new File("src/main/resources/semesterxsemesteritem.tbl");
         
         String dir = fTeacher.getParentFile().getAbsolutePath() + File.separator;
 
@@ -539,35 +519,34 @@ CALL SYSCS_UTIL.SYSCS_IMPORT_TABLE(
         }
         if (args.length == 3) {
             try {
-                
-
-                if (fTeacher.exists()) {
-                    assert (fTeacher.delete());
-                }
-
-                if (fRoom.exists()) {
-                    assert (fRoom.delete());
-                }
-
-                if (fSubject.exists()) {
-                    assert (fSubject.delete());
-                }
-
-                if (fSemester.exists()) {
-                    assert (fSemester.delete());
-                }
-
-                if (fSemesterItem.exists()) {
-                    assert (fSemesterItem.delete());
-                }
-
-                if (fSemester_SemesterItem.exists()) {
-                    assert (fSemester_SemesterItem.delete());
-                }
-
                 InitialDataTransform idt = new InitialDataTransform(args[0], args[1], args[2]);
                 idt.transform();
                 idt.loadSemesterItems();
+                
+                 if (fTeacher.exists()) {
+                   fTeacher.delete();
+                    
+                }
+
+                if (fRoom.exists()) {
+                    fRoom.delete();
+                }
+
+                if (fSubject.exists()) {
+                   fSubject.delete();
+                }
+
+                if (fSemester.exists()) {
+                    fSemester.delete();
+                }
+
+                if (fSemesterItem.exists()) {
+                    fSemesterItem.delete();
+                }
+
+                if (fSemester_SemesterItem.exists()) {
+                    fSemester_SemesterItem.delete();
+                }
                 idt.dumpTables(dir);
 
             } catch (Exception e) {
