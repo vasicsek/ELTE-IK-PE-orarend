@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<jpa:entity-mappings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:java="http://jcp.org/en/jsr/detail?id=270" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jpa="http://java.sun.com/xml/ns/persistence/orm" v="1.5.4" thm="PNBColorScheme" xs="false" id="_14612361977831" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_1.xsd">
-    <jpa:default-class abs="false" class="SemesterItemPK" visibile="true" minimized="false">
+<jpa:entity-mappings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:java="http://jcp.org/en/jsr/detail?id=270" xmlns:jpa="http://java.sun.com/xml/ns/persistence/orm" thm="PNBColorScheme" xs="false" id="_14612361977831" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_1.xsd">
+    <jpa:default-class class="SemesterItemPK">
         <jpa:embeddable>false</jpa:embeddable>
         <jpa:attribute attribute-type="Long" visibile="true" name="id"/>
         <jpa:attribute attribute-type="Long" visibile="true" name="subject"/>
@@ -42,8 +42,8 @@
             <basic attribute-type="String" visibile="true" name="name" id="_1461934404824163">
                 <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
             </basic>
-            <one-to-many own="true" collection-type="java.util.Set" connected-entity-id="_1461929447733" visibile="true" name="classes" id="_1461936765699272"/>
-            <one-to-one own="true" optional="false" primaryKey="true" connected-entity-id="_1461929804176" fetch="LAZY" visibile="true" name="semester" id="_146211749676148"/>
+            <one-to-many collection-type="java.util.Set" connected-entity-id="_1461929447733" target-entity="SemesterItem" visibile="true" name="classes" id="_1461936765699272"/>
+            <one-to-one optional="false" primaryKey="true" connected-entity-id="_1461929804176" target-entity="Semester" fetch="LAZY" visibile="true" name="semester" id="_146211749676148"/>
         </jpa:attributes>
     </jpa:entity>
     <jpa:entity xre="false" sm="false" abs="false" class="Room" superclassId="_1461931199589" visibile="true" minimized="false" rootElement="_14612361977831" id="_1461665036391">
@@ -75,13 +75,13 @@
                 <jpa:column unique="false" nullable="false" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
             </basic>
             <basic attribute-type="String" visibile="true" name="day" id="_146307224203520"/>
-            <one-to-one own="true" optional="false" primaryKey="true" connected-entity-id="_1461236207687" visibile="true" name="subject" id="_146192953171221">
+            <one-to-one optional="false" primaryKey="true" connected-entity-id="_1461236207687" target-entity="Subject" visibile="true" name="subject" id="_146192953171221">
                 <cascade>
                     <jpa:cascade-persist/>
                 </cascade>
             </one-to-one>
-            <one-to-one own="true" optional="true" primaryKey="true" connected-entity-id="_1461665036391" visibile="true" name="room" id="_1461936776827273"/>
-            <one-to-one own="true" optional="true" primaryKey="true" connected-entity-id="_1461667484204" visibile="true" name="teacher" id="_1461936781011274"/>
+            <one-to-one optional="true" primaryKey="true" connected-entity-id="_1461665036391" target-entity="Room" visibile="true" name="room" id="_1461936776827273"/>
+            <one-to-one optional="true" primaryKey="true" connected-entity-id="_1461667484204" target-entity="Teacher" visibile="true" name="teacher" id="_1461936781011274"/>
         </jpa:attributes>
     </jpa:entity>
     <jpa:entity xre="false" sm="false" abs="false" class="Semester" superclassId="_1461931199589" visibile="true" minimized="false" rootElement="_14612361977831" id="_1461929804176">
@@ -92,7 +92,7 @@
             <basic attribute-type="java.sql.Timestamp" visibile="true" name="created" id="_1461936486246210">
                 <jpa:column unique="false" nullable="false" insertable="true" updatable="false" length="255" precision="0" scale="0"/>
             </basic>
-            <one-to-many own="true" collection-type="java.util.Set" connected-entity-id="_1461929447733" fetch="LAZY" visibile="true" name="items" id="_146211747122547">
+            <one-to-many collection-type="java.util.Set" connected-entity-id="_1461929447733" target-entity="SemesterItem" fetch="LAZY" visibile="true" name="items" id="_146211747122547">
                 <cascade>
                     <jpa:cascade-all/>
                 </cascade>
@@ -106,26 +106,26 @@
     </jpa:c>
     <jpa:diagram>
         <plane elementRef="_14612361977831">
-            <shape elementRef="_1461236207687">
-                <Bounds x="44.0" y="120.0" width="175.0" height="198.0"/>
+            <shape elementRef="_1461236207687" id="_1461236207687_gui">
+                <Bounds x="42.0" y="118.0" width="160.0" height="208.0"/>
             </shape>
-            <shape elementRef="_1461651402431">
-                <Bounds x="544.0" y="120.0" width="168.0" height="131.0"/>
+            <shape elementRef="_1461651402431" id="_1461651402431_gui">
+                <Bounds x="542.0" y="118.0" width="154.0" height="138.0"/>
             </shape>
-            <shape elementRef="_1461665036391">
-                <Bounds x="740.0" y="120.0" width="137.0" height="98.0"/>
+            <shape elementRef="_1461665036391" id="_1461665036391_gui">
+                <Bounds x="738.0" y="118.0" width="131.0" height="103.0"/>
             </shape>
-            <shape elementRef="_1461667484204">
-                <Bounds x="897.0" y="120.0" width="155.0" height="58.0"/>
+            <shape elementRef="_1461667484204" id="_1461667484204_gui">
+                <Bounds x="895.0" y="118.0" width="145.0" height="61.0"/>
             </shape>
-            <shape elementRef="_1461929447733">
-                <Bounds x="367.0" y="378.0" width="197.0" height="171.0"/>
+            <shape elementRef="_1461929447733" id="_1461929447733_gui">
+                <Bounds x="365.0" y="376.0" width="179.0" height="180.0"/>
             </shape>
-            <shape elementRef="_1461929804176">
-                <Bounds x="239.0" y="120.0" width="166.0" height="111.0"/>
+            <shape elementRef="_1461929804176" id="_1461929804176_gui">
+                <Bounds x="237.0" y="118.0" width="154.0" height="117.0"/>
             </shape>
-            <shape elementRef="_1461931199589">
-                <Bounds x="404.0" y="-19.0" width="174.0" height="57.0"/>
+            <shape elementRef="_1461931199589" id="_1461931199589_gui">
+                <Bounds x="421.0" y="10.0" width="158.0" height="61.0"/>
             </shape>
         </plane>
     </jpa:diagram>
