@@ -67,7 +67,7 @@ public class MainWindow extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Órarend tervező");
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
-        setPreferredSize(new java.awt.Dimension(640, 480));
+        setPreferredSize(new java.awt.Dimension(640, 555));
 
         Orarend.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -192,6 +192,7 @@ public class MainWindow extends javax.swing.JFrame {
             case "12:00": rowIndexFrom = 2; break;
             case "14:00": rowIndexFrom = 3; break;
             case "16:00": rowIndexFrom = 4; break;
+            case "18:00": rowIndexFrom = 5; break;
         }
         Orarend.getModel().setValueAt(si.getSubject().getName(), rowIndexFrom, columnIndex);
     }//GEN-LAST:event_btnSearchMouseClicked
