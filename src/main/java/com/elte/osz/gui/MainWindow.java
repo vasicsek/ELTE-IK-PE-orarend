@@ -29,6 +29,7 @@ public class MainWindow extends javax.swing.JFrame {
     private SubjectJpaController subjc;
     private TeacherJpaController tc;
     private RoomJpaController rc;
+    private List<SemesterItem> sisTemp = new ArrayList<>();
     
     /**
      * Creates new form MainWindow
@@ -174,7 +175,7 @@ public class MainWindow extends javax.swing.JFrame {
         List<SemesterItem> sisAll = sic.findSemesterItemEntities(subjc.getSubjectCount() ,0);
         List<SemesterItem> sis = new ArrayList<>();
         for(SemesterItem si : sisAll){
-            if(si.getSubject().getName().toLowerCase().contains(jTextField1.getText().toLowerCase())){
+            if(si.getSubject().getName().toLowerCase().contains(jTextField1.getText().toLowerCase()) && !(sisTemp.contains(si))){
                 sis.add(si);
             }
         }
@@ -200,7 +201,8 @@ public class MainWindow extends javax.swing.JFrame {
             case "16:00": rowIndexFrom = 4; break;
             case "18:00": rowIndexFrom = 5; break;
         }
-        Orarend.getModel().setValueAt(si.getSubject().getName(), rowIndexFrom, columnIndex);
+        sisTemp.add(si);
+        Orarend.getModel().setValueAt(si.getSubject(), rowIndexFrom, columnIndex);
     }//GEN-LAST:event_btnSearchMouseClicked
 
     private void btnDeleteClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteClicked
@@ -213,7 +215,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void btnInformationClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInformationClicked
         // TODO add your handling code here:
         if(Orarend.getSelectedColumn() != 0 && (Orarend.getValueAt(Orarend.getSelectedRow(), Orarend.getSelectedColumn()) != null)){
-            JOptionPane.showMessageDialog(null, (String)Orarend.getValueAt(Orarend.getSelectedRow(), Orarend.getSelectedColumn()), "Óra adatai", JOptionPane.PLAIN_MESSAGE);
+            JOptionPane.showMessageDialog(null, Orarend.getValueAt(Orarend.getSelectedRow(), Orarend.getSelectedColumn()), "Óra adatai", JOptionPane.PLAIN_MESSAGE);
         }
     }//GEN-LAST:event_btnInformationClicked
 
