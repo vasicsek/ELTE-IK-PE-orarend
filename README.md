@@ -3,8 +3,6 @@
 ###A feladatunk leírása:
 
 Órarend összeállító java-ban.
-Az időpontok hozzáadásánál figyel az ütközésekre.
-Saját adatbázisból dolgozik.
 
 ###A projektünkkel kapcsolatos alap információk:
 
@@ -25,7 +23,7 @@ http://vasicsek.github.io/ELTE-IK-PE-orarend/
 
 * IOP8IZ(vasicsek)
 * RMUGLK(akooos)
-* M8B02C(dobi79)
+* MW05PC(dobi79)
 * IQM7WZ(Regulus93)
 
 
