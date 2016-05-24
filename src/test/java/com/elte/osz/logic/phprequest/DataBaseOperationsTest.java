@@ -5,6 +5,8 @@
  */
 package com.elte.osz.logic.phprequest;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -47,10 +49,14 @@ public class DataBaseOperationsTest {
      */
     @Test
     public void testSearchSubjectSchedule() {
-        //System.out.println("searchSubjectScheduleTest");
-        //DataBaseOperations instance = new DataBaseOperations();
-        instance.searchSubjectSchedule();
-        // TODO review the generated test code and remove the default call to fail.
+        try {
+            //System.out.println("searchSubjectScheduleTest");
+            //DataBaseOperations instance = new DataBaseOperations();
+            instance.searchSubjectSchedule();
+            // TODO review the generated test code and remove the default call to fail.
+        } catch (Exception ex) {
+            Logger.getLogger(DataBaseOperationsTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
    
