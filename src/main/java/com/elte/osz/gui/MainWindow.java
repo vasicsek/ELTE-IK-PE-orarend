@@ -15,6 +15,7 @@ import com.elte.osz.logic.entities.SemesterItem;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -63,9 +64,10 @@ public class MainWindow extends javax.swing.JFrame {
         btnSearch = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Órarend tervező");
+        setTitle("Órarend szervező");
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
         setPreferredSize(new java.awt.Dimension(640, 555));
 
@@ -123,6 +125,13 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Óra adatai");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnInformationClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -138,6 +147,8 @@ public class MainWindow extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSearch)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1)))
                 .addContainerGap())
         );
@@ -148,7 +159,8 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearch)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
                 .addContainerGap())
@@ -159,19 +171,13 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void btnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseClicked
         // TODO add your handling code here:
-        //manuálisan adtam hozzá listaelemet bemutatás miatt
-        List<SemesterItem> sis = new ArrayList()
-        {{
-            add(new SemesterItem()
-            {{              
-                setId((long)25966);
-                setEndTime("12:00");
-                setStartTime("10:00");
-                setDay("Szerda");
-                setSubject(subjc.findSubject((long)1307));
-                setRoom(rc.findRoom((long)56));
-            }});
-        }};
+        List<SemesterItem> sisAll = sic.findSemesterItemEntities(subjc.getSubjectCount() ,0);
+        List<SemesterItem> sis = new ArrayList<>();
+        for(SemesterItem si : sisAll){
+            if(si.getSubject().getName().toLowerCase().contains(jTextField1.getText().toLowerCase())){
+                sis.add(si);
+            }
+        }
         PopupWindow popupFrame = new PopupWindow(this, true, sis);
         SemesterItem si = popupFrame.showDialog();
         String day = si.getDay();
@@ -203,6 +209,13 @@ public class MainWindow extends javax.swing.JFrame {
             Orarend.getModel().setValueAt(null, Orarend.getSelectedRow(), Orarend.getSelectedColumn());
         }
     }//GEN-LAST:event_btnDeleteClicked
+
+    private void btnInformationClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInformationClicked
+        // TODO add your handling code here:
+        if(Orarend.getSelectedColumn() != 0 && (Orarend.getValueAt(Orarend.getSelectedRow(), Orarend.getSelectedColumn()) != null)){
+            JOptionPane.showMessageDialog(null, (String)Orarend.getValueAt(Orarend.getSelectedRow(), Orarend.getSelectedColumn()), "Óra adatai", JOptionPane.PLAIN_MESSAGE);
+        }
+    }//GEN-LAST:event_btnInformationClicked
 
     /**
      * @param args the command line arguments
@@ -245,6 +258,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTable Orarend;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
