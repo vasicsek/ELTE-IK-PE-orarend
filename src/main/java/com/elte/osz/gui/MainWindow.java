@@ -6,14 +6,10 @@
 package com.elte.osz.gui;
 
 import com.elte.osz.logic.*;
+import com.elte.osz.logic.controllers.SemesterJpaController;
 import com.elte.osz.logic.entities.Subject;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JPopupMenu;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -22,13 +18,15 @@ import javax.swing.JPopupMenu;
 public class MainWindow extends javax.swing.JFrame {
 
     Osz osz;
+    private SemesterJpaController sc;
     
     /**
      * Creates new form MainWindow
      */
     public MainWindow() {
-        initComponents();
         osz = new Osz();
+        sc = osz.getDataSet().getCtrlSemester();
+        initComponents();
         Orarend.setValueAt("08:00-10:00", 0, 0);
         Orarend.setValueAt("10:00-12:00", 1, 0);
         Orarend.setValueAt("12:00-14:00", 2, 0);
@@ -83,11 +81,6 @@ public class MainWindow extends javax.swing.JFrame {
         Orarend.setPreferredSize(new java.awt.Dimension(0, 0));
         Orarend.setRowHeight(75);
         Orarend.getTableHeader().setReorderingAllowed(false);
-        Orarend.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mouseRightClicked(evt);
-            }
-        });
         jScrollPane1.setViewportView(Orarend);
         if (Orarend.getColumnModel().getColumnCount() > 0) {
             Orarend.getColumnModel().getColumn(0).setResizable(false);
@@ -106,7 +99,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2016 tavasz", "2016 ősz", "2017 tavasz", "2017 ősz" }));
+        jComboBox1.setModel(new DefaultComboBoxModel(sc.findSemesterEntities().toArray()));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -144,23 +137,6 @@ public class MainWindow extends javax.swing.JFrame {
         PopupWindow popupFrame = new PopupWindow(this, true, new ArrayList<Subject>());
         int selected = popupFrame.showDialog();
     }//GEN-LAST:event_btnSearchMouseClicked
-
-    private void mouseRightClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mouseRightClicked
-        // TODO add your handling code here:
-        JPopupMenu popupMenu = new JPopupMenu();
-        JMenuItem menuItem = new JMenuItem("Óra adatai");
-        menuItem.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent evt)
-            {
-                JOptionPane.showMessageDialog(null, "Információ", "Felvett óra adatai", JOptionPane.PLAIN_MESSAGE);
-            }
-        });
-        popupMenu.add(menuItem);
-        popupMenu.add(new JMenuItem("Törlés"));
-        if(evt.getButton() == MouseEvent.BUTTON3){
-            popupMenu.show(evt.getComponent(), evt.getX(), evt.getY());
-        }
-    }//GEN-LAST:event_mouseRightClicked
 
     /**
      * @param args the command line arguments

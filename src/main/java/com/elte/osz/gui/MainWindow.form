@@ -125,9 +125,6 @@
               <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mouseRightClicked"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -143,13 +140,8 @@
     </Component>
     <Component class="javax.swing.JComboBox" name="jComboBox1">
       <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="2016 tavasz"/>
-            <StringItem index="1" value="2016 &#x151;sz"/>
-            <StringItem index="2" value="2017 tavasz"/>
-            <StringItem index="3" value="2017 &#x151;sz"/>
-          </StringArray>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new DefaultComboBoxModel(sc.findSemesterEntities().toArray())" type="code"/>
         </Property>
       </Properties>
       <AuxValues>

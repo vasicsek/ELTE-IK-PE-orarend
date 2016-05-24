@@ -101,6 +101,9 @@ public class Semester extends BaseEntity implements Serializable {
         return true;
     }
   
-    
+    @Override
+    public String toString(){
+        return this.name;
+    }
     
 }
