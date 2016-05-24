@@ -401,7 +401,7 @@ public class InitialDataTransform {
 
         ps.setString(1, null);
         ps.setString(2, "SEMESTER_SEMESTERITEM");
-        ps.setString(3, dir + "semester_semesteritem.tbl");
+        ps.setString(3, dir + "semesterxsemesteritem.tbl");
         ps.setString(4, null);
         ps.setString(5, null);
         ps.setString(6, null);
@@ -434,7 +434,7 @@ public class InitialDataTransform {
         ps.setString(6, null);
         ps.setInt(7, 0);
 
-        ps.addBatch();
+        ps.execute();
 
         ps.setString(1, null);
         ps.setString(2, "SUBJECT");
@@ -444,7 +444,7 @@ public class InitialDataTransform {
         ps.setString(6, null);
         ps.setInt(7, 0);
         
-        ps.addBatch();
+        ps.execute();
 
         ps.setString(1, null);
         ps.setString(2, "TEACHER");
@@ -454,7 +454,7 @@ public class InitialDataTransform {
         ps.setString(6, null);
         ps.setInt(7, 0);
         
-        ps.addBatch();
+        ps.execute();
 
         ps.setString(1, null);
         ps.setString(2, "SEMESTER");
@@ -464,7 +464,7 @@ public class InitialDataTransform {
         ps.setString(6, null);
         ps.setInt(7, 0);
         
-        ps.addBatch();
+        ps.execute();
 
         ps.setString(1, null);
         ps.setString(2, "SEMESTERITEM");
@@ -474,20 +474,20 @@ public class InitialDataTransform {
         ps.setString(6, null);
         ps.setInt(7, 0);
         
-        ps.addBatch();
+        ps.execute();
 
         ps.setString(1, null);
         ps.setString(2, "SEMESTER_SEMESTERITEM");
-        ps.setString(3, dir + "semester_semesteritem.tbl");
+        ps.setString(3, dir + "semesterxsemesteritem.tbl");
         ps.setString(4, null);
         ps.setString(5, null);
         ps.setString(6, null);
         ps.setInt(7, 0);
         
-        ps.addBatch();
+        ps.execute();
 
         Utils.logger.log(Level.INFO, "DUMPok feltöltése...");
-        ps.executeBatch();
+        //ps.executeBatch();
 
         //connection.commit();
 
@@ -510,7 +510,7 @@ public class InitialDataTransform {
         File fSubject = new File("src/main/resources/subject.tbl");
         File fSemester = new File("src/main/resources/semester.tbl");
         File fSemesterItem = new File("src/main/resources/semesteritem.tbl");
-        File fSemester_SemesterItem = new File("src/main/resources/semester_semesteritem.tbl");
+        File fSemester_SemesterItem = new File("src/main/resources/semesterxsemesteritem.tbl");
         
         String dir = fTeacher.getParentFile().getAbsolutePath() + File.separator;
 
@@ -519,36 +519,34 @@ public class InitialDataTransform {
         }
         if (args.length == 3) {
             try {
+                InitialDataTransform idt = new InitialDataTransform(args[0], args[1], args[2]);
+                idt.transform();
+                idt.loadSemesterItems();
                 
-
-                if (fTeacher.exists()) {
-                    assert(fTeacher.delete());
+                 if (fTeacher.exists()) {
+                   fTeacher.delete();
                     
                 }
 
                 if (fRoom.exists()) {
-                    assert (fRoom.delete());
+                    fRoom.delete();
                 }
 
                 if (fSubject.exists()) {
-                    assert (fSubject.delete());
+                   fSubject.delete();
                 }
 
                 if (fSemester.exists()) {
-                    assert (fSemester.delete());
+                    fSemester.delete();
                 }
 
                 if (fSemesterItem.exists()) {
-                    assert (fSemesterItem.delete());
+                    fSemesterItem.delete();
                 }
 
                 if (fSemester_SemesterItem.exists()) {
-                    assert (fSemester_SemesterItem.delete());
+                    fSemester_SemesterItem.delete();
                 }
-
-                InitialDataTransform idt = new InitialDataTransform(args[0], args[1], args[2]);
-                idt.transform();
-                idt.loadSemesterItems();
                 idt.dumpTables(dir);
 
             } catch (Exception e) {

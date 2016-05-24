@@ -60,7 +60,7 @@ public class DBTest {
     protected void attachRandomClasses(Set<SemesterItem> classes, Semester semester){
         final int cnt = Utils.getRandomInt(1, 5);
         List<SemesterItem> ssi = semester.getItemsAsList();
-        
+        if (ssi.size() > 0)
         for ( int i = 0; i < cnt;++i ){            
             classes.add( ssi.get( Utils.getRandomInt(0, ssi.size()-1) ) );                       
             
