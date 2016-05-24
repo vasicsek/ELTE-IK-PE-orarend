@@ -103,7 +103,7 @@ public class SemesterTable extends DBTest{
 
         Iterator<Subject> itSubject = lsSubjects.iterator();
 
-  
+        
         while (itSubject.hasNext()) {
 
             Subject s = itSubject.next();
@@ -124,18 +124,21 @@ public class SemesterTable extends DBTest{
             s.setSemester(iSem);
 
             SemesterItem si = new SemesterItem();
+          //  si.setSemester(semester);
             si.setStartTime(ts.toString());
             si.setEndTime(new Timestamp(ts.getTime() + 2 * 3600000) .toString());
-            si.setDay("Hétfő");
+            si.setDay("(TESZT) Hétfő");
             si.setSubject(s);
             si.setTeacher(teacher);
             si.setRoom(room);
-            lsSi.add(si);
+        
         }
-
+      
         //szemeszter időpontok összeasszociálása
         //mivel cascading merge,persit be van állítva ezért létrejönnek a megfelelő táblákban
         semester.setItems(lsSi);
+        
+        
         ctrlSemester.create(semester);
         
         this.sem = semester;

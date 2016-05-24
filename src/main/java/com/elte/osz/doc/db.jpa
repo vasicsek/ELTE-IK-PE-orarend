@@ -92,40 +92,36 @@
             <basic attribute-type="java.sql.Timestamp" visibile="true" name="created" id="_1461936486246210">
                 <jpa:column unique="false" nullable="false" insertable="true" updatable="false" length="255" precision="0" scale="0"/>
             </basic>
-            <one-to-many own="true" collection-type="java.util.Set" connected-entity-id="_1461929447733" fetch="LAZY" visibile="true" name="items" id="_146211747122547">
-                <cascade>
-                    <jpa:cascade-all/>
-                </cascade>
-            </one-to-many>
+            <one-to-many own="true" collection-type="java.util.List" connected-entity-id="_1461929447733" visibile="true" name="items" id="_146374479834020"/>
         </jpa:attributes>
     </jpa:entity>
     <jpa:c>
-        <ct>java.util.Set</ct>
         <ct>java.util.List</ct>
+        <ct>java.util.Set</ct>
         <ct>java.util.Collection</ct>
     </jpa:c>
     <jpa:diagram>
         <plane elementRef="_14612361977831">
             <shape elementRef="_1461236207687">
-                <Bounds x="44.0" y="120.0" width="175.0" height="198.0"/>
+                <Bounds x="40.0" y="116.0" width="175.0" height="198.0"/>
             </shape>
             <shape elementRef="_1461651402431">
-                <Bounds x="544.0" y="120.0" width="168.0" height="131.0"/>
+                <Bounds x="540.0" y="116.0" width="168.0" height="131.0"/>
             </shape>
             <shape elementRef="_1461665036391">
-                <Bounds x="740.0" y="120.0" width="137.0" height="98.0"/>
+                <Bounds x="736.0" y="116.0" width="137.0" height="98.0"/>
             </shape>
             <shape elementRef="_1461667484204">
-                <Bounds x="897.0" y="120.0" width="155.0" height="58.0"/>
+                <Bounds x="893.0" y="116.0" width="155.0" height="58.0"/>
             </shape>
             <shape elementRef="_1461929447733">
-                <Bounds x="367.0" y="378.0" width="197.0" height="171.0"/>
+                <Bounds x="363.0" y="374.0" width="197.0" height="171.0"/>
             </shape>
             <shape elementRef="_1461929804176">
-                <Bounds x="239.0" y="120.0" width="166.0" height="111.0"/>
+                <Bounds x="235.0" y="116.0" width="166.0" height="111.0"/>
             </shape>
             <shape elementRef="_1461931199589">
-                <Bounds x="404.0" y="-19.0" width="174.0" height="57.0"/>
+                <Bounds x="400.0" y="-23.0" width="174.0" height="57.0"/>
             </shape>
         </plane>
     </jpa:diagram>

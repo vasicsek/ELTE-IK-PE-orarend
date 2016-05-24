@@ -519,36 +519,34 @@ public class InitialDataTransform {
         }
         if (args.length == 3) {
             try {
+                InitialDataTransform idt = new InitialDataTransform(args[0], args[1], args[2]);
+                idt.transform();
+                idt.loadSemesterItems();
                 
-
-                if (fTeacher.exists()) {
-                    assert(fTeacher.delete());
+                 if (fTeacher.exists()) {
+                   fTeacher.delete();
                     
                 }
 
                 if (fRoom.exists()) {
-                    assert (fRoom.delete());
+                    fRoom.delete();
                 }
 
                 if (fSubject.exists()) {
-                    assert (fSubject.delete());
+                   fSubject.delete();
                 }
 
                 if (fSemester.exists()) {
-                    assert (fSemester.delete());
+                    fSemester.delete();
                 }
 
                 if (fSemesterItem.exists()) {
-                    assert (fSemesterItem.delete());
+                    fSemesterItem.delete();
                 }
 
                 if (fSemester_SemesterItem.exists()) {
-                    assert (fSemester_SemesterItem.delete());
+                    fSemester_SemesterItem.delete();
                 }
-
-                InitialDataTransform idt = new InitialDataTransform(args[0], args[1], args[2]);
-                idt.transform();
-                idt.loadSemesterItems();
                 idt.dumpTables(dir);
 
             } catch (Exception e) {
