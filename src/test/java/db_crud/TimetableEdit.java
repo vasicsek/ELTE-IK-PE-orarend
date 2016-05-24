@@ -10,22 +10,22 @@ import com.elte.osz.logic.entities.SemesterItem;
 import com.elte.osz.logic.entities.Timetable;
 import java.util.List;
 import java.util.Set;
-import java.util.TreeSet;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
- *
+ * Órarend szerkesztését ellenőrzi: 
+ * véletlenszerűen kiválaszt egy tantárgyat és hozzárendel az órarendhez, ezzel
+ * a tantárgy keresést és a órarend szerkesztést szimulálva.
  * @author RMUGLK
  */
 public class TimetableEdit extends DBTest {
 
     private Timetable tt;
-    private SemesterTableTest stt;
+    private SemesterTable stt;
     public TimetableEdit() {
 
     }
@@ -41,8 +41,8 @@ public class TimetableEdit extends DBTest {
 
     @Before
     public void setUp() {
-         System.out.println("TimetableEdit::Semeszter létrehozása!");
-        stt = new SemesterTableTest();
+         logInfo("TimetableEdit::Semeszter létrehozása!");
+        stt = new SemesterTable();
         stt.createSemester();
     }
 
@@ -50,37 +50,42 @@ public class TimetableEdit extends DBTest {
     public void tearDown() throws NonexistentEntityException {
 
          //takarítás, persze miután timetable-eket töröltük, különben SQLIntergrityContraintViolationException
-        System.out.println("TimetableEdit::Semeszter törlése!");
+        logInfo("TimetableEdit::Semeszter törlése!");
         stt.deleteSemester();
         stt = null;
     }
-
+/**
+ * Órarend szerkesztését ellenőrzi: 
+ * véletlenszerűen kiválaszt egy tantárgyat és hozzárendel az órarendhez, ezzel
+ * a tantárgy keresést és a órarend szerkesztést szimulálva.
+ * @author RMUGLK
+ */
     @Test
     public void editTimetable() throws Exception {
         
         tt = new Timetable();     
-        System.out.println("Órarend létrehozása...");
+        logInfo("Órarend létrehozása...");
         tt.setName("2016 tavasz ÓRARENDEM");        
-        System.out.println("Órák felvétele...");
+        logInfo("Órák felvétele...");
         attachRandomClasses(tt.getClasses(),stt.getSem());                        
         tt.setSemester(stt.getSem());                
         ctrlTimetable.create(tt);
-        System.out.println(tt.getName()+" órái:");
+        logInfo(tt.getName()+" órái:");
         println(tt.getClasses());
-        System.out.println("Meglévő órarendet szeretnék változtatni.");
+        logInfo("Meglévő órarendet szeretnék változtatni.");
         Set<SemesterItem> ssi = tt.getClasses();
         
-        System.out.println("Kiválasztom az órát és hozzáadom.");
+        logInfo("Kiválasztom az órát és hozzáadom.");
         List<SemesterItem> ls = ctrlSemesterItem.searchBySubject(tt.getSemester().getId(), "diszkrét matematika 2", "EA");        
         //Set adatstruktúra miatt nem kell nézni hogy ugyanaz már benne van e 
         ssi.addAll(ls);
-        System.out.println("Perzisztálás...");
+        logInfo("Perzisztálás...");
         ctrlTimetable.edit(tt);
         
-        System.out.println(tt.getName()+" órái:");
+        logInfo(tt.getName()+" órái:");
         println(tt.getClasses());
-        System.out.println("Kész!");
-        System.out.println("Takarítás...");
+        logInfo("Kész!");
+        logInfo("Takarítás...");
         ctrlTimetable.destroy(tt);
     }
 

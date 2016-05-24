@@ -5,9 +5,9 @@
  */
 package com.elte.osz.gui;
 
-import com.elte.osz.logic.entities.Subject;
-import java.awt.Window;
+import com.elte.osz.logic.entities.SemesterItem;
 import java.util.List;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -15,15 +15,20 @@ import java.util.List;
  */
 public class PopupWindow extends javax.swing.JDialog {
 
-    private List<Subject> subjects;
+    private List<SemesterItem> si;
     
     /**
      * Creates new form PopupWindow
      */
-    public PopupWindow(java.awt.Frame parent, boolean modal, List<Subject> list) {
+    public PopupWindow(java.awt.Frame parent, boolean modal, List<SemesterItem> list) {
         super(parent, modal);
-        subjects = list;
+        si = list;
         initComponents();
+        DefaultListModel<SemesterItem>  m = new DefaultListModel<>();
+        jList1.setModel(m);
+        for(SemesterItem siIterator : si){
+            m.addElement(siIterator);
+        }
     }
 
     /**
@@ -42,11 +47,6 @@ public class PopupWindow extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tantárgyak");
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(jList1);
 
         jButton1.setText("Felvesz");
@@ -87,14 +87,15 @@ public class PopupWindow extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_btnAdd
 
-    public int showDialog(){
+    public SemesterItem showDialog(){
+        setLocationRelativeTo(null);
         setVisible(true);
-        return jList1.getSelectedIndex();
+        return jList1.getSelectedValue();
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JList<String> jList1;
+    private javax.swing.JList<SemesterItem> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

@@ -8,7 +8,10 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityResult;
+import javax.persistence.FetchType;
+import static javax.persistence.FetchType.EAGER;
 import javax.persistence.FieldResult;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedNativeQueries;
 import javax.persistence.NamedNativeQuery;
 import javax.persistence.OneToOne;
@@ -91,10 +94,21 @@ import javax.persistence.SqlResultSetMapping;
 })
 public class SemesterItem extends BaseEntity implements Serializable, Comparable {
 
+   // @ManyToOne    
+   // private Semester semester;
+
+    /*public Semester getSemester() {
+        return semester;
+    }
+
+    public void setSemester(Semester semester) {
+        this.semester = semester;
+    }
+    */
     @OneToOne(optional = true, targetEntity = Teacher.class)
     private Teacher teacher;
 
-    @OneToOne(cascade = {CascadeType.MERGE}, optional = false, targetEntity = Subject.class)
+    @OneToOne(/*cascade = {CascadeType.MERGE, CascadeType.REFRESH},*/fetch=FetchType.EAGER, optional = false, targetEntity = Subject.class)
     private Subject subject;
 
     @Column(nullable = false)
@@ -166,19 +180,21 @@ public class SemesterItem extends BaseEntity implements Serializable, Comparable
 
     @Override
     public String toString() {
-        return "(" + this.teacher + "@" + this.subject + "*" + getSubject().getSemester() + ", " + getSubject().getSubjectType() + "*" + " | Kezdés:" + this.startTime + " | Vége: " + this.endTime + ")";
+        return "["+id+"](" + this.teacher + "@" + this.subject + "*" + getSubject().getSemester() + ", " + getSubject().getSubjectType() + "*" + " | Kezdés:" + this.startTime + " | Vége: " + this.endTime + ")";
     }
 
     @Override
     public int hashCode() {
         //return Objects.hash(id,startTime,endTime,teacher,room);
         //return Objects.hash(id);
+        //System.out.println("SemesterItem::hashCode()");
         return Objects.hash(id, subject);
     }
 
     @Override
     public boolean equals(Object obj) {
 
+        //System.out.println("SemesterItem::equals()");
         if (this == obj) {
             return true;
         }
@@ -189,10 +205,10 @@ public class SemesterItem extends BaseEntity implements Serializable, Comparable
             return false;
         }
         final SemesterItem other = (SemesterItem) obj;
-
+/*
         if (!Objects.equals(this.id, other.id)) {
             return false;
-        }
+        }*/
         if (!Objects.equals(this.teacher, other.teacher)) {
             return false;
         }

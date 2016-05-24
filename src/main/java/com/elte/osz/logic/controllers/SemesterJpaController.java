@@ -32,7 +32,7 @@ public class SemesterJpaController implements Serializable {
     }
 
     public List<SemesterItem> findSemesterItems(Semester semester, String subjectName) {
-        List<SemesterItem> result = new ArrayList<SemesterItem>();
+        List<SemesterItem> result = semester.getItemsAsList();
 
         String str = subjectName.toLowerCase();
         result.forEach((si) -> {
@@ -45,7 +45,7 @@ public class SemesterJpaController implements Serializable {
     }
 
     public List<SemesterItem> findSemesterItems(Semester semester, String subjectName, String teacherName) {
-        List<SemesterItem> result = new ArrayList<SemesterItem>();
+        List<SemesterItem> result = semester.getItemsAsList();
 
         String strName = subjectName.toLowerCase();
         String strTeacher = teacherName.toLowerCase();

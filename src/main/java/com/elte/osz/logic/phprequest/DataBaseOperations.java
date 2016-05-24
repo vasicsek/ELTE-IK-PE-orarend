@@ -1,0 +1,198 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.elte.osz.logic.phprequest;
+
+import com.elte.osz.logic.entities.SemesterItem;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Properties;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ *
+ * @author Dobos Árpád
+ */
+public class DataBaseOperations {
+    private Connection connection;
+    
+    private PhpRequest phprequest;
+    
+    public static final String SQL_URL = "jdbc:derby://localhost:1527/osz";
+    
+    private final String GET_ALL_SUBJECTS_CODE = "SELECT CODE FROM SUBJECT";
+    private final String GET_SUBJECT_ID = "SELECT ID FROM SUBJECT WHERE CODE = ";
+    private final String GET_TEACHER_ID = "SELECT ID FROM TEACHER WHERE NAME = ";
+    private final String GET_ROOM_ID = "SELECT ID FROM ROOM WHERE NAME LIKE ";
+    private final String CREATE_SEMESTER = "INSERT INTO SEMESTER (CREATED, NAME) VALUES (?,?)";
+    private final String ADD_ELEMENT_TO_SEMESTER_SEMESTERITEM = "INSERT INTO SEMESTER_SEMESTERITEM (SEMESTER_ID, ITEMS_ID) VALUES (?,?)";
+    
+    private final String ADD_ELEMENT_TO_SEMESTERITEM = "INSERT INTO OSZ.SEMESTERITEM (DAY, ENDTIME, STARTTIME, ROOM_ID, SUBJECT_ID,"
+            + "TEACHER_ID) VALUES (?,?,?,?,?,?)";
+
+    public String subjectID;
+    public String teacherID;
+    public String roomID;
+    public String startTime;
+    public String endTime;
+    public String day;
+    Long sid;
+    public static final Properties properties = new Properties();
+    static {
+        properties.put("user", "osz");
+        properties.put("password", "osz");
+    }
+    public DataBaseOperations() {            
+            
+            phprequest = new PhpRequest();
+    }
+    
+    public void searchSubjectSchedule() throws Exception{
+        try {
+            createSemester();
+            connection = DriverManager.getConnection(SQL_URL, properties);
+            ArrayList<String> subjectsID = new ArrayList<String>();
+            Statement stat = connection.createStatement();
+            ResultSet res = stat.executeQuery(GET_ALL_SUBJECTS_CODE);
+            while(res.next()) subjectsID.add(res.getString("CODE"));
+           // ResultSet getSubjectIDRes = stat.executeQuery(GET_SUBJECT_ID+"'"+subjectsID.get(5)+"'");
+           //if(getSubjectIDRes.next()) System.out.println(getSubjectIDRes.getString("ID"));
+            for(int i = 0; i < subjectsID.size(); ++i){
+                if(subjectsID.get(i).equals("<NULL>") || subjectsID.get(i).length() < 4  ||
+                        subjectsID.get(i).equals("OE") || subjectsID.get(i).equals("OE_KARITAN") /*|| subjectsID.get(i).equals("?ff2n9b47?") */
+                        || subjectsID.get(i).equals("IKP-9239") || subjectsID.get(i).equals("IPM-13FESZLAB3")) continue;
+                uploadSubjectTime(subjectsID.get(i));
+                
+            }
+            res.close();
+            stat.close();
+            connection.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DataBaseOperations.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
+    public void uploadSubjectTime(String subjectCode){
+        try {
+            connection = DriverManager.getConnection(SQL_URL, properties);
+            phprequest.downloadSubjectData(subjectCode);
+            ArrayList<SemesterItem> subjectData = new ArrayList<SemesterItem>();
+            subjectData = phprequest.getSubjectInfo();
+            for(SemesterItem item : subjectData){
+            ResultSet resSubjectID = connection.createStatement().executeQuery(GET_SUBJECT_ID+"'"+subjectCode+"'");
+            subjectID = resSubjectID.next() ? resSubjectID.getString("ID") : null;
+            ResultSet resTeacherID = connection.createStatement().executeQuery(GET_TEACHER_ID + "'"+ item.getTeacher().getName() + "'");
+            teacherID = resTeacherID.next() ? resTeacherID.getString("ID") : null;
+            String[] room = item.getRoom().getName().split(" ");
+            if(room.length < 2){
+                roomID = null;
+            } else{
+                ResultSet resRoomID = connection.createStatement().executeQuery(GET_ROOM_ID + "'%" + room[2] + "%'");
+                roomID = resRoomID.next() ? resRoomID.getString("ID") : null;
+                resRoomID.close();
+            }
+                startTime = item.getStartTime();
+                endTime = item.getEndTime();
+                day = item.getDay();
+           /* String[] time = subjectData.get(1).split(" |-");
+            if(time.length < 2){
+                startTime = "";
+                endTime = "";
+                day = "nincs megadva";
+            } else{
+                startTime = time[1];
+                day = time[0];
+                endTime = time[2];
+            }*/
+            PreparedStatement prep = connection.prepareStatement(ADD_ELEMENT_TO_SEMESTERITEM, Statement.RETURN_GENERATED_KEYS);
+            prep.setString(1, day);
+            prep.setString(2, endTime);
+            prep.setString(3, startTime);
+            prep.setString(4, roomID);
+            prep.setString(5, subjectID);
+            prep.setString(6, teacherID);
+           
+            int n = prep.executeUpdate();
+           
+            PreparedStatement prep2 = connection.prepareStatement(ADD_ELEMENT_TO_SEMESTER_SEMESTERITEM);
+            prep2.setLong(1, sid);
+            Long id = null;
+            if( n > 0){
+                ResultSet generatedKey = prep.getGeneratedKeys();
+                if(generatedKey.next()){
+                    id = generatedKey.getLong(1);
+                }
+            }
+            prep2.setLong(2, id);
+            prep2.executeUpdate();
+            prep.close();
+            prep2.close();
+            resSubjectID.close();
+            resTeacherID.close();
+            updateSubjectData(subjectID, item.getSubject().getSubjectType());
+            }
+            connection.close(); 
+        } catch (SQLException ex) {
+            Logger.getLogger(DataBaseOperations.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void updateSubjectData(String subjectID, String subjectType){
+        try {
+            connection = DriverManager.getConnection(SQL_URL, properties);
+            Statement stat = connection.createStatement();
+            Random rand = new Random();
+            int semester = rand.nextInt(6) + 1;
+            stat.executeUpdate("UPDATE SUBJECT SET SEMESTER = " + semester + ", SUBJECTTYPE = '" + subjectType + "' WHERE ID = " + Integer.parseInt(subjectID));
+        } catch (SQLException ex) {
+            Logger.getLogger(DataBaseOperations.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void deleteTestTable(){
+        try {
+            connection = DriverManager.getConnection(SQL_URL, properties);
+            Statement stat = connection.createStatement();
+            stat.executeUpdate("DELETE FROM SEMESTERITEM");
+            stat.close();
+            connection.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DataBaseOperations.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void createSemester() throws Exception{
+        try {
+            connection = DriverManager.getConnection(SQL_URL, properties);
+            PreparedStatement res = connection.prepareStatement(CREATE_SEMESTER, Statement.RETURN_GENERATED_KEYS);
+            java.sql.Timestamp  sqlDate = new java.sql.Timestamp(new java.util.Date().getTime());
+            res.setTimestamp(1, sqlDate);
+            res.setString(2, "2015-2016-2");
+            sid = null;
+            int n = res.executeUpdate();
+            if( n > 0){
+                ResultSet generatedKey = res.getGeneratedKeys();
+                if(generatedKey.next()){
+                    sid = generatedKey.getLong(1);
+                }
+            }
+            res.close();
+             if ( sid == null)
+             throw new Exception("JAJ a sid az nulla!");
+            connection.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DataBaseOperations.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+}
