@@ -235,6 +235,9 @@ public class InitialDataTransform {
                 //amik mutatják hogy melyik elemet kell sql stringé alakítani
                 //ugyanolyan sorrendben mint ahogyan a cols listában jönnek
                 final List<Integer> iesc = Arrays.asList(0, 4, 5);
+                String k = getElementTxt(element, "kar");
+                if ( k == null || k.isEmpty() )
+                    return;
                 String values = getValues(element, tags, iesc);
                 final String cols = "\"CODE\",\"HOURS_PRESENTATION\","
                         + "\"HOURS_PRACTICAL\","

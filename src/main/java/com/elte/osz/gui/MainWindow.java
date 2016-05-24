@@ -11,6 +11,7 @@ import com.elte.osz.logic.controllers.SemesterItemJpaController;
 import com.elte.osz.logic.controllers.SemesterJpaController;
 import com.elte.osz.logic.controllers.SubjectJpaController;
 import com.elte.osz.logic.controllers.TeacherJpaController;
+import com.elte.osz.logic.entities.Semester;
 import com.elte.osz.logic.entities.SemesterItem;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +31,7 @@ public class MainWindow extends javax.swing.JFrame {
     private TeacherJpaController tc;
     private RoomJpaController rc;
     private List<SemesterItem> sisTemp = new ArrayList<>();
+    private Semester s;
     
     /**
      * Creates new form MainWindow
@@ -172,15 +174,27 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void btnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseClicked
         // TODO add your handling code here:
-        List<SemesterItem> sisAll = sic.findSemesterItemEntities(subjc.getSubjectCount() ,0);
-        List<SemesterItem> sis = new ArrayList<>();
-        for(SemesterItem si : sisAll){
-            if(si.getSubject().getName().toLowerCase().contains(jTextField1.getText().toLowerCase()) && !(sisTemp.contains(si))){
-                sis.add(si);
+        s = (Semester)jComboBox1.getModel().getSelectedItem();
+        List<SemesterItem> siList =  new ArrayList<>();
+       //List<SemesterItem> siList = sic.searchBySubject(s, jTextField1.getText(),"");
+//        List<SemesterItem> sisAll = sic.findSemesterItemEntities(subjc.getSubjectCount() ,0);
+//        List<SemesterItem> sis = new ArrayList<>();
+//        for(SemesterItem si : sisAll){
+//            if(si.getSubject().getName().toLowerCase().contains(jTextField1.getText().toLowerCase()) && !(sisTemp.contains(si))){
+//                sis.add(si);
+//            }
+//        }
+
+        for(SemesterItem si : s.getItems()){
+            if(si.getSubject().getName().toLowerCase().contains(jTextField1.getText().toLowerCase()) && !(sisTemp.contains(si)) && si.getTeacher() != null){
+                siList.add(si);
             }
         }
-        PopupWindow popupFrame = new PopupWindow(this, true, sis);
+
+        PopupWindow popupFrame = new PopupWindow(this, true, siList);
         SemesterItem si = popupFrame.showDialog();
+        if (si == null)
+            return;
         String day = si.getDay();
         String from = si.getStartTime();
         int columnIndex = 0;

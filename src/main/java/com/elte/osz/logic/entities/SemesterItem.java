@@ -8,6 +8,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityResult;
+import javax.persistence.FetchType;
+import static javax.persistence.FetchType.EAGER;
 import javax.persistence.FieldResult;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedNativeQueries;
@@ -106,7 +108,7 @@ public class SemesterItem extends BaseEntity implements Serializable, Comparable
     @OneToOne(optional = true, targetEntity = Teacher.class)
     private Teacher teacher;
 
-    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH}, optional = false, targetEntity = Subject.class)
+    @OneToOne(/*cascade = {CascadeType.MERGE, CascadeType.REFRESH},*/fetch=FetchType.EAGER, optional = false, targetEntity = Subject.class)
     private Subject subject;
 
     @Column(nullable = false)
