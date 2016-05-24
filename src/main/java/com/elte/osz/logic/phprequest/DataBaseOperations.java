@@ -33,6 +33,8 @@ public class DataBaseOperations {
     private final String GET_SUBJECT_ID = "SELECT ID FROM SUBJECT WHERE CODE = ";
     private final String GET_TEACHER_ID = "SELECT ID FROM TEACHER WHERE NAME = ";
     private final String GET_ROOM_ID = "SELECT ID FROM ROOM WHERE NAME LIKE ";
+    private final String CREATE_SEMESTER = "INSERT INTO SEMESTER (CREATED, NAME) VALUES (?,?)";
+    private final String ADD_ELEMENT_TO_SEMESTER_SEMESTERITEM = "INSERT INTO SEMESTER_SEMESTERITEM (SEMESTER_ID, ITEMS_ID) VALUES (?,?)";
     
     private final String ADD_ELEMENT_TO_SEMESTERITEM = "INSERT INTO OSZ.SEMESTERITEM (DAY, ENDTIME, STARTTIME, ROOM_ID, SUBJECT_ID,"
             + "TEACHER_ID) VALUES (?,?,?,?,?,?)";
@@ -43,6 +45,7 @@ public class DataBaseOperations {
     public String startTime;
     public String endTime;
     public String day;
+    Long sid;
     public static final Properties properties = new Properties();
     static {
         properties.put("user", "osz");
@@ -53,8 +56,9 @@ public class DataBaseOperations {
             phprequest = new PhpRequest();
     }
     
-    public void searchSubjectSchedule(){
+    public void searchSubjectSchedule() throws Exception{
         try {
+            createSemester();
             connection = DriverManager.getConnection(SQL_URL, properties);
             ArrayList<String> subjectsID = new ArrayList<String>();
             Statement stat = connection.createStatement();
@@ -110,15 +114,29 @@ public class DataBaseOperations {
                 day = time[0];
                 endTime = time[2];
             }*/
-            PreparedStatement prep = connection.prepareStatement(ADD_ELEMENT_TO_SEMESTERITEM);
+            PreparedStatement prep = connection.prepareStatement(ADD_ELEMENT_TO_SEMESTERITEM, Statement.RETURN_GENERATED_KEYS);
             prep.setString(1, day);
             prep.setString(2, endTime);
             prep.setString(3, startTime);
             prep.setString(4, roomID);
             prep.setString(5, subjectID);
             prep.setString(6, teacherID);
-            prep.executeUpdate();
+           
+            int n = prep.executeUpdate();
+           
+            PreparedStatement prep2 = connection.prepareStatement(ADD_ELEMENT_TO_SEMESTER_SEMESTERITEM);
+            prep2.setLong(1, sid);
+            Long id = null;
+            if( n > 0){
+                ResultSet generatedKey = prep.getGeneratedKeys();
+                if(generatedKey.next()){
+                    id = generatedKey.getLong(1);
+                }
+            }
+            prep2.setLong(2, id);
+            prep2.executeUpdate();
             prep.close();
+            prep2.close();
             resSubjectID.close();
             resTeacherID.close();
             updateSubjectData(subjectID, item.getSubject().getSubjectType());
@@ -147,6 +165,30 @@ public class DataBaseOperations {
             Statement stat = connection.createStatement();
             stat.executeUpdate("DELETE FROM SEMESTERITEM");
             stat.close();
+            connection.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DataBaseOperations.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void createSemester() throws Exception{
+        try {
+            connection = DriverManager.getConnection(SQL_URL, properties);
+            PreparedStatement res = connection.prepareStatement(CREATE_SEMESTER, Statement.RETURN_GENERATED_KEYS);
+            java.sql.Timestamp  sqlDate = new java.sql.Timestamp(new java.util.Date().getTime());
+            res.setTimestamp(1, sqlDate);
+            res.setString(2, "2015-2016-2");
+            sid = null;
+            int n = res.executeUpdate();
+            if( n > 0){
+                ResultSet generatedKey = res.getGeneratedKeys();
+                if(generatedKey.next()){
+                    sid = generatedKey.getLong(1);
+                }
+            }
+            res.close();
+             if ( sid == null)
+             throw new Exception("JAJ a sid az nulla!");
             connection.close();
         } catch (SQLException ex) {
             Logger.getLogger(DataBaseOperations.class.getName()).log(Level.SEVERE, null, ex);

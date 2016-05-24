@@ -340,7 +340,7 @@ public class InitialDataTransform {
         return sb.toString();
     }
 
-    private void loadSemesterItems() {
+    private void loadSemesterItems() throws Exception {
         Utils.logger.log(Level.INFO, "Jelenlegi szemeszter adatok gyűjtése a TTK TO-ról!");
         new DataBaseOperations().searchSubjectSchedule();
         Utils.logger.log(Level.INFO, "Kész!");
